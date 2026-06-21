@@ -4,17 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🎣 Saltwater Trip Planner 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
+/* ═══ Teal-Sage brand tokens ═══ */
+:root {
+  --paper:#F6F4EF; --surface:#FFFFFF; --surface-2:#F0EDE6;
+  --brand:#2C7A6B; --brand-dk:#225E52; --brand-tint:rgba(44,122,107,0.10); --brand-tint-2:rgba(44,122,107,0.16);
+  --navy:#2B4C7E; --navy-dk:#223D66; --navy-tint:rgba(43,76,126,0.10);
+  --ink:#1E2A33; --muted:#5C6671; --faint:#8B949F; --line:#E4E0D7;
+  --green:#15803D; --green-bg:rgba(21,128,61,0.12); --green-bd:rgba(21,128,61,0.35);
+  --yellow:#B45309; --yellow-bg:rgba(180,83,9,0.12); --yellow-bd:rgba(180,83,9,0.35);
+  --red:#DC2626; --red-bg:rgba(220,38,38,0.10); --red-bd:rgba(220,38,38,0.32);
+  --gray:#6B7280; --gray-bg:rgba(107,114,128,0.12); --gray-bd:rgba(107,114,128,0.32);
+  --amber:#C2630E; --amber-bg:rgba(194,99,14,0.12); --amber-bd:rgba(194,99,14,0.4);
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a1628; color: #e2e8f0; min-height: 100vh; }
+body { font-family: 'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
 
-.header { background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%); padding: 18px 28px; border-bottom: 2px solid #1e4976; display: flex; align-items: center; gap: 14px; }
-.header h1 { font-size: 1.5rem; font-weight: 700; color: #60c4f8; }
-.header p { font-size: 0.8rem; color: #94a3b8; margin-top: 2px; }
+.header { background: linear-gradient(135deg, var(--navy) 0%, var(--brand-dk) 100%); padding: 18px 28px; border-bottom: 3px solid var(--brand); display: flex; align-items: center; gap: 14px; }
+.header h1 { font-family:'Fraunces',serif; font-size: 1.55rem; font-weight: 600; color: #ffffff; letter-spacing:-0.01em; }
+.header p { font-size: 0.8rem; color: rgba(255,255,255,0.82); margin-top: 2px; }
 
-.tabs { display: flex; background: #0d1f35; border-bottom: 2px solid #1e4976; padding: 0 28px; }
-.tab { padding: 13px 22px; cursor: pointer; font-weight: 600; font-size: 0.88rem; color: #64748b; border-bottom: 3px solid transparent; transition: all 0.2s; }
-.tab.active { color: #60c4f8; border-bottom-color: #60c4f8; }
+.tabs { display: flex; background: var(--surface); border-bottom: 1px solid var(--line); padding: 0 28px; box-shadow:0 1px 3px rgba(30,42,51,0.04); }
+.tab { padding: 13px 22px; cursor: pointer; font-weight: 600; font-size: 0.88rem; color: var(--muted); border-bottom: 3px solid transparent; transition: all 0.2s; }
+.tab:hover { color: var(--navy); }
+.tab.active { color: var(--brand); border-bottom-color: var(--brand); }
 
 .content { padding: 20px 28px; max-width: 1300px; margin: 0 auto; }
 .tab-content { display: none; }
@@ -22,98 +39,168 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 
 /* Month Selector */
 .month-selector { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
-.month-btn { padding: 7px 16px; border-radius: 7px; border: 1px solid #1e4976; background: #0d1f35; color: #64748b; cursor: pointer; font-weight: 600; font-size: 0.8rem; transition: all 0.2s; }
-.month-btn:hover { color: #94a3b8; border-color: #2563a8; }
-.month-btn.active { background: #1e4976; color: #60c4f8; border-color: #60c4f8; }
+.month-btn { padding: 7px 16px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; font-weight: 600; font-size: 0.8rem; transition: all 0.2s; }
+.month-btn:hover { color: var(--navy); border-color: var(--brand); }
+.month-btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
 
 /* Stats */
 .summary-bar { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-.stat-box { background: #0d1f35; border: 1px solid #1e4976; border-radius: 10px; padding: 12px 18px; flex: 1; min-width: 120px; text-align: center; }
-.stat-num { font-size: 1.7rem; font-weight: 800; color: #60c4f8; }
-.stat-label { font-size: 0.72rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-box { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 18px; flex: 1; min-width: 120px; text-align: center; box-shadow:0 1px 2px rgba(30,42,51,0.04); }
+.stat-num { font-family:var(--mono); font-size: 1.7rem; font-weight: 600; color: var(--brand); }
+.stat-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* Filters */
 .filter-bar { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; align-items: center; }
-.filter-bar label { font-size: 0.78rem; color: #64748b; font-weight: 600; }
-.filter-bar select { background: #0d1f35; border: 1px solid #1e4976; color: #e2e8f0; padding: 6px 10px; border-radius: 6px; font-size: 0.82rem; cursor: pointer; }
-.filter-btn { background: #1e4976; border: none; color: #60c4f8; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; font-weight: 600; }
+.filter-bar label { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+.filter-bar select { background: var(--surface); border: 1px solid var(--line); color: var(--ink); padding: 6px 10px; border-radius: 6px; font-size: 0.82rem; cursor: pointer; }
+.filter-btn { background: var(--navy); border: none; color: #fff; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; font-weight: 600; }
+.filter-btn:hover { background: var(--navy-dk); }
 
 /* Legend */
 .legend { display: flex; gap: 14px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
-.legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: #94a3b8; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--muted); }
 .dot { width: 11px; height: 11px; border-radius: 50%; }
-.dot-green { background: #22c55e; } .dot-yellow { background: #eab308; }
-.dot-red { background: #ef4444; } .dot-gray { background: #475569; }
-.dot-amber { background: #f59e0b; }
+.dot-green { background: var(--green); } .dot-yellow { background: var(--yellow); }
+.dot-red { background: var(--red); } .dot-gray { background: var(--gray); }
+.dot-amber { background: var(--amber); }
 
 /* Trip Cards */
-.section-label { font-size: 0.72rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin: 20px 0 10px; padding-bottom: 5px; border-bottom: 1px solid #1e4976; }
+.section-label { font-size: 0.72rem; font-weight: 700; color: var(--faint); text-transform: uppercase; letter-spacing: 0.1em; margin: 20px 0 10px; padding-bottom: 5px; border-bottom: 1px solid var(--line); }
 .trips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 13px; }
-.trip-card { background: #0d1f35; border: 1px solid #1e4976; border-radius: 11px; padding: 15px; position: relative; overflow: hidden; transition: transform 0.15s; }
-.trip-card:hover { transform: translateY(-2px); }
+.trip-card { background: var(--surface); border: 1px solid var(--line); border-radius: 11px; padding: 15px; position: relative; overflow: hidden; transition: transform 0.15s, box-shadow 0.15s; box-shadow:0 1px 2px rgba(30,42,51,0.04); }
+.trip-card:hover { transform: translateY(-2px); box-shadow:0 6px 16px rgba(30,42,51,0.10); }
 .trip-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; }
-.trip-card.avail-high::before { background:#22c55e; }
-.trip-card.avail-low::before { background:#eab308; }
-.trip-card.avail-waitlist::before { background:#ef4444; }
-.trip-card.avail-charter::before { background:#475569; }
-.trip-card.avail-ed::before { background:#f59e0b; }
+.trip-card.avail-high::before { background:var(--green); }
+.trip-card.avail-low::before { background:var(--yellow); }
+.trip-card.avail-waitlist::before { background:var(--red); }
+.trip-card.avail-charter::before { background:var(--gray); }
+.trip-card.avail-ed::before { background:var(--amber); }
 
 .card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; }
-.boat-name { font-size:0.95rem; font-weight:700; color:#60c4f8; }
+.boat-name { font-size:0.95rem; font-weight:700; color:var(--navy); }
 .avail-badge { font-size:0.72rem; font-weight:700; padding:3px 9px; border-radius:20px; white-space:nowrap; }
-.badge-green { background:rgba(34,197,94,0.18); color:#22c55e; border:1px solid rgba(34,197,94,0.4); }
-.badge-yellow { background:rgba(234,179,8,0.18); color:#eab308; border:1px solid rgba(234,179,8,0.4); }
-.badge-red { background:rgba(239,68,68,0.18); color:#ef4444; border:1px solid rgba(239,68,68,0.4); }
-.badge-gray { background:rgba(71,85,105,0.3); color:#94a3b8; border:1px solid rgba(71,85,105,0.5); }
-.badge-amber { background:rgba(245,158,11,0.2); color:#f59e0b; border:1px solid rgba(245,158,11,0.4); }
+.badge-green { background:var(--green-bg); color:var(--green); border:1px solid var(--green-bd); }
+.badge-yellow { background:var(--yellow-bg); color:var(--yellow); border:1px solid var(--yellow-bd); }
+.badge-red { background:var(--red-bg); color:var(--red); border:1px solid var(--red-bd); }
+.badge-gray { background:var(--gray-bg); color:var(--gray); border:1px solid var(--gray-bd); }
+.badge-amber { background:var(--amber-bg); color:var(--amber); border:1px solid var(--amber-bd); }
 
-.trip-name { font-size:0.8rem; color:#94a3b8; margin-bottom:10px; font-style:italic; }
+.trip-name { font-size:0.8rem; color:var(--muted); margin-bottom:10px; font-style:italic; }
 .trip-meta { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-bottom:10px; }
-.meta-label { font-size:0.67rem; color:#475569; text-transform:uppercase; }
-.meta-value { font-size:0.87rem; color:#cbd5e1; font-weight:600; }
-.species-tag { display:inline-block; background:rgba(96,196,248,0.12); color:#60c4f8; font-size:0.67rem; padding:2px 7px; border-radius:10px; margin:1px; border:1px solid rgba(96,196,248,0.3); }
-.flag-tag { display:inline-block; background:rgba(234,179,8,0.12); color:#eab308; font-size:0.67rem; padding:2px 7px; border-radius:10px; margin:1px; border:1px solid rgba(234,179,8,0.3); }
-.book-btn { display:block; text-align:center; background:#1e4976; color:#60c4f8; padding:7px; border-radius:7px; text-decoration:none; font-size:0.78rem; font-weight:600; margin-top:10px; }
-.book-btn:hover { background:#2563a8; }
-.book-btn.disabled { background:#0d1f35; color:#475569; border:1px solid #1e4976; cursor:default; }
+.meta-label { font-size:0.67rem; color:var(--faint); text-transform:uppercase; }
+.meta-value { font-size:0.87rem; color:var(--ink); font-weight:600; }
+.species-tag { display:inline-block; background:var(--brand-tint); color:var(--brand); font-size:0.67rem; padding:2px 7px; border-radius:10px; margin:1px; border:1px solid var(--brand-tint-2); }
+.flag-tag { display:inline-block; background:var(--yellow-bg); color:var(--yellow); font-size:0.67rem; padding:2px 7px; border-radius:10px; margin:1px; border:1px solid var(--yellow-bd); }
+.book-btn { display:block; text-align:center; background:var(--brand); color:#fff; padding:7px; border-radius:7px; text-decoration:none; font-size:0.78rem; font-weight:600; margin-top:10px; }
+.book-btn:hover { background:var(--brand-dk); }
+.book-btn.disabled { background:var(--surface-2); color:var(--faint); border:1px solid var(--line); cursor:default; }
 
 /* No results */
-.no-trips { text-align:center; padding:40px; color:#475569; }
+.no-trips { text-align:center; padding:40px; color:var(--faint); }
 
 /* Disclaimer */
-.disclaimer { background:rgba(234,179,8,0.07); border:1px solid rgba(234,179,8,0.2); border-radius:8px; padding:10px 14px; margin-bottom:16px; font-size:0.78rem; color:#94a3b8; }
-.disclaimer strong { color:#eab308; }
-.info-box { background:rgba(96,196,248,0.07); border:1px solid rgba(96,196,248,0.2); border-radius:8px; padding:10px 14px; margin-bottom:16px; font-size:0.78rem; color:#94a3b8; }
-.info-box strong { color:#60c4f8; }
+.disclaimer { background:var(--yellow-bg); border:1px solid var(--yellow-bd); border-radius:8px; padding:10px 14px; margin-bottom:16px; font-size:0.78rem; color:var(--muted); }
+.disclaimer strong { color:var(--yellow); }
+.info-box { background:var(--brand-tint); border:1px solid var(--brand-tint-2); border-radius:8px; padding:10px 14px; margin-bottom:16px; font-size:0.78rem; color:var(--muted); }
+.info-box strong { color:var(--brand); }
 
 /* Processing Planner */
-.day-row { background:#0d1f35; border:1px solid #1e4976; border-radius:10px; margin-bottom:8px; overflow:hidden; }
+.day-row { background:var(--surface); border:1px solid var(--line); border-radius:10px; margin-bottom:8px; overflow:hidden; box-shadow:0 1px 2px rgba(30,42,51,0.04); }
 .day-header { display:flex; align-items:center; gap:10px; padding:11px 15px; cursor:pointer; user-select:none; }
-.day-header:hover { background:rgba(30,73,118,0.35); }
-.day-date { font-size:0.95rem; font-weight:700; color:#e2e8f0; min-width:120px; }
+.day-header:hover { background:var(--brand-tint); }
+.day-date { font-size:0.95rem; font-weight:700; color:var(--ink); min-width:120px; }
 .day-count { font-size:0.82rem; font-weight:700; padding:3px 11px; border-radius:20px; }
-.count-1 { background:rgba(34,197,94,0.18); color:#22c55e; }
-.count-2 { background:rgba(234,179,8,0.18); color:#eab308; }
-.count-3plus { background:rgba(239,68,68,0.18); color:#ef4444; }
-.volume-bar { flex:1; height:7px; background:#1e4976; border-radius:4px; overflow:hidden; }
+.count-1 { background:var(--green-bg); color:var(--green); }
+.count-2 { background:var(--yellow-bg); color:var(--yellow); }
+.count-3plus { background:var(--red-bg); color:var(--red); }
+.volume-bar { flex:1; height:7px; background:var(--surface-2); border-radius:4px; overflow:hidden; }
 .volume-fill { height:100%; border-radius:4px; }
-.chevron { color:#475569; font-size:0.78rem; transition:transform 0.2s; }
+.chevron { color:var(--faint); font-size:0.78rem; transition:transform 0.2s; }
 .day-row.open .chevron { transform:rotate(180deg); }
 .day-details { display:none; padding:0 15px 13px; }
 .day-row.open .day-details { display:block; }
 
-.return-boat { display:flex; justify-content:space-between; align-items:center; padding:7px 11px; background:rgba(255,255,255,0.03); border-radius:6px; margin-bottom:5px; border-left:3px solid #1e4976; }
-.return-boat.ed-boat { border-left-color:#f59e0b; background:rgba(245,158,11,0.08); }
-.return-boat-name { font-weight:700; color:#60c4f8; font-size:0.87rem; }
-.return-trip { font-size:0.77rem; color:#94a3b8; }
-.return-days-info { font-size:0.72rem; color:#64748b; }
-.return-anglers { font-size:0.82rem; font-weight:700; color:#e2e8f0; }
-.ed-badge { display:inline-block; background:rgba(245,158,11,0.2); color:#f59e0b; font-size:0.67rem; padding:2px 7px; border-radius:10px; border:1px solid rgba(245,158,11,0.4); margin-left:6px; font-weight:700; }
-.day-totals { display:flex; gap:14px; margin-top:8px; padding-top:8px; border-top:1px solid #1e4976; font-size:0.78rem; }
-.total-label { color:#475569; } .total-value { color:#60c4f8; font-weight:700; }
-.processing-note { font-size:0.72rem; color:#64748b; font-style:italic; margin-top:3px; }
-.month-header { font-size:1.1rem; font-weight:700; color:#60c4f8; margin-bottom:14px; }
-.no-returns { text-align:center; padding:30px; color:#475569; font-size:0.85rem; }
+.return-boat { display:flex; justify-content:space-between; align-items:center; padding:7px 11px; background:var(--surface-2); border-radius:6px; margin-bottom:5px; border-left:3px solid var(--line); }
+.return-boat.ed-boat { border-left-color:var(--amber); background:var(--amber-bg); }
+.return-boat-name { font-weight:700; color:var(--navy); font-size:0.87rem; }
+.return-trip { font-size:0.77rem; color:var(--muted); }
+.return-days-info { font-size:0.72rem; color:var(--faint); }
+.return-anglers { font-size:0.82rem; font-weight:700; color:var(--ink); font-family:var(--mono); }
+.ed-badge { display:inline-block; background:var(--amber-bg); color:var(--amber); font-size:0.67rem; padding:2px 7px; border-radius:10px; border:1px solid var(--amber-bd); margin-left:6px; font-weight:700; }
+.day-totals { display:flex; gap:14px; margin-top:8px; padding-top:8px; border-top:1px solid var(--line); font-size:0.78rem; }
+.total-label { color:var(--muted); } .total-value { color:var(--brand); font-weight:700; font-family:var(--mono); }
+.processing-note { font-size:0.72rem; color:var(--faint); font-style:italic; margin-top:3px; }
+.month-header { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:600; color:var(--navy); margin-bottom:14px; }
+.no-returns { text-align:center; padding:30px; color:var(--faint); font-size:0.85rem; }
+
+/* ═══ Processing Calculator ═══ */
+.calc-wrap { display:grid; grid-template-columns: 360px 1fr; gap:22px; align-items:start; }
+@media (max-width:880px){ .calc-wrap { grid-template-columns:1fr; } }
+.calc-panel { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; box-shadow:0 1px 2px rgba(30,42,51,0.04); }
+.calc-panel h3 { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:4px; }
+.calc-sub { font-size:0.74rem; color:var(--muted); margin-bottom:14px; }
+.calc-group-label { font-size:0.68rem; font-weight:700; color:var(--brand); text-transform:uppercase; letter-spacing:0.08em; margin:14px 0 8px; padding-bottom:4px; border-bottom:1px solid var(--line); }
+.calc-field { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:9px; }
+.calc-field label { font-size:0.8rem; color:var(--ink); flex:1; }
+.calc-field .unit { font-size:0.68rem; color:var(--faint); }
+.calc-field input { width:84px; background:var(--paper); border:1px solid var(--line); color:var(--ink); padding:6px 8px; border-radius:6px; font-size:0.85rem; font-family:var(--mono); text-align:right; }
+.calc-field input:focus { outline:none; border-color:var(--brand); box-shadow:0 0 0 2px var(--brand-tint); }
+.pay-toggle { display:flex; gap:6px; margin:6px 0 4px; }
+.pay-btn { flex:1; padding:7px; border:1px solid var(--line); background:var(--paper); color:var(--muted); border-radius:7px; cursor:pointer; font-size:0.78rem; font-weight:600; }
+.pay-btn.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+.calc-reset { width:100%; margin-top:14px; padding:8px; border:1px solid var(--line); background:var(--surface-2); color:var(--muted); border-radius:7px; cursor:pointer; font-size:0.8rem; font-weight:600; }
+.calc-reset:hover { color:var(--navy); }
+
+.quote-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width:560px){ .quote-grid { grid-template-columns:1fr; } }
+.quote-card { background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 1px 2px rgba(30,42,51,0.04); }
+.quote-card.best { border:2px solid var(--green); box-shadow:0 4px 14px rgba(21,128,61,0.14); }
+.quote-head { padding:13px 16px; background:linear-gradient(135deg,var(--navy),var(--brand-dk)); color:#fff; }
+.quote-head .qname { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:600; }
+.quote-head .qloc { font-size:0.7rem; color:rgba(255,255,255,0.8); margin-top:2px; }
+.best-flag { display:inline-block; background:var(--green); color:#fff; font-size:0.62rem; font-weight:700; padding:2px 8px; border-radius:10px; text-transform:uppercase; letter-spacing:0.05em; margin-top:6px; }
+.quote-body { padding:14px 16px; }
+.line { display:flex; justify-content:space-between; align-items:baseline; font-size:0.8rem; padding:4px 0; color:var(--ink); }
+.line .lbl { color:var(--muted); }
+.line .amt { font-family:var(--mono); font-weight:500; }
+.line.muted .amt { color:var(--faint); }
+.line.sub { border-top:1px solid var(--line); margin-top:6px; padding-top:8px; font-weight:700; font-size:0.95rem; }
+.line.sub .amt { color:var(--brand); font-size:1.05rem; }
+.line.fee .lbl { color:var(--yellow); }
+.line.fee .amt { color:var(--yellow); }
+.line.total { border-top:2px solid var(--ink); margin-top:6px; padding-top:9px; font-weight:700; font-size:1rem; }
+.line.total .amt { color:var(--navy); font-size:1.15rem; }
+.line.net { border-top:2px solid var(--brand); margin-top:4px; padding-top:9px; font-weight:700; font-size:1rem; }
+.line.net .lbl { color:var(--brand-dk); }
+.line.net .amt { color:var(--brand); font-size:1.25rem; }
+.line.ship { margin-top:6px; font-size:0.74rem; }
+.line.ship .lbl { color:var(--faint); }
+.line.ship .amt { color:var(--muted); }
+.quote-note { font-size:0.68rem; color:var(--faint); margin-top:10px; line-height:1.4; }
+.quote-note strong { color:var(--yellow); }
+.delta-bar { text-align:center; font-size:0.82rem; color:var(--muted); margin:4px 0 16px; }
+.delta-bar b { color:var(--green); font-family:var(--mono); }
+.va-opt { margin-bottom:6px; }
+.va-check { display:flex; align-items:center; gap:8px; font-size:0.83rem; font-weight:600; color:var(--ink); cursor:pointer; padding:5px 0; }
+.va-check input { width:16px; height:16px; accent-color:var(--brand); cursor:pointer; }
+.va-hint { font-size:0.65rem; font-weight:400; color:var(--faint); }
+.va-body { display:none; padding:2px 0 6px 22px; border-left:2px solid var(--brand-tint-2); margin:0 0 6px 6px; }
+.sub-field label { color:var(--faint); font-size:0.74rem; padding-left:10px; }
+.calc-warn { background:var(--yellow-bg); border:1px solid var(--yellow-bd); color:var(--yellow); border-radius:9px; padding:9px 13px; font-size:0.76rem; margin-bottom:14px; }
+.calc-warn ul { margin:4px 0 0; padding-left:18px; }
+.calc-warn li { margin:2px 0; }
+
+/* Comparison matrix */
+.matrix-wrap { overflow-x:auto; margin-top:8px; }
+table.matrix { width:100%; border-collapse:collapse; font-size:0.8rem; background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+table.matrix th, table.matrix td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+table.matrix thead th { background:var(--navy); color:#fff; font-weight:600; font-size:0.78rem; }
+table.matrix thead th:first-child { background:var(--navy-dk); }
+table.matrix tbody th { font-weight:600; color:var(--muted); background:var(--surface-2); white-space:nowrap; }
+table.matrix td { color:var(--ink); }
+table.matrix tr:last-child th, table.matrix tr:last-child td { border-bottom:none; }
+.flag-cell { color:var(--yellow); font-weight:600; }
+.rate-stamp { font-size:0.72rem; color:var(--faint); font-style:italic; margin:14px 0 4px; }
 </style>
 </head>
 <body>
@@ -129,6 +216,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <div class="tabs">
   <div class="tab active" onclick="switchTab('finder',this)">🚢 Trip Finder</div>
   <div class="tab" onclick="switchTab('planner',this)">🐟 Processing Planner</div>
+  <div class="tab" onclick="switchTab('calc',this)">💲 Processing Calculator</div>
 </div>
 
 <!-- TRIP FINDER -->
@@ -199,6 +287,113 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <div class="month-selector" id="planner-months"></div>
   <div class="month-header" id="planner-header">Loading...</div>
   <div id="planner-container"></div>
+</div>
+</div>
+
+<!-- PROCESSING CALCULATOR -->
+<div id="tab-calc" class="tab-content">
+<div class="content">
+
+  <div class="info-box">
+    <strong>💲 Processing Cost Estimator:</strong> Estimate your catch by species, then opt in to any value-added (smoking, jerky, canning). It compares two San Diego processors side by side. Rates are from published price sheets and may change — always confirm at drop-off. Both meet long-range boats at the dock.
+  </div>
+
+  <div class="calc-wrap">
+    <!-- INPUT PANEL -->
+    <div class="calc-panel">
+      <h3>Your Catch</h3>
+      <div class="calc-sub">Estimate total pounds per species (whole/round weight).</div>
+
+      <div class="pay-toggle" id="pay-toggle">
+        <button class="pay-btn active" data-pay="cash" onclick="setPay('cash')">💵 Cash</button>
+        <button class="pay-btn" data-pay="card" onclick="setPay('card')">💳 Credit Card</button>
+      </div>
+
+      <div class="calc-group-label">Species — total lbs caught</div>
+      <div class="calc-field"><label>Yellowtail</label><input type="number" min="0" step="1" id="sp-yt" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+      <div class="calc-field sub-field"><label>↳ of which under 12 lb</label><input type="number" min="0" step="1" id="sub-yt" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+      <div class="calc-field"><label>Bluefin Tuna</label><input type="number" min="0" step="1" id="sp-bft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+      <div class="calc-field"><label>Yellowfin Tuna</label><input type="number" min="0" step="1" id="sp-yft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+      <div class="calc-field sub-field"><label>↳ of which under 12 lb</label><input type="number" min="0" step="1" id="sub-yft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+      <div class="calc-field"><label>Wahoo</label><input type="number" min="0" step="1" id="sp-wahoo" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+      <div class="calc-field"><label>Rockfish</label><input type="number" min="0" step="1" id="sp-rock" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+
+      <div class="calc-group-label">Value-Added — opt in (trade-in)</div>
+      <div class="va-opt">
+        <label class="va-check"><input type="checkbox" id="va-smoke" onchange="toggleVA()"> Smoking <span class="va-hint">tuna · yellowtail · wahoo · 15 lb min</span></label>
+        <div class="va-body" id="vab-smoke">
+          <div class="calc-field"><label>Yellowtail</label><input type="number" min="0" step="1" id="sm-yt" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+          <div class="calc-field"><label>Bluefin</label><input type="number" min="0" step="1" id="sm-bft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+          <div class="calc-field"><label>Yellowfin</label><input type="number" min="0" step="1" id="sm-yft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+          <div class="calc-field"><label>Wahoo</label><input type="number" min="0" step="1" id="sm-wahoo" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+        </div>
+      </div>
+      <div class="va-opt">
+        <label class="va-check"><input type="checkbox" id="va-jerky" onchange="toggleVA()"> Jerky <span class="va-hint">bluefin &amp; yellowfin · 15 lb min</span></label>
+        <div class="va-body" id="vab-jerky">
+          <div class="calc-field"><label>Bluefin</label><input type="number" min="0" step="1" id="jk-bft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+          <div class="calc-field"><label>Yellowfin</label><input type="number" min="0" step="1" id="jk-yft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+        </div>
+      </div>
+      <div class="va-opt">
+        <label class="va-check"><input type="checkbox" id="va-can" onchange="toggleVA()"> Canning <span class="va-hint">bluefin &amp; yellowfin only</span></label>
+        <div class="va-body" id="vab-can">
+          <div class="calc-field"><label>Bluefin</label><input type="number" min="0" step="1" id="cn-bft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+          <div class="calc-field"><label>Yellowfin</label><input type="number" min="0" step="1" id="cn-yft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+        </div>
+      </div>
+
+      <div class="calc-group-label">Extras</div>
+      <div class="calc-field">
+        <label>Collars</label>
+        <input type="number" min="0" step="1" id="i-collar" value="0" oninput="calcQuotes()"><span class="unit">ea</span>
+      </div>
+      <div class="calc-field">
+        <label>Gill &amp; gut only</label>
+        <input type="number" min="0" step="1" id="i-gillgut" value="0" oninput="calcQuotes()"><span class="unit">lb</span>
+      </div>
+      <div class="calc-field">
+        <label>Ship: medium boxes</label>
+        <input type="number" min="0" step="1" id="i-boxes" value="0" oninput="calcQuotes()"><span class="unit">box</span>
+      </div>
+
+      <button class="calc-reset" onclick="resetCalc()">Reset inputs</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div>
+      <div class="calc-warn" id="calc-warn" style="display:none"></div>
+      <div class="delta-bar" id="delta-bar"></div>
+      <div class="quote-grid" id="quote-grid"></div>
+
+      <div class="rate-stamp" id="rate-stamp"></div>
+
+      <div class="calc-group-label" style="margin-top:24px">At-a-glance comparison</div>
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th>&nbsp;</th><th>Fisherman's Processing</th><th>Five Star Fish Processing</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Founded</th><td>2009</td><td>2003</td></tr>
+            <tr><th>Location</th><td>4004 Taylor St (Old Town)</td><td>3826 Sherman St, San Diego 92110</td></tr>
+            <tr><th>Dock pickup</th><td>Dana Landing, Fisherman's, H&amp;M, Point Loma, Seaforth + shop</td><td>Meets every long-range boat at the dock</td></tr>
+            <tr><th>Hours</th><td>Daily 8am–2pm (appt outside)</td><td>Summer (Jun–Nov) 10am–2pm, 7 days; Winter by appt</td></tr>
+            <tr><th>Base fillet + vac</th><td>By fish weight: $1.95/lb (12 lb+), $2.80/lb (under 12 lb)</td><td>5 mil bag: $1.97/lb</td></tr>
+            <tr><th>Smoke / Jerky</th><td>$3.50 / $4.50 per lb</td><td>$2.75 / $3.75 per lb</td></tr>
+            <tr><th>Canning</th><td>$5.50/lb (tuna 15 lb+)</td><td>$5.50/lb</td></tr>
+            <tr><th>Collars</th><td>$5.00 each</td><td>$5.19 each (5 mil)</td></tr>
+            <tr><th>Deposit</th><td class="flag-cell">$100 — forfeited if you use another processor ⚠️</td><td>Reserve online; no public forfeit clause</td></tr>
+            <tr><th>Card fee</th><td>+3% on subtotal</td><td>+3.95% on subtotal</td></tr>
+            <tr><th>Ice / gel packs</th><td>Free on all processed fish</td><td>Included</td></tr>
+            <tr><th>Cold storage</th><td>2 weeks free, then $6/day per rack</td><td>See shipping &amp; storage page</td></tr>
+            <tr><th>Shipping</th><td>Boxes $50–$80; handling $75 (up to 2 boxes)</td><td class="flag-cell">Quote only — call 858-833-4037</td></tr>
+            <tr><th>Reserve</th><td>fishermansprocessing.com</td><td>fivestar.net</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
@@ -788,7 +983,7 @@ function renderPlanner() {
     const totalA = dayAnglersArr[i];
     const pct    = Math.round((totalA / maxA) * 100);
     const cClass = cnt >= 3 ? 'count-3plus' : cnt === 2 ? 'count-2' : 'count-1';
-    const fill   = cnt >= 3 ? '#ef4444' : cnt === 2 ? '#eab308' : '#22c55e';
+    const fill   = cnt >= 3 ? 'var(--red)' : cnt === 2 ? 'var(--yellow)' : 'var(--green)';
     const retD   = new Date(2026, mo-1, d);
     const dn     = DAY_NAMES[retD.getDay()];
     const hasEd  = list.some(t => t.isEd);
@@ -799,7 +994,7 @@ function renderPlanner() {
         <div class="day-date"><strong>${dn} ${MONTH_LABELS[mo]} ${d}${edMark}</strong></div>
         <span class="day-count ${cClass}">${cnt} boat${cnt===1?'':'s'}</span>
         <div class="volume-bar"><div class="volume-fill" style="width:${pct}%;background:${fill}"></div></div>
-        <div style="font-size:0.78rem;color:#94a3b8;min-width:76px;text-align:right">~${totalA} anglers</div>
+        <div style="font-size:0.78rem;color:var(--muted);min-width:76px;text-align:right">~${totalA} anglers</div>
         <span class="chevron">▼</span>
       </div>
       <div class="day-details">`;
@@ -816,7 +1011,7 @@ function renderPlanner() {
         </div>
         <div style="text-align:right">
           <div class="return-anglers">~${anglers}</div>
-          <div style="font-size:0.7rem;color:#475569">anglers</div>
+          <div style="font-size:0.7rem;color:var(--faint)">anglers</div>
         </div>
       </div>`;
     });
@@ -848,6 +1043,205 @@ function togglePDay(id) {
 }
 
 // ════════════════════════════════════════════════════
+// PROCESSING CALCULATOR
+// Rates entered from published price sheets — June 2026.
+// Each rate: [cash, card]. Card already includes the surcharge
+// baked into the processor's published card column.
+// ════════════════════════════════════════════════════
+const RATE_DATE = 'June 2026';
+const PROCESSORS = [
+  {
+    key:'fp', name:"Fisherman's Processing", loc:'4004 Taylor St · Old Town',
+    site:'fishermansprocessing.com', deposit:100, ccFee:0.03,
+    rates:{ big:1.95, small:2.80, fillet:3.50, smoke:3.50, jerky:4.50, can:5.50, collar:5.00, gillgut:1.55, box:65, handling:75 },
+    ship:true,
+    note:'Base (cash) rates shown. Credit-card fee is 3% of the processing subtotal. The $100 deposit is prepaid (forfeited if you switch processors) and subtracted to give the Net est. total. Boxes priced as medium (21×17×14); handling flat up to 2 boxes; shipping billed separately.'
+  },
+  {
+    key:'fs', name:'Five Star Fish Processing', loc:'3826 Sherman St · 5 mil bags',
+    site:'fivestar.net', deposit:0, ccFee:0.0395,
+    rates:{ big:1.97, small:1.97, fillet:3.50, smoke:2.75, jerky:3.75, can:5.50, collar:5.19, gillgut:1.50, box:0, handling:0 },
+    ship:false,
+    note:'5 mil bag pricing — $1.97/lb fillet &amp; vacuum, $5.19 collars. Smoke/jerky rates as published. Fish under 10 lb use a different (unpublished) schedule. Credit-card fee is 3.95% of the processing subtotal. Shipping quoted separately.'
+  }
+];
+
+let PAY = 'cash';
+
+function setPay(p){
+  PAY = p;
+  document.querySelectorAll('#pay-toggle .pay-btn').forEach(b=>b.classList.toggle('active', b.dataset.pay===p));
+  calcQuotes();
+}
+
+function numVal(id){ const v = parseFloat(document.getElementById(id).value); return isNaN(v)||v<0 ? 0 : v; }
+function money(n){ return '$' + n.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2}); }
+
+// Species → fillet tier ('big' = 12 lb+ rate, 'small' = under-12 rate) + value-added eligibility
+const SPECIES = [
+  { key:'yt',    name:'Yellowtail',     tier:'big',   sub:true,  smoke:true,  jerky:false, can:false },
+  { key:'bft',   name:'Bluefin Tuna',   tier:'big',   sub:false, smoke:true,  jerky:true,  can:true  },
+  { key:'yft',   name:'Yellowfin Tuna', tier:'big',   sub:true,  smoke:true,  jerky:true,  can:true  },
+  { key:'wahoo', name:'Wahoo',          tier:'big',   sub:false, smoke:true,  jerky:false, can:false },
+  { key:'rock',  name:'Rockfish',       tier:'small', sub:false, smoke:false, jerky:false, can:false },
+];
+const VA_MIN = 15; // smoking & jerky require a 15 lb minimum
+
+function vaOn(id){ const el=document.getElementById(id); return !!(el && el.checked); }
+
+function toggleVA(){
+  document.getElementById('vab-smoke').style.display = vaOn('va-smoke') ? 'block' : 'none';
+  document.getElementById('vab-jerky').style.display = vaOn('va-jerky') ? 'block' : 'none';
+  document.getElementById('vab-can').style.display   = vaOn('va-can')   ? 'block' : 'none';
+  calcQuotes();
+}
+
+// Resolve species inputs → the weight/service totals the cost engine expects
+function gatherCatch(){
+  const warns = [];
+  const smokeOn = vaOn('va-smoke'), jerkyOn = vaOn('va-jerky'), canOn = vaOn('va-can');
+  let filletBig=0, filletSmall=0, smoke=0, jerky=0, can=0;
+
+  SPECIES.forEach(s => {
+    const total = numVal('sp-'+s.key);
+    let sm = (smokeOn && s.smoke) ? numVal('sm-'+s.key) : 0;
+    let jk = (jerkyOn && s.jerky) ? numVal('jk-'+s.key) : 0;
+    let cn = (canOn   && s.can)   ? numVal('cn-'+s.key) : 0;
+
+    if (sm > 0 && sm < VA_MIN) { warns.push(`Smoking needs a ${VA_MIN} lb minimum — ${s.name} smoke (${sm} lb) not counted.`); sm = 0; }
+    if (jk > 0 && jk < VA_MIN) { warns.push(`Jerky needs a ${VA_MIN} lb minimum — ${s.name} jerky (${jk} lb) not counted.`); jk = 0; }
+
+    const va = sm + jk + cn;
+    if (va > 0 && total === 0) {
+      warns.push(`${s.name}: value-added entered but 0 lb caught — add a catch weight.`);
+    } else if (va > total) {
+      warns.push(`${s.name}: value-added (${va} lb) exceeds catch (${total} lb) — fillet set to 0.`);
+    }
+
+    const fillet = Math.max(0, total - va);
+    if (s.tier === 'small') {
+      filletSmall += fillet;
+    } else if (s.sub) {
+      let u = numVal('sub-'+s.key);
+      if (u > fillet) { warns.push(`${s.name}: under-12 lb portion (${u} lb) exceeds filletable weight (${fillet} lb) — capped.`); u = fillet; }
+      filletSmall += u; filletBig += (fillet - u);
+    } else {
+      filletBig += fillet;
+    }
+    smoke += sm; jerky += jk; can += cn;
+  });
+
+  return {
+    inp: {
+      big:filletBig, small:filletSmall, fillet:0,
+      smoke, jerky, can,
+      collar:numVal('i-collar'), gillgut:numVal('i-gillgut'), boxes:numVal('i-boxes')
+    },
+    warns
+  };
+}
+
+function resetCalc(){
+  ['sp-yt','sub-yt','sp-bft','sp-yft','sub-yft','sp-wahoo','sp-rock',
+   'sm-yt','sm-bft','sm-yft','sm-wahoo',
+   'jk-bft','jk-yft',
+   'cn-bft','cn-yft',
+   'i-collar','i-gillgut','i-boxes'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=0; });
+  ['va-smoke','va-jerky','va-can'].forEach(id=>{ const el=document.getElementById(id); if(el) el.checked=false; });
+  toggleVA();
+}
+
+function calcQuotes(){
+  const card = PAY === 'card';
+  const { inp, warns } = gatherCatch();
+  const wEl = document.getElementById('calc-warn');
+  if (warns.length) { wEl.style.display='block'; wEl.innerHTML = '<strong>Heads up:</strong><ul>' + warns.map(w=>`<li>${w}</li>`).join('') + '</ul>'; }
+  else { wEl.style.display='none'; wEl.innerHTML=''; }
+
+  const quotes = PROCESSORS.map(p => {
+    const r = p.rates;
+    const lines = [];
+    const push = (lbl, qty, unit, suffix) => {
+      if (qty <= 0) return;
+      lines.push({lbl:`${lbl} <span style="color:var(--faint)">${qty}${suffix} × ${money(unit)}</span>`, amt:qty*unit});
+    };
+    push('Fillet — 12 lb+', inp.big, r.big, ' lb');
+    push('Fillet — under 12 lb', inp.small, r.small, ' lb');
+    push('Smoked', inp.smoke, r.smoke, ' lb');
+    push('Jerky', inp.jerky, r.jerky, ' lb');
+    push('Canned', inp.can, r.can, ' lb');
+    push('Collars', inp.collar, r.collar, ' ea');
+    push('Gill &amp; gut', inp.gillgut, r.gillgut, ' lb');
+
+    const processing = lines.reduce((s,l)=>s+l.amt, 0);   // excludes credit-card fee
+    const ccFee     = card ? processing * p.ccFee : 0;    // each processor's own card rate
+    const estTotal  = processing + ccFee;                 // Est. total = subtotal + CC fee
+    const netTotal  = estTotal - p.deposit;               // Fisherman's: minus prepaid $100 deposit
+
+    // Shipping (Fisherman's only) — billed separately, not in est. total
+    let shipLine = null;
+    if (inp.boxes > 0) {
+      if (p.ship) {
+        const shipAmt = inp.boxes * r.box + r.handling + Math.max(0, inp.boxes-2) * 10;
+        shipLine = {lbl:`Shipping — ${inp.boxes} box${inp.boxes===1?'':'es'} + handling`, amt:shipAmt};
+      } else {
+        shipLine = {lbl:'Shipping', amt:null, note:'Quote separately'};
+      }
+    }
+
+    return {p, lines, processing, ccFee, estTotal, netTotal, shipLine};
+  });
+
+  // Best is decided on the comparable processing subtotal
+  const best = quotes.reduce((b,q)=> q.processing < b.processing ? q : b, quotes[0]);
+  const anyInput = quotes[0].lines.length > 0;
+
+  const grid = document.getElementById('quote-grid');
+  grid.innerHTML = quotes.map(q => {
+    const isBest = anyInput && q===best && quotes[0].processing!==quotes[1].processing;
+    let body = q.lines.map(l=>`<div class="line"><span class="lbl">${l.lbl}</span><span class="amt">${money(l.amt)}</span></div>`).join('');
+    if (!q.lines.length) body = `<div class="line muted"><span class="lbl">No services entered</span><span class="amt">—</span></div>`;
+    body += `<div class="line sub"><span class="lbl">Processing subtotal</span><span class="amt">${money(q.processing)}</span></div>`;
+    body += `<div class="line fee"><span class="lbl">Credit card fee (${(q.p.ccFee*100).toFixed(2).replace(/\.?0+$/,'')}%)</span><span class="amt">${card ? '+'+money(q.ccFee) : '—'}</span></div>`;
+    body += `<div class="line total"><span class="lbl">Est. total</span><span class="amt">${money(q.estTotal)}</span></div>`;
+    if (q.p.deposit > 0) {
+      body += `<div class="line"><span class="lbl">Less deposit (prepaid)</span><span class="amt">−${money(q.p.deposit)}</span></div>`;
+      body += `<div class="line net"><span class="lbl">Net est. total</span><span class="amt">${money(q.netTotal)}</span></div>`;
+    }
+    if (q.shipLine) {
+      body += q.shipLine.amt===null
+        ? `<div class="line ship"><span class="lbl">${q.shipLine.lbl} — billed separately</span><span class="amt">${q.shipLine.note}</span></div>`
+        : `<div class="line ship"><span class="lbl">${q.shipLine.lbl} — billed separately</span><span class="amt">${money(q.shipLine.amt)}</span></div>`;
+    }
+    return `<div class="quote-card${isBest?' best':''}">
+      <div class="quote-head">
+        <div class="qname">${q.p.name}</div>
+        <div class="qloc">${q.p.loc}</div>
+        ${isBest?'<span class="best-flag">✓ Lower processing cost</span>':''}
+      </div>
+      <div class="quote-body">
+        ${body}
+        <div class="quote-note">${q.p.note}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Delta bar
+  const db = document.getElementById('delta-bar');
+  const diff = Math.abs(quotes[0].processing - quotes[1].processing);
+  const payLabel = card ? 'credit card' : 'cash';
+  if (anyInput && diff > 0.005) {
+    db.innerHTML = `On processing, <b>${best.p.name}</b> is <b>${money(diff)}</b> cheaper. Showing ${payLabel} pricing.`;
+  } else if (anyInput) {
+    db.innerHTML = `Processing cost is identical between both. Showing ${payLabel} pricing.`;
+  } else {
+    db.innerHTML = `Enter your estimated catch to compare. Showing ${payLabel} pricing.`;
+  }
+
+  document.getElementById('rate-stamp').textContent = `Rates as of ${RATE_DATE}. Credit-card fee applied per processor (Fisherman's 3%, Five Star 3.95%) on the processing subtotal. Estimates only — verify at drop-off. SD Fish Processing excluded (no published rates).`;
+}
+
+// ════════════════════════════════════════════════════
 // TAB SWITCHING
 // ════════════════════════════════════════════════════
 function switchTab(name, el) {
@@ -865,6 +1259,7 @@ buildMonthBtns('finder-months',  finderMonths,  currentFinderMo,  'switchFinderM
 buildMonthBtns('planner-months', plannerMonths, currentPlannerMo, 'switchPlannerMonth');
 renderFinder();
 renderPlanner();
+calcQuotes();
 </script>
 </body>
 </html>
