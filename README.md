@@ -30,6 +30,7 @@ This dashboard was built to answer two questions at a glance:
 - **Personal trip flag** — your trip is marked 📍 across both tabs
 - **Invite/code flags** — trips requiring an invitation code are clearly marked ⚠️
 - **Derived return dates** — processing planner data is computed from departure date + trip duration, no manual entry needed
+- **Processing Calculator tab** — estimate and compare fish-processing cost across two San Diego processors (Fisherman's Processing vs Five Star) by species and service
 
 ---
 
@@ -80,6 +81,22 @@ Download `saltwater_trip_planner.html` and open it in any browser. No internet c
 - 🔴 Heavy — 100+ anglers returning
 
 All boats depart from San Diego and return approximately **6:00–8:00 AM**.
+
+### Processing Calculator Tab
+
+Estimate and compare what your catch will cost to process at two San Diego processors — **Fisherman's Processing** and **Five Star Fish Processing**.
+
+1. Toggle **Cash** or **Credit Card** (credit adds each processor's own fee — Fisherman's 3%, Five Star 3.95% — on the processing subtotal)
+2. Enter **total pounds per species** (Yellowtail, Bluefin, Yellowfin, Wahoo, Rockfish); leave a species at 0 if you kept none
+3. For Yellowtail and Yellowfin, use the **"under 12 lb"** sub-field to bill that portion at Fisherman's lower weight tier
+4. **Opt in** to Smoking, Jerky, or Canning to reveal weight fields for the eligible species only — those pounds come out of the fillet weight and are billed at the value-added rate
+   - Smoking: tuna, yellowtail, wahoo (15 lb minimum)
+   - Jerky: bluefin and yellowfin only (15 lb minimum)
+   - Canning: bluefin and yellowfin only
+5. Read the side-by-side quote: processing subtotal → card fee → **Est. total**, with Fisherman's also showing a **Net est. total** after its prepaid $100 deposit
+6. The lower-cost processor is flagged; the **comparison matrix** below covers locations, dock pickup, hours, rates, deposit terms, and shipping
+
+> Rates are entered from each processor's published price sheet (June 2026) and may change — always confirm at drop-off. San Diego Fish Processing is excluded because it publishes no rates.
 
 ---
 
@@ -140,6 +157,7 @@ The Processing Planner shows **boat capacity** as the angler count, not actual b
 - **Processing Planner is derived** — return dates are computed from `deptDate + days` at runtime, not stored separately. This means the processing planner is always in sync with the trip data with no extra maintenance
 - **Month filtering** — both tabs filter client-side from the same dataset using JavaScript
 - **Personal trip flagging** — Ed's trips are marked with the `'ed'` flag in the data array and receive amber styling + 📍 marker across both tabs
+- **Teal-Sage brand** — dashboard uses brand tokens (#2C7A6B teal, #2B4C7E navy) with Fraunces / Inter / IBM Plex Mono fonts; availability green/yellow/red kept distinct from brand teal
 
 ---
 
@@ -172,4 +190,4 @@ To pull fresh availability data:
 
 ---
 
-*Last data pull: June 2026 | Built with Claude (Anthropic) | Standards: CONTRIBUTING.md + AGENTS.md*
+*Last data pull: June 2026 | Processing rates: June 2026 | Built with Claude (Anthropic) | Standards: CONTRIBUTING.md + AGENTS.md*
