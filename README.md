@@ -41,6 +41,7 @@ This dashboard was built to answer two questions at a glance:
 | `saltwater_trip_planner.html` | Main dashboard — self-contained, open directly in browser |
 | `CONTRIBUTING.md` | Commit message and README standards for this repo |
 | `AGENTS.md` | AI agent behavior rules for GitHub operations and repo maintenance |
+| `Saltwater_Fish_Processing_Calculator_v2.xlsx` | Offline per-fish processing-cost workbook (Numbers-compatible) — same engine rules, for use at sea |
 | `README.md` | This file |
 
 ---
@@ -97,7 +98,7 @@ Estimate and compare what your catch will cost to process at two San Diego proce
 5. Read the side-by-side quote: processing subtotal → card fee → **Est. total**, with Fisherman's also showing a **Net est. total** after its prepaid $100 deposit
 6. The lower-cost processor is flagged; the **comparison matrix** below covers locations, dock pickup, hours, rates, deposit terms, and shipping
 
-> Rates are entered from each processor's published price sheet (June 2026) and may change — always confirm at drop-off. San Diego Fish Processing is excluded because it publishes no rates.
+> Rates are entered from each processor's published price sheet (June 2026) and may change — always confirm at drop-off. For offline use at sea, `Saltwater_Fish_Processing_Calculator_v2.xlsx` in this repo applies the same per-fish rules in the Numbers app (one row per kept fish). San Diego Fish Processing is excluded because it publishes no rates.
 
 ---
 
