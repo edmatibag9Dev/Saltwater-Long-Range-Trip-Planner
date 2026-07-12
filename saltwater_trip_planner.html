@@ -295,7 +295,7 @@ table.matrix tr:last-child th, table.matrix tr:last-child td { border-bottom:non
 <div class="content">
 
   <div class="info-box">
-    <strong>💲 Processing Cost Estimator:</strong> Estimate your catch by species, then opt in to any value-added (smoking, jerky, canning). It compares two San Diego processors side by side. Rates are from published price sheets and may change — always confirm at drop-off. Both meet long-range boats at the dock.
+    <strong>💲 Processing Cost Estimator:</strong> Estimate your catch by species, then opt in to any value-added (smoking, jerky, canning). It compares two San Diego processors side by side. Rates are from published price sheets and may change — always confirm at drop-off. Both meet long-range boats at the dock. <strong>Value-added is per fish:</strong> every smoke, jerky, or canning allocation needs ≥ 15 lb drawn from a single fish — pounds don't pool across fish. For exact per-fish billing at sea, use the companion <a href="https://edmatibag9dev.github.io/catch-logger/" target="_blank">Catch Logger</a>.
   </div>
 
   <div class="calc-wrap">
@@ -317,10 +317,12 @@ table.matrix tr:last-child th, table.matrix tr:last-child td { border-bottom:non
       <div class="calc-field sub-field"><label>↳ of which under 12 lb</label><input type="number" min="0" step="1" id="sub-yft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
       <div class="calc-field"><label>Wahoo</label><input type="number" min="0" step="1" id="sp-wahoo" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
       <div class="calc-field"><label>Rockfish</label><input type="number" min="0" step="1" id="sp-rock" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
+      <div class="calc-field sub-field"><label>↳ of which under 12 lb</label><input type="number" min="0" step="1" id="sub-rock" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
 
       <div class="calc-group-label">Value-Added — opt in (trade-in)</div>
+      <div class="calc-sub" style="margin-bottom:8px">Each treatment needs ≥ 15 lb from a <strong>single fish</strong> — pounds don't pool across fish. Enter only pounds sourced from individual fish of 15 lb or more.</div>
       <div class="va-opt">
-        <label class="va-check"><input type="checkbox" id="va-smoke" onchange="toggleVA()"> Smoking <span class="va-hint">tuna · yellowtail · wahoo · 15 lb min</span></label>
+        <label class="va-check"><input type="checkbox" id="va-smoke" onchange="toggleVA()"> Smoking <span class="va-hint">tuna · yellowtail · wahoo · 15 lb min per fish</span></label>
         <div class="va-body" id="vab-smoke">
           <div class="calc-field"><label>Yellowtail</label><input type="number" min="0" step="1" id="sm-yt" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
           <div class="calc-field"><label>Bluefin</label><input type="number" min="0" step="1" id="sm-bft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
@@ -329,14 +331,14 @@ table.matrix tr:last-child th, table.matrix tr:last-child td { border-bottom:non
         </div>
       </div>
       <div class="va-opt">
-        <label class="va-check"><input type="checkbox" id="va-jerky" onchange="toggleVA()"> Jerky <span class="va-hint">bluefin &amp; yellowfin · 15 lb min</span></label>
+        <label class="va-check"><input type="checkbox" id="va-jerky" onchange="toggleVA()"> Jerky <span class="va-hint">bluefin &amp; yellowfin · 15 lb min per fish</span></label>
         <div class="va-body" id="vab-jerky">
           <div class="calc-field"><label>Bluefin</label><input type="number" min="0" step="1" id="jk-bft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
           <div class="calc-field"><label>Yellowfin</label><input type="number" min="0" step="1" id="jk-yft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
         </div>
       </div>
       <div class="va-opt">
-        <label class="va-check"><input type="checkbox" id="va-can" onchange="toggleVA()"> Canning <span class="va-hint">bluefin &amp; yellowfin only</span></label>
+        <label class="va-check"><input type="checkbox" id="va-can" onchange="toggleVA()"> Canning <span class="va-hint">bluefin &amp; yellowfin · 15 lb min per fish</span></label>
         <div class="va-body" id="vab-can">
           <div class="calc-field"><label>Bluefin</label><input type="number" min="0" step="1" id="cn-bft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
           <div class="calc-field"><label>Yellowfin</label><input type="number" min="0" step="1" id="cn-yft" value="0" oninput="calcQuotes()"><span class="unit">lb</span></div>
@@ -381,7 +383,7 @@ table.matrix tr:last-child th, table.matrix tr:last-child td { border-bottom:non
             <tr><th>Hours</th><td>Daily 8am–2pm (appt outside)</td><td>Summer (Jun–Nov) 10am–2pm, 7 days; Winter by appt</td></tr>
             <tr><th>Base fillet + vac</th><td>By fish weight: $1.95/lb (12 lb+), $2.80/lb (under 12 lb)</td><td>5 mil bag: $1.97/lb</td></tr>
             <tr><th>Smoke / Jerky</th><td>$3.50 / $4.50 per lb</td><td>$2.75 / $3.75 per lb</td></tr>
-            <tr><th>Canning</th><td>$5.50/lb (tuna 15 lb+)</td><td>$5.50/lb</td></tr>
+            <tr><th>Canning</th><td>$5.50/lb — 15 lb min per fish</td><td>$5.50/lb — 15 lb min per fish</td></tr>
             <tr><th>Collars</th><td>$5.00 each</td><td>$5.19 each (5 mil)</td></tr>
             <tr><th>Deposit</th><td class="flag-cell">$100 — forfeited if you use another processor ⚠️</td><td>Reserve online; no public forfeit clause</td></tr>
             <tr><th>Card fee</th><td>+3% on subtotal</td><td>+3.95% on subtotal</td></tr>
@@ -1083,9 +1085,13 @@ const SPECIES = [
   { key:'bft',   name:'Bluefin Tuna',   tier:'big',   sub:false, smoke:true,  jerky:true,  can:true  },
   { key:'yft',   name:'Yellowfin Tuna', tier:'big',   sub:true,  smoke:true,  jerky:true,  can:true  },
   { key:'wahoo', name:'Wahoo',          tier:'big',   sub:false, smoke:true,  jerky:false, can:false },
-  { key:'rock',  name:'Rockfish',       tier:'small', sub:false, smoke:false, jerky:false, can:false },
+  { key:'rock',  name:'Rockfish',       tier:'big',   sub:true,  smoke:false, jerky:false, can:false },
 ];
-const VA_MIN = 15; // smoking & jerky require a 15 lb minimum
+// Per-fish minimum for smoking, jerky AND canning. Pounds do NOT pool across
+// fish — canonical rules live in catch-logger/engine.js (Catch Logger v2).
+// This bulk estimator enforces the minimum per entry; per-fish enforcement
+// requires the Catch Logger, which logs each fish individually.
+const VA_MIN = 15;
 
 function vaOn(id){ const el=document.getElementById(id); return !!(el && el.checked); }
 
@@ -1108,8 +1114,9 @@ function gatherCatch(){
     let jk = (jerkyOn && s.jerky) ? numVal('jk-'+s.key) : 0;
     let cn = (canOn   && s.can)   ? numVal('cn-'+s.key) : 0;
 
-    if (sm > 0 && sm < VA_MIN) { warns.push(`Smoking needs a ${VA_MIN} lb minimum — ${s.name} smoke (${sm} lb) not counted.`); sm = 0; }
-    if (jk > 0 && jk < VA_MIN) { warns.push(`Jerky needs a ${VA_MIN} lb minimum — ${s.name} jerky (${jk} lb) not counted.`); jk = 0; }
+    if (sm > 0 && sm < VA_MIN) { warns.push(`Smoking needs a ${VA_MIN} lb minimum per fish — ${s.name} smoke (${sm} lb) not counted.`); sm = 0; }
+    if (jk > 0 && jk < VA_MIN) { warns.push(`Jerky needs a ${VA_MIN} lb minimum per fish — ${s.name} jerky (${jk} lb) not counted.`); jk = 0; }
+    if (cn > 0 && cn < VA_MIN) { warns.push(`Canning needs a ${VA_MIN} lb minimum per fish — ${s.name} canning (${cn} lb) not counted.`); cn = 0; }
 
     const va = sm + jk + cn;
     if (va > 0 && total === 0) {
@@ -1142,7 +1149,7 @@ function gatherCatch(){
 }
 
 function resetCalc(){
-  ['sp-yt','sub-yt','sp-bft','sp-yft','sub-yft','sp-wahoo','sp-rock',
+  ['sp-yt','sub-yt','sp-bft','sp-yft','sub-yft','sp-wahoo','sp-rock','sub-rock',
    'sm-yt','sm-bft','sm-yft','sm-wahoo',
    'jk-bft','jk-yft',
    'cn-bft','cn-yft',
