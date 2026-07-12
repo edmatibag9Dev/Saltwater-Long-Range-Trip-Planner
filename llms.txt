@@ -1,0 +1,23 @@
+# Saltwater Long Range Trip Planner
+
+> Self-contained HTML dashboard for planning long-range saltwater fishing trips out of San Diego:
+> aggregates trips from 9 boats into a filterable Trip Finder, derives a Processing Planner of
+> boat returns per day, and adds a Processing Calculator comparing two San Diego fish processors.
+> Pure HTML/CSS/JS in one file — no server, no build step.
+
+## Start here
+- [AGENTS.md](AGENTS.md): canonical agent guide — GitHub operations rules, Contents API protocol, scraping workarounds.
+- [README.md](README.md): human quickstart — features, usage, data sources, refresh instructions.
+- [CHANGELOG.md](CHANGELOG.md): version history, newest first.
+- [CONTRIBUTING.md](CONTRIBUTING.md): commit + README standard.
+
+## Dashboard
+- [saltwater_trip_planner.html](saltwater_trip_planner.html): the entire dashboard — Trip Finder, Processing Planner, and Processing Calculator tabs; trip data lives in the inline `RAW` JS array; return dates are derived at runtime from departure date + trip length.
+
+## Key rules
+- Single self-contained HTML file: all CSS/JS inline, opens via file://, no external dependencies, no localStorage (in-memory state only).
+- Trip data is a snapshot — every refresh must update the visible "data as of" disclaimer and README data-freshness note, and link to live sources.
+- fishingreservations.net blocks rapid automated requests (CAPTCHA error 338): refresh data by reading pre-loaded browser tabs, never rapid sequential scraping.
+- Processing Planner is derived from the trip data array — never store return dates separately.
+- GitHub updates go through the Contents API: GET the file sha first, then PUT with sha; skipping the GET causes a 409.
+- Data refresh commits use the `data` type with a body of at least 3 bullets; README updated on every feat/fix/data commit.
