@@ -88,11 +88,12 @@ Estimate and compare what your catch will cost to process at two San Diego proce
 
 1. Toggle **Cash** or **Credit Card** (credit adds each processor's own fee — Fisherman's 3%, Five Star 3.95% — on the processing subtotal)
 2. Enter **total pounds per species** (Yellowtail, Bluefin, Yellowfin, Wahoo, Rockfish); leave a species at 0 if you kept none
-3. For Yellowtail and Yellowfin, use the **"under 12 lb"** sub-field to bill that portion at Fisherman's lower weight tier
+3. For Yellowtail, Yellowfin, and Rockfish, use the **"under 12 lb"** sub-field to bill that portion at Fisherman's lower weight tier (Bluefin, Wahoo never qualify for the under-12 rate — species-gated, not weight-derived)
 4. **Opt in** to Smoking, Jerky, or Canning to reveal weight fields for the eligible species only — those pounds come out of the fillet weight and are billed at the value-added rate
-   - Smoking: tuna, yellowtail, wahoo (15 lb minimum)
-   - Jerky: bluefin and yellowfin only (15 lb minimum)
-   - Canning: bluefin and yellowfin only
+   - Smoking: tuna, yellowtail, wahoo (15 lb minimum **per fish**)
+   - Jerky: bluefin and yellowfin only (15 lb minimum **per fish**)
+   - Canning: bluefin and yellowfin only (15 lb minimum **per fish**)
+   - **The 15 lb minimum is per individual fish — pounds do not pool across fish.** Two 10 lb yellowfin cannot combine into a 20 lb smoke order; the processor will not perform it. Enter only pounds sourced from single fish of 15 lb or more. For exact per-fish billing at sea, use the companion [Catch Logger](https://edmatibag9dev.github.io/catch-logger/) — its `engine.js` is the canonical implementation of these cost rules
 5. Read the side-by-side quote: processing subtotal → card fee → **Est. total**, with Fisherman's also showing a **Net est. total** after its prepaid $100 deposit
 6. The lower-cost processor is flagged; the **comparison matrix** below covers locations, dock pickup, hours, rates, deposit terms, and shipping
 
