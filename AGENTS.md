@@ -11,6 +11,26 @@ These rules govern how Claude (and any AI agent) must behave when working with E
 
 ---
 
+## File map
+
+Ground truth: `git -C /Users/edmatibag/Documents/Claude/ringer-jobs/agents-fix-swarm/repos/Saltwater-Long-Range-Trip-Planner ls-files`. Every backticked path below is a real tracked path in that output.
+
+| Path | Committed? | Purpose |
+|------|------------|---------|
+| `saltwater_trip_planner.html` | yes | The entire dashboard — single self-contained HTML file with all CSS/JS inline. Three tabs: Trip Finder (aggregates trips across 9 San Diego long-range boats), Processing Planner (derives boat returns per day from departure + trip length), and Processing Calculator (estimates/compares fish-processing cost between Fisherman's Processing and Five Star). Trip data lives in the inline `RAW` JS array; in-memory state only, no localStorage. Opens via `file://` with no build step. |
+| `Saltwater_Fish_Processing_Calculator_v2.xlsx` | yes | Standalone spreadsheet version of the Fish Processing Calculator — the offline/reference model the in-dashboard Processing Calculator tab is derived from (species-based catch input, per-processor rates, card fees, value-added eligibility). Kept in-repo so the rate logic is auditable outside the HTML. |
+| `README.md` | yes | Human quickstart — overview, features, usage, data sources, refresh instructions, "Files" table, and "Last updated" date. The 9-section README per `~/Documents/Claude/CONTRIBUTING.md`, ≥ 400 words. |
+| `CHANGELOG.md` | yes | Version history in Keep a Changelog format, newest first (`### Added / Changed / Fixed / Removed`). Documents the Processing Calculator addition and the Teal-Sage rebrand, among other changes. |
+| `CONTRIBUTING.md` | yes | Commit + README standard pushed from `~/Documents/Claude/CONTRIBUTING.md`. Defines `feat`/`fix`/`data` commit body rules (≥ 3 bullets) and the 9-section README requirement. |
+| `llms.txt` | yes | Machine-readable index of the repo's docs — plain-English summary, "Start here" links, the dashboard entry, and the key invariants (self-contained HTML, snapshot data freshness, scraping workaround, Contents-API SHA-first rule). |
+| `AGENTS.md` | yes | This file — the canonical agent entry point for GitHub operations in this repo (bootstrap check, commit standards, Contents API protocol, data-freshness disclosure, scraping protocol, repo inventory, self-contained-deliverable rules, session continuity, never-do list, and the File map above). |
+
+> ℹ️ No `.gitignore`, `BUILD-PLAN.md`, `SPEC-*.md`, `SCHEDULE.md`, or `CLAUDE.md` are tracked in this
+> repo today. If generated output or real/personal data is added later, add a `.gitignore` (per
+> `~/Documents/Claude/REPO-STANDARD.md`) and mark gitignored paths `no (gitignored)` here with why.
+
+---
+
 ## Rule 1 — Repo Bootstrap Check
 
 **At the start of any task involving a GitHub repository:**
