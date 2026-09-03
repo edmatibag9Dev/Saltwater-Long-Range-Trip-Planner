@@ -12,6 +12,7 @@
 - [CONTRIBUTING.md](CONTRIBUTING.md): commit + README standard.
 
 ## Dashboard
+- [index.html](index.html): GitHub Pages entry point — redirects to the dashboard file below.
 - [saltwater_trip_planner.html](saltwater_trip_planner.html): the entire dashboard — Trip Finder, Processing Planner, and Processing Calculator tabs; trip data lives in the inline `RAW` JS array; return dates are derived at runtime from departure date + trip length.
 
 ## Key rules

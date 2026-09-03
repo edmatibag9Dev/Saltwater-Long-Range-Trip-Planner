@@ -39,6 +39,7 @@ This dashboard was built to answer two questions at a glance:
 | File | Description |
 |------|-------------|
 | `saltwater_trip_planner.html` | Main dashboard — self-contained, open directly in browser |
+| `index.html` | GitHub Pages entry point — redirects the bare site URL to `saltwater_trip_planner.html` |
 | `CONTRIBUTING.md` | Commit message and README standards for this repo |
 | `AGENTS.md` | AI agent behavior rules for GitHub operations and repo maintenance |
 | `Saltwater_Fish_Processing_Calculator_v2.xlsx` | Offline per-fish processing-cost workbook (Numbers-compatible) — same engine rules, for use at sea |
@@ -50,7 +51,7 @@ This dashboard was built to answer two questions at a glance:
 
 ### Opening the Dashboard
 
-Download `saltwater_trip_planner.html` and open it in any browser. No internet connection required for the dashboard itself — it runs entirely from the file.
+Open the hosted copy at https://edmatibag9dev.github.io/Saltwater-Long-Range-Trip-Planner/ (GitHub Pages, re-enabled 2026-09-03), or download `saltwater_trip_planner.html` and open it in any browser. No internet connection required for the dashboard itself — it runs entirely from the file.
 
 ### Trip Finder Tab
 

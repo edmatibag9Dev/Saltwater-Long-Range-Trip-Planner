@@ -2,6 +2,14 @@
 
 All notable changes to the Saltwater Long Range Trip Planner. Newest first.
 
+## [2026-09-03]
+
+### Added
+- **`index.html`** — GitHub Pages entry point that redirects the bare site URL to `saltwater_trip_planner.html`.
+
+### Changed
+- GitHub Pages re-enabled (main branch, root). The Pages config had been deleted when the repo was temporarily made private in July 2026.
+
 ## [2026-06-21]
 
 ### Added
