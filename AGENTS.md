@@ -17,9 +17,10 @@ Ground truth: `git -C /Users/edmatibag/Documents/Claude/ringer-jobs/agents-fix-s
 
 | Path | Committed? | Purpose |
 |------|------------|---------|
-| `saltwater_trip_planner.html` | yes | The entire dashboard — single self-contained HTML file with all CSS/JS inline. Three tabs: Trip Finder (aggregates trips across 9 San Diego long-range boats), Processing Planner (derives boat returns per day from departure + trip length), and Processing Calculator (estimates/compares fish-processing cost between Fisherman's Processing and Five Star). Trip data lives in the inline `RAW` JS array; in-memory state only, no localStorage. Opens via `file://` with no build step. |
+| `saltwater_trip_planner.html` | yes | The entire dashboard — single self-contained HTML file with all CSS/JS inline. Three tabs: Trip Finder (aggregates trips across 11 San Diego long-range boats), Processing Planner (derives boat returns per day from departure + trip length), and Processing Calculator (estimates/compares fish-processing cost between Fisherman's Processing and Five Star). Long-range trip data lives in the inline `RAW` JS array; multi-day boat rows live in the auto-generated `MULTI` block between `// ══ MULTI-DAY DATA START/END` markers (written by `refresh_multiday.py`, never hand-edited); in-memory state only, no localStorage. Opens via `file://` with no build step. |
 | `index.html` | yes | GitHub Pages entry point: a meta-refresh redirect to `saltwater_trip_planner.html` so the bare Pages URL opens the dashboard. No content of its own. |
 | `Saltwater_Fish_Processing_Calculator_v2.xlsx` | yes | Standalone spreadsheet version of the Fish Processing Calculator — the offline/reference model the in-dashboard Processing Calculator tab is derived from (species-based catch input, per-processor rates, card fees, value-added eligibility). Kept in-repo so the rate logic is auditable outside the HTML. |
+| `test-multiday.js` | yes | jsdom integration test for the multi-day Processing Planner. Run with `node test-multiday.js` from the repo root (jsdom resolves from the Cowork project folder's `node_modules`). Must pass before any commit that touches the dashboard or `data/`. |
 | `refresh_multiday.py` | yes | Headless refresh of multi-day boat schedules from the four SD landings (FL/SF/PL paged HTML, H&M JSONP). Applies the 1.5-day / 5–10 AM / no-long-range rules, fills capacity, writes `data/`, rewrites the MULTI-DAY block between marker comments in the dashboard. Never touches git. |
 | `tests/test_refresh_multiday.py`, `tests/fixtures/` | yes | Offline tests + saved pages (2026-09-03) for the refresh script. Run before every data commit. |
 | `data/` | yes (except `data/hold/`) | Audit outputs of the refresh: kept CSV, raw CSV, capacity table, per-source status, last-run summary, run log. `data/hold/` is gitignored. |
@@ -107,6 +108,8 @@ Specific to Ed's saltwater fishing tools:
 - **Workaround:** Ed opens all boat URLs in browser tabs manually, then Claude reads via the Claude in Chrome MCP extension
 - Shogun typically loads clean on the first automated request before blocking kicks in
 - Red Rooster III (`redrooster3.com`) scrapes cleanly — different domain, no CAPTCHA
+- The four **landing** schedule pages load headlessly with plain `curl` and a browser User-Agent at 1.5 s spacing (verified 2026-09-03, ~55 requests, no CAPTCHA): Fisherman's `/resos/?page=N`, Seaforth `/sales/?page=N`, Point Loma `schedules.php?page=N`, and H&M's JSONP feed `hmlanding.com/xolacache?callback=JSON_CALLBACK`. `refresh_multiday.py` owns this; a `<title>Validation request` response is the CAPTCHA page and is treated as a failed fetch
+- Searcher and Intrepid's own booking pages DO CAPTCHA headlessly — they follow the long-range Chrome workaround
 
 ---
 
@@ -114,7 +117,7 @@ Specific to Ed's saltwater fishing tools:
 
 | Repo | Purpose | Key File |
 |------|---------|---------|
-| `Saltwater-Long-Range-Trip-Planner` | Trip finder + fish processing planner | `saltwater_trip_planner.html` |
+| `Saltwater-Long-Range-Trip-Planner` | Trip finder + fish processing planner (11 long-range boats + multi-day boats from 4 landings) | `saltwater_trip_planner.html`, `refresh_multiday.py` |
 | `ai-task-manager` | AI-powered task management app | Next.js app |
 | `Wiki-Page-from-Open-Brain` | Wiki generator from Open Brain thoughts | `open-brain-wiki.html` |
 
@@ -130,7 +133,8 @@ When building HTML dashboards or tools:
 - Must open directly in browser (`file://`) with no build step
 - No localStorage — use in-memory JS state
 - All data links open in new tab
-- Include a visible "data as of [date]" disclaimer when showing snapshot data
+- Include a visible "data as of [date]" disclaimer when showing snapshot data — two stamps: long-range (manual refresh) and multi-day (weekly auto refresh, amber when any landing is older than 14 days)
+- Long-range rows derive return dates from departure + trip length. Multi-day rows store the return date and time as posted by the landing (fractional trip lengths, explicit return times) — this is the one sanctioned exception to the derive-don't-store rule
 
 ---
 

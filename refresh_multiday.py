@@ -312,6 +312,20 @@ def dedupe(rows: list[dict]) -> list[dict]:
     return out
 
 
+def carry_forward(prev_kept: list[dict], kept: list[dict], sources: dict, today: str) -> list[dict]:
+    """Rows from the previous run that already departed but have not returned, missing from
+    this fetch because the landing no longer lists departed trips. Only for landings that
+    fetched OK (stale landings already reuse all their previous rows)."""
+    have = {(r["landing"], norm(r["boat"]), r["dep"], r["deptime"]) for r in kept}
+    out = []
+    for r in prev_kept:
+        if sources.get(r["landing"], {}).get("status") != "ok":
+            continue
+        if r["dep"] < today and r["ret"] >= today and (r["landing"], norm(r["boat"]), r["dep"], r["deptime"]) not in have:
+            out.append(dict(r, src="carried", drop=""))
+    return out
+
+
 # ----------------------------------------------------------------------------- data files
 def read_csv(path: Path) -> list[dict]:
     if not path.exists():
@@ -466,6 +480,12 @@ def run(args) -> int:
     for r in raw_all:
         ok, why = keep(r)
         (kept if ok else dropped).append(dict(r, drop=why))
+    # Landings drop a trip from their schedule the moment it departs, so a boat that left before
+    # this run and has not returned yet is invisible to the fetch. Carry those rows forward from
+    # the previous run (departed before today, returns today or later, landing fetched OK).
+    today = started.strftime("%Y-%m-%d")
+    carried = carry_forward(prev_kept, kept, sources, today)
+    kept += carried
     cap_table = apply_capacity(kept, cap_table)
     for r in kept:
         r["days"] = trip_days(r)
@@ -491,7 +511,7 @@ def run(args) -> int:
     as_of = started.strftime("%Y-%m-%d")
     summary = {
         "ts": started.isoformat(), "outcome": outcome, "digest": digest,
-        "rows_kept": len(kept), "rows_raw": len(raw_all), "prev_rows_kept": prev_n,
+        "rows_kept": len(kept), "rows_carried": len(carried), "rows_raw": len(raw_all), "prev_rows_kept": prev_n,
         "per_landing": {c: {"status": v["status"], "raw": v["rows_raw"], "kept": v["rows_kept"],
                              "pages": v["pages"], "error": v.get("error", "")} for c, v in sources.items()},
         "html_written": False, "dry_run": bool(args.dry_run),
@@ -522,7 +542,7 @@ def run(args) -> int:
 
     for c, v in sources.items():
         log(f"  {c} {v['name']:24s} {v['status']:6s} pages={v['pages']:2d} raw={v['rows_raw']:4d} kept={v['rows_kept']:4d} {v.get('error','')}")
-    log(f"outcome={outcome} kept={len(kept)} raw={len(raw_all)} dropped={len(dropped)} digest={digest}")
+    log(f"outcome={outcome} kept={len(kept)} (carried {len(carried)}) raw={len(raw_all)} dropped={len(dropped)} digest={digest}")
 
     write_json(DATA / "last_run.json", summary)
     with (DATA / "refresh.log").open("a", encoding="utf-8") as fh:

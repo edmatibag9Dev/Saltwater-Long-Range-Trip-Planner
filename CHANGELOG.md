@@ -5,6 +5,11 @@ All notable changes to the Saltwater Long Range Trip Planner. Newest first.
 ## [2026-09-03]
 
 ### Added
+- **Multi-day boats in the Processing Planner** — every day now merges long-range returns with multi-day boats (1.5 days or longer, returning 5:00–10:00 AM) from Fisherman's Landing, H&M Landing, Point Loma Sportfishing, and Seaforth. Day rows show the split (`2 LR · 6 MD`), expanded rows carry a landing badge and the posted return time, totals show long-range / multi-day / combined. Trip Finder is unchanged. Motivation: on 2026-08-28 the planner showed 2 boats / 44 anglers (Light); the dock took 16 boats / ~285 anglers (Heavy).
+- **Searcher and Intrepid** added as long-range boats 10 and 11 (30 and 45 trips seeded from the landing pages on 2026-09-03).
+- **Freshness stamps** — separate long-range and multi-day snapshot dates in the header; the multi-day stamp turns amber and names any landing older than 14 days.
+- **`test-multiday.js`** — jsdom integration test (3,886 assertions on the first run).
+- Processing Planner opens on the current month when it has data.
 - **`refresh_multiday.py`** — headless fetch of multi-day boat schedules from Fisherman's Landing, Seaforth, Point Loma Sportfishing, and H&M Landing; keeps 1.5-day+ trips returning 5–10 AM, drops long-range boats, fills chartered capacities from per-boat maximums, writes `data/`. Safety nets: retries, fetch budget, stale-landing carry-forward, hold on row collapse, idempotent exit.
 - **`tests/test_refresh_multiday.py`** with saved fixtures — 15 offline tests.
 - **`data/`** audit outputs from the first live run (539 kept rows from 2,005 raw).

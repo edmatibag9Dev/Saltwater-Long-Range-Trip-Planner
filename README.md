@@ -1,14 +1,14 @@
 # 🎣 Saltwater Long Range Trip Planner
 
-A self-contained HTML dashboard for planning long-range saltwater fishing trips out of San Diego and coordinating fish processing schedules based on boat return dates. No server, no build step — open the HTML file directly in any browser.
+A self-contained HTML dashboard for planning long-range saltwater fishing trips out of San Diego and coordinating fish processing schedules based on boat return dates — including the multi-day boats from all four San Diego landings that unload the same mornings. No server, no build step — open the HTML file directly in any browser.
 
 ---
 
 ## Overview / Purpose
 
-Planning a long-range fishing trip out of San Diego means checking 9 different boat reservation websites, each with its own layout and availability system. This tool aggregates all of them into a single dashboard so you can compare trips, check availability, and click directly to the booking page — all in one place.
+Planning a long-range fishing trip out of San Diego means checking 11 different boat reservation websites, each with its own layout and availability system. This tool aggregates all of them into a single dashboard so you can compare trips, check availability, and click directly to the booking page — all in one place.
 
-The second problem this solves is **fish processing planning**. Knowing how many boats are returning on any given day — and how many anglers are on each — lets you plan processing capacity, staffing, and timing in advance rather than reacting on the day.
+The second problem this solves is **fish processing planning**. Knowing how many boats are returning on any given day — and how many anglers are on each — lets you plan processing capacity, staffing, and timing in advance rather than reacting on the day. Since September 2026 this counts the **multi-day boats** (1.5-day trips and longer) from Fisherman's Landing, H&M Landing, Point Loma Sportfishing, and Seaforth alongside the long-range fleet. On 2026-08-28 the long-range-only view showed 2 boats and 44 anglers; the dock actually took 16 boats and about 285 anglers that morning.
 
 This dashboard was built to answer two questions at a glance:
 1. Which boats have open trips during the dates I'm available?
@@ -18,14 +18,15 @@ This dashboard was built to answer two questions at a glance:
 
 ## Features
 
-- **Trip Finder tab** — browse all trips across 9 boats for any month from June 2026 through January 2027
+- **Trip Finder tab** — browse all trips across 11 long-range boats for any month posted (June 2026 through December 2027 at the last refresh)
 - **Month filter** — switch between months with a single click on both tabs
 - **Availability badges** — color-coded by open spots (green), low spots (yellow), wait list (red), charter/private (gray), and your personal trip (amber)
 - **Trip length filter** — filter by short (≤5 days), medium (6–8 days), or long (9+ days)
 - **Boat filter** — narrow to a single vessel
 - **Direct booking links** — every trip card links to the live reservation page for current availability
-- **Processing Planner tab** — see every boat returning each day of the selected month with estimated angler counts
-- **Volume indicators** — daily processing load flagged as Light / Moderate / Heavy with color-coded bars
+- **Processing Planner tab** — see every boat unloading each morning of the selected month: long-range returns derived from departure + trip length, plus multi-day boats (1.5 days or longer, returning 5:00–10:00 AM) from the four San Diego landings, with the long-range / multi-day split and estimated angler counts
+- **Volume indicators** — daily processing load flagged as Light / Moderate / Heavy with color-coded bars (thresholds unchanged: under 60 / 60–99 / 100+ anglers)
+- **Freshness stamps** — the header shows the long-range snapshot date and the multi-day snapshot date separately; the multi-day stamp turns amber and names any landing whose data is older than 14 days
 - **Auto-expand** — heavy days (3+ boats) and your personal trip return day expand automatically on load
 - **Personal trip flag** — your trip is marked 📍 across both tabs
 - **Invite/code flags** — trips requiring an invitation code are clearly marked ⚠️
@@ -38,7 +39,8 @@ This dashboard was built to answer two questions at a glance:
 
 | File | Description |
 |------|-------------|
-| `saltwater_trip_planner.html` | Main dashboard — self-contained, open directly in browser |
+| `saltwater_trip_planner.html` | Main dashboard — self-contained, open directly in browser. Long-range trips live in the inline `RAW` array; multi-day trips in the auto-generated `MULTI` block between marker comments |
+| `test-multiday.js` | jsdom integration test of the multi-day Processing Planner (data block vs CSV, rules, Searcher/Intrepid seed, every month renders, Sep 6–7 spot check, Trip Finder isolation, header stamps). `node test-multiday.js` |
 | `index.html` | GitHub Pages entry point — redirects the bare site URL to `saltwater_trip_planner.html` |
 | `CONTRIBUTING.md` | Commit message and README standards for this repo |
 | `AGENTS.md` | AI agent behavior rules for GitHub operations and repo maintenance |
@@ -76,9 +78,9 @@ Open the hosted copy at https://edmatibag9dev.github.io/Saltwater-Long-Range-Tri
 
 ### Processing Planner Tab
 
-1. Click a **month button** (Jun through Dec) to view boat returns for that month
-2. Each day row shows: number of boats returning, estimated total angler count, and a volume bar
-3. Click any **day row** to expand the details — boat name, trip name, departure date, trip length, and angler count
+1. Click a **month button** to view boat returns for that month (months come from both fleets' schedules)
+2. Each day row shows: number of boats returning, the split (`2 LR · 6 MD` = long-range · multi-day), estimated total angler count, and a volume bar
+3. Click any **day row** to expand the details — long-range boats first (🚢, LR badge), then multi-day boats (🛥️, landing badge FL / HM / PL / SF) with trip type, departure, posted return time, and angler count. Chartered multi-day trips list no capacity on the landing pages, so they show the boat's usual capacity marked *(charter, est.)*
 4. **Heavy days (3+ boats) auto-expand on load** — these are your high-volume processing days
 5. Your personal trip return day is marked 📍 and auto-expands
 
@@ -87,7 +89,7 @@ Open the hosted copy at https://edmatibag9dev.github.io/Saltwater-Long-Range-Tri
 - 🟡 Moderate — 60–99 anglers returning
 - 🔴 Heavy — 100+ anglers returning
 
-All boats depart from San Diego and return approximately **6:00–8:00 AM**.
+Long-range boats return approximately **6:00–8:00 AM**. Multi-day boats are included only when their posted return time falls between **5:00 and 10:00 AM**; boats returning later in the day do not compete for the morning processing window and are excluded.
 
 ### Processing Calculator Tab
 
@@ -123,10 +125,25 @@ All trip data was scraped directly from each boat's live reservation system. The
 | Royal Polaris | https://royalpolaris.fishingreservations.net/sales/ |
 | Excel Sportfishing | https://excel.fishingreservations.net/sales/ |
 | Spirit of Adventure | https://soa.fishingreservations.net/sales/ |
+| Searcher | https://searcher.fishingreservations.net/sales/ |
+| Intrepid | https://intrepid.fishingreservations.net/sales/ |
+
+Searcher and Intrepid were added 2026-09-03 and seeded from the Fisherman's Landing and Point Loma landing schedule pages (their own booking pages serve a CAPTCHA to headless requests). Verify them at the next manual long-range refresh.
+
+**Multi-day boats (Processing Planner only)** — refreshed weekly by `refresh_multiday.py`, no browser needed:
+
+| Landing | Schedule source |
+|------|-----------------|
+| Fisherman's Landing | https://fishermanslanding.fishingreservations.net/resos/ (paged) |
+| Seaforth Sportfishing | https://seaforth.fishingreservations.net/sales/ (paged) |
+| Point Loma Sportfishing | https://www.pointlomasportfishing.com/schedules.php (paged) |
+| H&M Landing | https://www.hmlanding.com/xolacache (JSONP feed behind the trip calendar) |
+
+Calibration source for past days: https://www.sandiegofishreports.com/dock_totals/boats.php?date=YYYY-MM-DD (boats by landing with anglers and trip type).
 
 **Red Rooster III** (`https://www.redrooster3.com/trips.htm`) is tracked but had no 2026 fall schedule posted at the time of the last data pull — only 2025 dates were available.
 
-**Data coverage:** June 2026 – January 2027. Processing Planner covers June – December 2026.
+**Data coverage:** long-range trips through December 2027 (snapshot 2026-07-12; Searcher/Intrepid 2026-09-03). Multi-day trips as far as each landing posts — H&M posts about four months ahead, the other three post 12–16 months ahead — so far-future months undercount H&M until they publish.
 
 ---
 

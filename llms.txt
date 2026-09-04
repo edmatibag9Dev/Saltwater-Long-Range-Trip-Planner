@@ -1,8 +1,8 @@
 # Saltwater Long Range Trip Planner
 
 > Self-contained HTML dashboard for planning long-range saltwater fishing trips out of San Diego:
-> aggregates trips from 9 boats into a filterable Trip Finder, derives a Processing Planner of
-> boat returns per day, and adds a Processing Calculator comparing two San Diego fish processors.
+> aggregates trips from 11 long-range boats into a filterable Trip Finder, derives a Processing Planner of
+> boat returns per day (long-range + multi-day boats from the four SD landings), and adds a Processing Calculator comparing two San Diego fish processors.
 > Pure HTML/CSS/JS in one file — no server, no build step.
 
 ## Start here
@@ -13,7 +13,7 @@
 
 ## Dashboard
 - [index.html](index.html): GitHub Pages entry point — redirects to the dashboard file below.
-- [saltwater_trip_planner.html](saltwater_trip_planner.html): the entire dashboard — Trip Finder, Processing Planner, and Processing Calculator tabs; trip data lives in the inline `RAW` JS array; return dates are derived at runtime from departure date + trip length.
+- [saltwater_trip_planner.html](saltwater_trip_planner.html): the entire dashboard — Trip Finder, Processing Planner, and Processing Calculator tabs; long-range trip data lives in the inline `RAW` JS array (return dates derived from departure + trip length); multi-day rows live in the auto-generated `MULTI` block (return date/time as posted). Tests: `node test-multiday.js`, `python3 tests/test_refresh_multiday.py`.
 
 ## Refresh
 - [refresh_multiday.py](refresh_multiday.py): headless multi-day refresh (four landings) — writes data/ and the MULTI-DAY block; tests in tests/.

@@ -116,6 +116,18 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(len(rm.dedupe([a, b])), 1)
         self.assertEqual(len(rm.dedupe([a, self.row(deptime="7:00 PM")])), 2)
 
+    def test_carry_forward_keeps_departed_unreturned_rows(self):
+        prev = [self.row(boat="Constitution", ttype="2.5 Day", dep="2026-09-03", deptime="7:00 PM", ret="2026-09-06"),   # departed, at sea → carry
+                self.row(boat="Islander", ttype="3 Day", dep="2026-09-01", ret="2026-09-04"),                            # already returned → drop
+                self.row(boat="Fortune", ttype="2 Day", dep="2026-09-10", ret="2026-09-12"),                             # future, missing now → cancelled → drop
+                self.row(landing="HM", boat="Legend", ttype="3 Day", dep="2026-09-03", ret="2026-09-06"),                # HM stale → handled elsewhere → skip
+                self.row(boat="Tomahawk", dep="2026-09-03", deptime="6:00 PM", ret="2026-09-05")]                       # still listed → not duplicated
+        kept = [self.row(boat="Tomahawk", dep="2026-09-03", deptime="6:00 PM", ret="2026-09-05")]
+        sources = {"FL": {"status": "ok"}, "HM": {"status": "stale"}}
+        out = rm.carry_forward(prev, kept, sources, today="2026-09-05")
+        self.assertEqual([r["boat"] for r in out], ["Constitution"])
+        self.assertEqual(out[0]["src"], "carried")
+
     def test_capacity_fill(self):
         rows = [self.row(cap="29"), self.row(cap="", spots="Chartered", dep="2026-09-10"),
                 self.row(boat="Mystery", cap="", spots="Chartered")]
