@@ -411,6 +411,18 @@ def write_block(html_path: Path, block: str) -> bool:
     return True
 
 
+def stamp_readme(readme: Path, as_of: str) -> bool:
+    """Keep the README's 'Last multi-day refresh' line in step with the data (CONTRIBUTING: every data commit updates the README)."""
+    if not readme.exists():
+        return False
+    s = readme.read_text(encoding="utf-8")
+    new = re.sub(r"(\*\*Last multi-day refresh:\*\* )\d{4}-\d{2}-\d{2}", r"\g<1>" + as_of, s, count=1)
+    if new == s:
+        return False
+    readme.write_text(new, encoding="utf-8")
+    return True
+
+
 # ----------------------------------------------------------------------------- main
 def run(args) -> int:
     global DATA, HOLD
@@ -537,6 +549,8 @@ def run(args) -> int:
             if html_path.exists() and write_block(html_path, render_block(kept, as_of, sources)):
                 summary["html_written"] = True
                 log(f"HTML block written to {html_path.name} ({len(kept)} rows, as of {as_of})")
+                if stamp_readme(html_path.parent / "README.md", as_of):
+                    log("README freshness line updated")
             else:
                 log(f"NOTE: markers not found in {html_path} — HTML untouched (data files updated)")
 

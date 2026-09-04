@@ -139,6 +139,8 @@ Searcher and Intrepid were added 2026-09-03 and seeded from the Fisherman's Land
 | Point Loma Sportfishing | https://www.pointlomasportfishing.com/schedules.php (paged) |
 | H&M Landing | https://www.hmlanding.com/xolacache (JSONP feed behind the trip calendar) |
 
+**Last multi-day refresh:** 2026-09-03 (updated automatically by `refresh_multiday.py`)
+
 Calibration source for past days: https://www.sandiegofishreports.com/dock_totals/boats.php?date=YYYY-MM-DD (boats by landing with anglers and trip type).
 
 **Red Rooster III** (`https://www.redrooster3.com/trips.htm`) is tracked but had no 2026 fall schedule posted at the time of the last data pull — only 2025 dates were available.

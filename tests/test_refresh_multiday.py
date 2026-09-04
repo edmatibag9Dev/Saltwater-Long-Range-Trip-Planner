@@ -177,6 +177,14 @@ class PipelineTests(unittest.TestCase):
             self.assertTrue(s.endswith("const trips = [];\n</script>"))
             self.assertEqual(s.count(rm.MARK_START), 1)
 
+    def test_readme_stamp(self):
+        with tempfile.TemporaryDirectory() as d:
+            rd = Path(d) / "README.md"
+            rd.write_text("x\n**Last multi-day refresh:** 2026-01-01 (auto)\ny\n", encoding="utf-8")
+            self.assertTrue(rm.stamp_readme(rd, "2026-09-06"))
+            self.assertIn("**Last multi-day refresh:** 2026-09-06 (auto)", rd.read_text(encoding="utf-8"))
+            self.assertFalse(rm.stamp_readme(rd, "2026-09-06"))  # already current → no change
+
     def test_missing_markers_leave_html_untouched(self):
         with tempfile.TemporaryDirectory() as d:
             html = Path(d) / "planner.html"
