@@ -1,0 +1,6 @@
+# refresh_multiday.py scratch
+data/hold/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/

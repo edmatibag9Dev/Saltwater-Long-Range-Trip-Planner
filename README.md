@@ -43,6 +43,11 @@ This dashboard was built to answer two questions at a glance:
 | `CONTRIBUTING.md` | Commit message and README standards for this repo |
 | `AGENTS.md` | AI agent behavior rules for GitHub operations and repo maintenance |
 | `Saltwater_Fish_Processing_Calculator_v2.xlsx` | Offline per-fish processing-cost workbook (Numbers-compatible) — same engine rules, for use at sea |
+| `refresh_multiday.py` | Fetches multi-day boat schedules from the four San Diego landings, applies the processing-planner rules, writes `data/` and (in Phase 2) the planner's MULTI-DAY block. Headless, no browser. |
+| `tests/test_refresh_multiday.py` | 15 offline tests for the refresh script (parser, rules, capacity fill, dedupe, block writer, stale/hold safety nets) using saved pages in `tests/fixtures/` |
+| `data/multiday_trips.csv` | Latest kept multi-day rows (1.5-day+, returning 5–10 AM, long-range boats removed) — the audit copy of what the planner shows |
+| `data/landing_trips_raw.csv` | Every trip parsed from the four landings before filtering, for audit |
+| `data/boat_capacity.json`, `data/sources.json`, `data/last_run.json`, `data/refresh.log` | Per-boat max capacity (fills chartered rows), per-landing fetch status and last-good date, last-run summary for the scheduled task, append-only run log |
 | `README.md` | This file |
 
 ---
@@ -165,6 +170,19 @@ The Processing Planner shows **boat capacity** as the angler count, not actual b
 ---
 
 ## Update / Refresh Instructions
+
+### Multi-day boats (Processing Planner only)
+
+Multi-day boats from Fisherman's Landing, H&M Landing, Point Loma Sportfishing, and Seaforth are refreshed by `refresh_multiday.py`, which needs no browser — all four sources load headlessly:
+
+```
+python3 refresh_multiday.py            # fetch, write data/, update the planner's MULTI-DAY block
+python3 refresh_multiday.py --dry-run  # fetch and write data/ only
+python3 tests/test_refresh_multiday.py # offline tests against saved pages
+```
+
+Rules applied: trip length 1.5 days or longer, return time 5:00–10:00 AM, long-range boats dropped (they live in `RAW`). Safety nets: 30 s per-request timeout with two retries, 10-minute fetch budget, a failed landing keeps its previous rows and is marked stale, a row-count collapse below 60 % of the last run holds the page and writes the CSV to `data/hold/`, and an unchanged result exits `already-landed` without rewriting anything. Exit codes: 0 landed / already-landed, 2 partial, 3 hold, 4 failed. A weekly scheduled task (Sunday 8:15 AM) runs this and pushes the result.
+
 
 To pull fresh availability data:
 

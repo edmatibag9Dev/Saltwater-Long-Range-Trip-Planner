@@ -1,0 +1,983 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="js/jsnlog.min.js"></script>
+<script language="javascript">
+var appender= JL.createAjaxAppender();
+appender.setOptions({"url":"utilities\/jsnlog.logger.php"});
+JL().setOptions({"appenders": [appender]});
+</script>
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seaforth Sportfishing - Online Booking Schedule</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/style.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/layout_styles.css?v=20160812" rel="stylesheet" type="text/css">
+<link href="/sales/css/nav_styles.css?v=20160808" rel="stylesheet" type="text/css">
+<link href="/sales/css/schedule.css?v=20160808" rel="stylesheet" type="text/css">
+<link href="/sales/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css">
+<link href="/sales/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/responsive.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/style-dev.css?v=20190605a" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Kameron:400,700" rel="stylesheet" type="text/css">
+<link href="/sales/fontawesome47/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="/sales/js/jquery-3.7.1.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/sales/js/script.js?v=20160808" type="text/javascript"></script>
+<script src="/sales/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<script src="/sales/js/jquery.blockUI.js?v=20160808" type="text/javascript"></script>
+<script src="/sales/js/resos.js?v=20260820" type="text/javascript"></script>
+<script src="/sales/js/phone-format.min.js" type="text/javascript"></script>
+<script src="/sales/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<script src="/sales/js/bootstrap-multiselect.js" type="text/javascript"></script>
+<link rel="apple-touch-icon" sizes="57x57" href="/sales/images/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/sales/images/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/sales/images/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/sales/images/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/sales/images/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/sales/images/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/sales/images/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/sales/images/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/sales/images/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/sales/images/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/sales/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/sales/images/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/sales/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/sales/images/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/sales/images/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div id="top-wrap">
+<div class="container">
+<div id="top-left">
+	<a href="http://www.seaforthlanding.com/" class="main"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;HOME</a>&nbsp;&nbsp; |
+	<a href="/sales/" class="main"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;BOOK ONLINE</a>&nbsp;&nbsp; |
+	<a href="https://seaforth.fishingreservations.net/giftcard/giftcard.php" class="main"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;&nbsp;GIFT CARDS</a>&nbsp;&nbsp; |
+	<a href="https://www.sdwhale.com" class="main"><i class="fa fa-binoculars" aria-hidden="true"></i>&nbsp;&nbsp;WHALE WATCH</a>
+</div>
+<div id="top-right">
+<a href="https://www.facebook.com/seaforthlanding/" class="main" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
+<!--<a href="#" class="main" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
+<a href="tel:619-224-3383" class="main" target="_blank"><i class="fa fa-phone" aria-hidden="true"></i></a>
+</div>
+</div>
+</div>
+<a id="top"></a>
+
+
+<!-- body -->
+
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-sm-6">
+<div class="head-col1"><a href="http://www.seaforthlanding.com/"><img src="images/seaforth-sportfishing-logo.png" alt="Seaforth Sportfishing Logo"></a></div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+  <div class="head-col2">
+    <h2>619.224.3383 San Diego, Ca. USA</h2>
+  </div>
+  </div>
+
+  </div>
+</div>
+
+
+
+<div class="container">
+
+<div id="wrap-all-content">
+
+<nav class="navbar navbar-inverse">
+  <div class="row">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="http://www.seaforthlanding.com/charterfishing.php">CHARTER RATES</a></li>
+        <li class=""><a href="http://www.seaforthlanding.com/fleet.php">FLEET</a></li>
+	<li><a href="http://www.seaforthlanding.com/fishcounts.php">FISH COUNTS</a></li>
+	<li><a href="http://www.seaforthlanding.com/fishreports.php">FISH REPORTS</a></li>
+	<li><a href="/sales/">BOOK TRIP</a></li>
+	<li><a href="http://www.seaforthlanding.com/gallery.php">PHOTOS</a></li>
+	<li><a href="http://www.seaforthlanding.com/links.php">LINKS</a></li>
+	<li class="dropdown">
+          <a class="design dropdown-toggle" data-toggle="dropdown" href="#">TRIP TYPE<span class="caret"></span></a>
+          <ul class="dropdown-menu design-nav">
+            <li><a href="http://www.seaforthlanding.com/halfday.php">Half Day</a></li>
+            <li><a href="http://www.seaforthlanding.com/fullday-coronado.php">Full Day - Coronado Island</a></li>
+            <li><a href="http://www.seaforthlanding.com/oneandonehalfday.php">One and One Half Day</a></li>
+            <li><a href="http://www.seaforthlanding.com/whalewatch.php">Whale Watching</a></li>
+          </ul>
+        </li>
+	<li class="dropdown">
+          <a class="design dropdown-toggle" data-toggle="dropdown" href="#">CONTACT<span class="caret"></span></a>
+          <ul class="dropdown-menu design-nav">
+            <li><a href="http://www.seaforthlanding.com/directions.php">Directions</a></li>
+            <li><a href="http://www.seaforthlanding.com/contact.php">Contact Form</a></li>
+          </ul>
+        </li>
+	<li class="hide-li"><a href="http://www.seaforthlanding.com/directions.php">Directions</a></li>
+        <li class="hide-li"><a href="http://www.seaforthlanding.com/contact.php">Contact Form</a></li>
+      
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+<br class='visible-sm-block visible-md-block'>
+<br class='visible-sm-block visible-md-block'>
+<br><br>
+<div class='row'>
+<div class='col-xs-12 bck-mobi-clr'>
+<br>
+<div class='text-center'>
+<form id="filter-form" style="display: none;">
+<div class="visible-xs-block filter-break"></div>
+Search by Boat: <select class='filter-select' name='boat_filter[]' multiple='multiple'>
+	<option value='12'>Apollo</option>
+	<option value='15'>Aztec</option>
+	<option value='62'>Cortez</option>
+	<option value='1177'>Highliner</option>
+	<option value='185'>New Seaforth</option>
+	<option value='193'>Outer Limits</option>
+	<option value='205'>Pacific Voyager</option>
+	<option value='1068'>Pacifica</option>
+	<option value='1112'>Polaris Supreme</option>
+	<option value='248'>San Diego</option>
+	<option value='261'>Sea Watch</option>
+	<option value='1001'>Tribute</option>
+	<option value='304'>Voyager</option>
+</select>
+
+<div class="visible-xs-block filter-break"></div>
+by Trip Type: <select class='filter-select' name='trip_filter[]' multiple='multiple'>
+	<option value='5'>1.5 Day</option>
+	<option value='1025'>1.5 Day Limited Load</option>
+	<option value='15'>10 Day</option>
+	<option value='6'>2 Day</option>
+	<option value='1026'>2 Day Limited Load</option>
+	<option value='7'>2.5 Day</option>
+	<option value='1027'>2.5 Day Limited Load</option>
+	<option value='8'>3 Day</option>
+	<option value='1028'>3 Day Limited Load</option>
+	<option value='9'>4 Day</option>
+	<option value='10'>5 Day</option>
+	<option value='1504'>5 Day Freelance (Passport Required)</option>
+	<option value='13'>8 Day</option>
+	<option value='90'>AM Half Day</option>
+	<option value='1487'>Full Day (Passport Required)</option>
+	<option value='4'>Overnight</option>
+	<option value='1024'>Overnight Limited Load</option>
+	<option value='1458'>Pending</option>
+	<option value='91'>PM Half Day</option>
+	<option value='1454'>Refund</option>
+	<option value='92'>Twilight</option>
+</select>
+
+<div class="visible-xs-block filter-break"></div>
+by Month: <a id="filter-month-btn" class="btn btn-default"><i class="fa fa-calendar"></i><span id="filter-month-display"></span></a>
+<input type="text" id="filter-month" name="month_filter" value="">
+<input type="hidden" name="mode" value="table">
+<input class="btn btn-default" type="button" id="filter-clear" value="Clear"> 
+<input class="btn btn-primary" type="submit" name="submit" value="Search Now"> 
+</form>
+<script>
+$(document).ready(function () {
+	$(".filter-select").multiselect();
+	$("#filter-month").datepicker({
+		format: "yyyy-mm",
+		minViewMode: "months",
+		autoclose: true
+	}).change(function () {
+		var display_date = "";
+		var months = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ");
+		if ($(this).val()) {
+			parts = $(this).val().split("-");
+			display_date = " " + months[Number(parts[1]) - 1] + " " + (Number(parts[0]) % 100);
+		} else {
+		}
+		$("#filter-month-display").html(display_date);
+	});
+	// Keep the input in the layout instead of display:none. bootstrap-datepicker
+	// positions its dropdown from this element's .offset(), and jQuery reports
+	// {top:0,left:0} for a display:none element — so any re-place() (clicking the
+	// prev/next arrows) threw the dropdown into the top-left of the viewport.
+	// Absolutely positioned with no offsets, it sits at its static position next
+	// to the button, invisible but measurable.
+	$("#filter-month").css({
+		position: "absolute",
+		opacity: 0,
+		width: "1px",
+		height: "1px",
+		padding: 0,
+		border: 0,
+		margin: 0
+	});
+	$("#filter-month-btn").click(function () {
+		$("#filter-month").focus();
+	});
+	$("#filter-clear").click(function () {
+		$("#filter-month").val("");
+		$("#filter-month-display").html("");
+		$(".filter-select").multiselect("deselectAll", false);
+		$(".filter-select").multiselect("rebuild");
+	});
+	$("#filter-form").slideDown();
+});
+</script></div>
+<br>
+<div class="col-xs-12">
+		<table class="scale-table">
+			<tbody>
+				<tr>
+					<td colspan="2" class="scale-title">
+						<div class='row'>
+							<div class='col-xs-12 col-md-12'>
+								<span class='schedule-title'>Upcoming Trips</span><br>
+								<div class="schedule-instructions">
+									<p>To make your reservation please click on the green button next to the trip 
+									you would like to go on.  Then follow the instructions to complete your reservation.</p>
+									<form id="filter-form" style="display: none;">
+<div class="visible-xs-block filter-break"></div>
+Search by Boat: <select class='filter-select' name='boat_filter[]' multiple='multiple'>
+	<option value='12'>Apollo</option>
+	<option value='15'>Aztec</option>
+	<option value='62'>Cortez</option>
+	<option value='1177'>Highliner</option>
+	<option value='185'>New Seaforth</option>
+	<option value='193'>Outer Limits</option>
+	<option value='205'>Pacific Voyager</option>
+	<option value='1068'>Pacifica</option>
+	<option value='1112'>Polaris Supreme</option>
+	<option value='248'>San Diego</option>
+	<option value='261'>Sea Watch</option>
+	<option value='1001'>Tribute</option>
+	<option value='304'>Voyager</option>
+</select>
+
+<div class="visible-xs-block filter-break"></div>
+by Trip Type: <select class='filter-select' name='trip_filter[]' multiple='multiple'>
+	<option value='5'>1.5 Day</option>
+	<option value='1025'>1.5 Day Limited Load</option>
+	<option value='15'>10 Day</option>
+	<option value='6'>2 Day</option>
+	<option value='1026'>2 Day Limited Load</option>
+	<option value='7'>2.5 Day</option>
+	<option value='1027'>2.5 Day Limited Load</option>
+	<option value='8'>3 Day</option>
+	<option value='1028'>3 Day Limited Load</option>
+	<option value='9'>4 Day</option>
+	<option value='10'>5 Day</option>
+	<option value='1504'>5 Day Freelance (Passport Required)</option>
+	<option value='13'>8 Day</option>
+	<option value='90'>AM Half Day</option>
+	<option value='1487'>Full Day (Passport Required)</option>
+	<option value='4'>Overnight</option>
+	<option value='1024'>Overnight Limited Load</option>
+	<option value='1458'>Pending</option>
+	<option value='91'>PM Half Day</option>
+	<option value='1454'>Refund</option>
+	<option value='92'>Twilight</option>
+</select>
+
+<div class="visible-xs-block filter-break"></div>
+by Month: <a id="filter-month-btn" class="btn btn-default"><i class="fa fa-calendar"></i><span id="filter-month-display"></span></a>
+<input type="text" id="filter-month" name="month_filter" value="">
+<input type="hidden" name="mode" value="table">
+<input class="btn btn-default" type="button" id="filter-clear" value="Clear"> 
+<input class="btn btn-primary" type="submit" name="submit" value="Search Now"> 
+</form>
+<script>
+$(document).ready(function () {
+	$(".filter-select").multiselect();
+	$("#filter-month").datepicker({
+		format: "yyyy-mm",
+		minViewMode: "months",
+		autoclose: true
+	}).change(function () {
+		var display_date = "";
+		var months = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ");
+		if ($(this).val()) {
+			parts = $(this).val().split("-");
+			display_date = " " + months[Number(parts[1]) - 1] + " " + (Number(parts[0]) % 100);
+		} else {
+		}
+		$("#filter-month-display").html(display_date);
+	});
+	// Keep the input in the layout instead of display:none. bootstrap-datepicker
+	// positions its dropdown from this element's .offset(), and jQuery reports
+	// {top:0,left:0} for a display:none element — so any re-place() (clicking the
+	// prev/next arrows) threw the dropdown into the top-left of the viewport.
+	// Absolutely positioned with no offsets, it sits at its static position next
+	// to the button, invisible but measurable.
+	$("#filter-month").css({
+		position: "absolute",
+		opacity: 0,
+		width: "1px",
+		height: "1px",
+		padding: 0,
+		border: 0,
+		margin: 0
+	});
+	$("#filter-month-btn").click(function () {
+		$("#filter-month").focus();
+	});
+	$("#filter-clear").click(function () {
+		$("#filter-month").val("");
+		$("#filter-month-display").html("");
+		$(".filter-select").multiselect("deselectAll", false);
+		$(".filter-select").multiselect("rebuild");
+	});
+	$("#filter-form").slideDown();
+});
+</script>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">Thursday, September 3, 2026</td>    
+				</tr>
+				<tr class="hidden-xs hidden-sm">
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row no-gutter">
+							<div class="col-md-4 col-sm-6 trip-info-head" style="text-align: left"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-4 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1048848"><a href="/sales/user.php?trip_id=1048848" class="green_butn" id="trip-1048848-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1048848">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>Twilight<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Thu. 9-3-2026 <br class='hidden-xs hidden-sm'>6:00 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Thu. 9-3-2026 <br class='hidden-xs hidden-sm'>10:30 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$75</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#51;&#55;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1048848">
+						<div class="trip-comments">Definite Run! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">Friday, September 4, 2026</td>    
+				</tr>
+				<tr class="hidden-xs hidden-sm">
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row no-gutter">
+							<div class="col-md-4 col-sm-6 trip-info-head" style="text-align: left"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-4 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1085105"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1085105-btn"></span></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1085105">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span> <span class='trip-icons'><i class='fa fa-book' title='Passport Required'></i></span><strong>Sea Watch</strong><br>Full Day (Passport Required)<br><span class='charter-alert'><em>Passport Required</em></span><hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>5:30 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>5:00 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>30</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$250</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1085105">
+						<div class="trip-comments">Definite run! Full Day Trip fishing Offshore or Coronado Islands dependent on best available conditions. Valid passport or passport card required for all passengers. Mexican Fishing Permit additional. Return times may be later than posted. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1048481"><a href="/sales/user.php?trip_id=1048481" class="green_butn" id="trip-1048481-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1048481">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>AM Half Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>6:00 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>11:30 AM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$80</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#55;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1048481">
+						<div class="trip-comments">Definite run! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1085554"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1085554-btn"></span></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1085554">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span> <span class='trip-icons'><i class='fa fa-cutlery' title='Meals Included in Price'></i></span><strong>Cortez</strong><br>2 Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>10:00 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>6:00 AM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>14</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$800</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1085554">
+						<div class="trip-comments">Morning Departure! Limited Load Freelance 2 Day fishing offshore for Tuna, Yellowtail and Dorado. Permits additional. Passengers will be responsible for furnishing their own pillow and blanket. Fuel surcharge may apply depending on the current cost of fuel. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1048665"><a href="/sales/user.php?trip_id=1048665" class="green_butn" id="trip-1048665-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1048665">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>PM Half Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>12:30 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>5:30 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$80</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#50;&#54;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1048665">
+						<div class="trip-comments">Definite run! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1048849"><a href="/sales/user.php?trip_id=1048849" class="green_butn" id="trip-1048849-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1048849">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>Twilight<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>6:00 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>10:30 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$75</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#51;&#53;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1048849">
+						<div class="trip-comments">Definite run! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1080687"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1080687-btn"></span></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1080687">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span> <span class='trip-icons'><i class='fa fa-cutlery' title='Meals Included in Price'></i></span><strong>Pacific Voyager</strong><br>2 Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>8:00 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>5:00 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>20</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$950</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1080687">
+						<div class="trip-comments">Definite Run! Limited Load 2 Day targeting Bluefin Tuna and Yellowtail. Meals included. Permits additional. Passengers will be responsible for furnishing their own pillow and blanket. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1045734"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1045734-btn"></span></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1045734">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span> <span class='trip-icons'><i class='fa fa-cutlery' title='Meals Included in Price'></i> <i class='fa fa-sm fa-file-text' title='Permits Included in Price'></i></span><strong>Tribute</strong><br>2.5 Day Limited Load<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Fri. 9-4-2026 <br class='hidden-xs hidden-sm'>9:00 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Mon. 9-7-2026 <br class='hidden-xs hidden-sm'>6:00 AM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>26</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$1,275</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1045734">
+						<div class="trip-comments">Pelagic Gear sponsored trip. Limited load 2.5 day fishing trip. Mexican fishing permit and meals included.  Please bring your own pillow and blanket. Fuel surcharge may apply depending on the current cost of fuel. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">Saturday, September 5, 2026</td>    
+				</tr>
+				<tr class="hidden-xs hidden-sm">
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row no-gutter">
+							<div class="col-md-4 col-sm-6 trip-info-head" style="text-align: left"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-4 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1048482"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1048482-btn"></span></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1048482">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>AM Half Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Sat. 9-5-2026 <br class='hidden-xs hidden-sm'>6:00 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Sat. 9-5-2026 <br class='hidden-xs hidden-sm'>11:30 AM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$80</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1048482">
+						<div class="trip-comments">Definite run! California License Free Day! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1048850"><a href="/sales/user.php?trip_id=1048850" class="green_butn" id="trip-1048850-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1048850">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>Twilight<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Sat. 9-5-2026 <br class='hidden-xs hidden-sm'>6:00 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Sat. 9-5-2026 <br class='hidden-xs hidden-sm'>10:30 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$75</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#51;&#53;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1048850">
+						<div class="trip-comments">Definite run! California License Free Day! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1081635"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1081635-btn"></span></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1081635">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>Pacifica</strong><br>1.5 Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Sat. 9-5-2026 <br class='hidden-xs hidden-sm'>7:00 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Mon. 9-7-2026 <br class='hidden-xs hidden-sm'>6:00 AM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>28</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$555</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1081635">
+						<div class="trip-comments">1.5 Day Freelance trip targeting Tuna and Yellowtail. Bunk and bait are included. Mexican Fishing Permit and Meals additional. Passengers must bring their own pillow & blanket. Fuel surcharge may apply depending on the current cost of fuel. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1052234"><a href="/sales/user.php?trip_id=1052234" class="green_butn" id="trip-1052234-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1052234">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>Apollo</strong><br>3 Day Limited Load<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Sat. 9-5-2026 <br class='hidden-xs hidden-sm'>9:00 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Tue. 9-8-2026 <br class='hidden-xs hidden-sm'>7:00 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>20</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$1,500</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#54;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1052234">
+						<div class="trip-comments">Freelance 3 Day fishing offshore for Tuna, Yellowtail and Dorado. Meals and Permits additional. Passengers will be responsible for furnishing their own pillow and blanket. Fuel surcharge may apply depending on the current cost of fuel. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">Sunday, September 6, 2026</td>    
+				</tr>
+				<tr class="hidden-xs hidden-sm">
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row no-gutter">
+							<div class="col-md-4 col-sm-6 trip-info-head" style="text-align: left"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-4 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1085107"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1085107-btn"></span></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1085107">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span> <span class='trip-icons'><i class='fa fa-book' title='Passport Required'></i></span><strong>Sea Watch</strong><br>Full Day (Passport Required)<br><span class='charter-alert'><em>Passport Required</em></span><hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>5:30 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>5:00 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>30</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$250</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1085107">
+						<div class="trip-comments">Definite run! Full Day Trip fishing Offshore or Coronado Islands dependent on best available conditions. Valid passport or passport card required for all passengers. Mexican Fishing Permit additional. Return times may be later than posted. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1048483"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1048483-btn"></span></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1048483">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>AM Half Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>6:00 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>11:30 AM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$80</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1048483">
+						<div class="trip-comments">Definite run! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1048667"><a href="/sales/user.php?trip_id=1048667" class="green_butn" id="trip-1048667-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1048667">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>PM Half Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>12:30 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>5:30 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$80</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#49;&#53;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1048667">
+						<div class="trip-comments">Definite run! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1048851"><a href="/sales/user.php?trip_id=1048851" class="green_butn" id="trip-1048851-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1048851">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>Twilight<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>6:00 PM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Sun. 9-6-2026 <br class='hidden-xs hidden-sm'>10:30 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$75</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#53;&#53;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1048851">
+						<div class="trip-comments">Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">Monday, September 7, 2026</td>    
+				</tr>
+				<tr class="hidden-xs hidden-sm">
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row no-gutter">
+							<div class="col-md-4 col-sm-6 trip-info-head" style="text-align: left"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-6 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-md-1 col-sm-4 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-md-2 col-sm-4 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1083084"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1083084-btn"></span></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1083084">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span> <span class='trip-icons'><i class='fa fa-book' title='Passport Required'></i></span><strong>San Diego</strong><br>Full Day (Passport Required)<br><span class='charter-alert'><em>Passport Required</em></span><hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Mon. 9-7-2026 <br class='hidden-xs hidden-sm'>5:30 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Mon. 9-7-2026 <br class='hidden-xs hidden-sm'>5:00 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>36</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$250</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1083084">
+						<div class="trip-comments">Full Day Trip fishing Offshore or Coronado Islands dependent on best available conditions. Valid passport or passport card required for all passengers. Mexican Fishing Permit additional. Return times may be later than posted. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-light trip-cell" data-trip-id="1085108"><a href="/sales/user.php?trip_id=1085108" class="green_butn" id="trip-1085108-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1085108">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span> <span class='trip-icons'><i class='fa fa-book' title='Passport Required'></i></span><strong>Sea Watch</strong><br>Full Day (Passport Required)<br><span class='charter-alert'><em>Passport Required</em></span><hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Mon. 9-7-2026 <br class='hidden-xs hidden-sm'>5:30 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Mon. 9-7-2026 <br class='hidden-xs hidden-sm'>5:00 PM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>30</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$250</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_green13'>&#49;&#55;</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-light trip-cell" data-trip-id="1085108">
+						<div class="trip-comments">Definite run! Full Day Trip fishing Offshore or Coronado Islands dependent on best available conditions. Valid passport or passport card required for all passengers. Mexican Fishing Permit additional. Return times may be later than posted. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td  rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1048484"><span data-phone-number="(619) 224-3383" class="fa fa-lg fa-phone call-btn" id="trip-1048484-btn"></span></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1048484">
+						<div class="row">
+							<div class="col-md-4 col-sm-12 trip-info"><span class='lbl'></span><strong>New Seaforth</strong><br>AM Half Day<hr class='trip-info-break hidden-md hidden-lg'></div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-depart"><span class='lbl'></span>Mon. 9-7-2026 <br class='hidden-xs hidden-sm'>6:00 AM</div>
+							<div class="col-md-2 col-sm-6 col-xs-12 trip-return"><span class='lbl'></span>Mon. 9-7-2026 <br class='hidden-xs hidden-sm'>11:30 AM</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-load"><span class='lbl'></span>55</div>
+							<div class="col-md-1 col-sm-4 col-xs-4 trip-price"><span class='lbl'></span>$80</div>
+							<div class="col-md-2 col-sm-4 col-xs-4 trip-spots"><span class='lbl'></span><span class='font_red13'>Full</span></div>
+						</div>
+					</td>
+				</tr>
+								<tr>
+					<td class="scale-group scale-dark trip-cell" data-trip-id="1048484">
+						<div class="trip-comments">Definite run! Fishing license and rod rental additional, if needed. <i></i></div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-foot" colspan="2">Page 1 of 15 <a class="next external" href="?page=2">Next&gt;</a></td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+<script type="text/javascript">
+function updateLabels() {
+	if (window.matchMedia('(min-width: 992px)').matches) {
+        $('.trip-info .lbl').html('');
+        $('.trip-depart .lbl').html('');
+        $('.trip-return .lbl').html('');
+        $('.trip-load .lbl').html('');
+        $('.trip-price .lbl').html('');
+        $('.trip-spots .lbl').html('');
+        $('.trip-info-head .lbl').html('Trip Info');
+        $('.trip-depart-head .lbl').html('Departure');
+        $('.trip-return-head .lbl').html('Return');
+        $('.trip-load-head .lbl').html('Max Load');
+        $('.trip-price-head .lbl').html('Price');
+        $('.trip-spots-head .lbl').html('Open Spots');
+		$('.boat-filter').css('margin-top', '44px');
+		$('.trip-info').css('text-align', 'left');
+		$('.trip-depart, .trip-return, .trip-load, .trip-price, .trip-spots').css('text-align', 'center');
+    } else if (window.matchMedia('(min-width: 768px)').matches) {
+        $('.trip-lbl .lbl').html('Trip Info: ');
+        $('.trip-depart .lbl').html('Departs: ');
+        $('.trip-return .lbl').html('Returns: ');
+        $('.trip-load .lbl').html('Max Load:&nbsp;');
+        $('.trip-price .lbl').html('Price:&nbsp;');
+        $('.trip-spots .lbl').html('Open Spots:&nbsp;');
+        $('.trip-info-head .lbl').html('');
+        $('.trip-depart-head .lbl').html('');
+        $('.trip-return-head .lbl').html('');
+        $('.trip-load-head .lbl').html('');
+        $('.trip-price-head .lbl').html('');
+        $('.trip-spots-head .lbl').html('');
+		$('.trip-load, .trip-price').css('text-align', 'left');
+		$('.boat-filter').css('margin-top', '44px');
+		$('.trip-info').css('text-align', 'center');
+		$('.trip-depart, .trip-return, .trip-spots').css('text-align', 'right');
+		$('.trip-spots .lbl, .trip-load .lbl, .trip-price .lbl').css('float', 'inherit').css('clear', 'both').css('display', 'inline-block');
+    } else {
+        $('.trip-info .lbl').html('');
+        $('.trip-depart .lbl').html('Departs: ');
+        $('.trip-return .lbl').html('Returns: ');
+        $('.trip-load .lbl').html('Max Load: ');
+        $('.trip-price .lbl').html('Price: ');
+        $('.trip-spots .lbl').html('Open Spots: ');
+        $('.trip-info-head .lbl').html('');
+        $('.trip-depart-head .lbl').html('');
+        $('.trip-return-head .lbl').html('');
+        $('.trip-load-head .lbl').html('');
+        $('.trip-price-head .lbl').html('');
+        $('.trip-spots-head .lbl').html('');
+		$('.boat-filter').css('margin-top', 'inherit');
+		$('.trip-info').css('text-align', 'center');
+		$('.trip-depart, .trip-return, .trip-spots, .trip-load, .trip-price').css('text-align', 'right');
+		$('.trip-spots .lbl, .trip-load .lbl, .trip-price .lbl').css('float', 'left').css('clear', 'both').css('display', 'block');
+    }
+}
+
+$(window).resize(function () {
+	updateLabels();
+});
+
+$(document).ready(function () {
+	$('.call-btn').click(function () {
+		alert('Please call ' + $(this).attr('data-phone-number') + ' to inquire about this trip.');
+	});
+	$('.trip-cell').click(function (event) {
+		var tripId = $(this).data('trip-id');
+		var $btn = $("#trip-" + tripId + "-btn")
+		if ($btn.length) {
+			$btn.get(0).click();
+		}
+	});
+	$('.trip-cell').hover(function () {
+		$(this).closest('table').find('td[data-trip-id=' + $(this).attr('data-trip-id') + ']').addClass('highlight');
+	}, function () {
+		$(this).closest('table').find('td[data-trip-id=' + $(this).attr('data-trip-id') + ']').removeClass('highlight');
+	});
+	updateLabels();
+});
+
+</script></div>
+</div>
+<br><br>
+	<div style="clear: both;"></div>
+	<br><br>
+
+	<div id="loading" style="display:none; padding: 20px;"> 
+		<img src="graphics/icons/squares.gif" />
+		<br class="hidden-xs">
+		<h1 class="hidden-xs">Processing...</h1> 
+	</div> 
+
+	<div style="clear: both;"></div>
+</div>
+</div>
+
+<div class="footer">
+ <div id="foot-row1">
+  	<div class="container">
+	<div class="col-md-6 col-sm-6">
+    <div class="head-col1"><img src="images/seaforth-sportfishing-logo.png" alt="Seaforth Sportfishing Logo"></div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+  <div class="head-col2">
+    <h2 class="font-white18">619.224.3383 San Diego, Ca. USA</h2>
+  </div>
+  </div>
+    </div>
+  </div>
+  <div id="foot-row2">
+  	<div class="gridContainer clearfix">
+    <div class="text-center">
+    <span class="font-white18">
+	<a href="/sales/" class="main main-botm">Book Trips</a> | <a href="http://www.seaforthlanding.com/fishcounts.php" class="main main-botm">Fish Counts</a> |  <a href="http://www.seaforthlanding.com/fishreports.php" class="main main-botm">Report</a> |  <a href="http://www.seaforthlanding.com/charterfishing.php" class="main main-botm">Charter Rates</a> |  <a href="http://www.seaforthlanding.com/trip_types.php" class="main main-botm">Trip Types</a> |  <a href="http://www.seaforthlanding.com/fleet.php" class="main main-botm">Our Fleet</a> |  <a href="http://www.seaforthlanding.com/contact.php" class="main main-botm">Contact</a></span>
+<br>
+<br>
+<span class="font-white12">Seaforth Sportfishing - San Diego, CA. USA  Copyright © 2026. All Rights Reserved.<br>
+Website Hosting and Design provided by <a href="https://teck.net/" target="_blank" class="main">TECK.net</a> Fish Counts provided by <a href="https://sportfishingreport.com/" target="_blank" class="main">Sportfishingreport.com</a>. All Rights Reserved.
+</span><br>
+<br>
+<span class="font-white24">
+  <a href="" class=""><i class="fa fa-arrow-up" aria-hidden="true"></i>
+  <br>TOP</a>
+  <!-- BackToTop Button -->
+<a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a></span>
+</div> 
+</div>
+  </div>
+
+
+
+
+
+ <div id="foot-row3">
+
+<br>
+
+  </div>
+  
+</div>
+<script>
+$(".design1,.design-nav1").hover(function () {
+    $(".design-nav1").animate({
+       opacity:"1"
+    }, {
+        queue: false
+    });
+}, function () {
+    $(".design-nav1").animate({
+       opacity:"0"
+    }, {
+        queue: false
+    });
+});
+</script>
+<script>
+$(".design,.design-nav").hover(function () {
+    $(".design-nav").animate({
+       opacity:"1"
+    }, {
+        queue: false
+    });
+}, function () {
+    $(".design-nav").animate({
+       opacity:"0"
+    }, {
+        queue: false
+    });
+});
+</script>
+<script type='text/javascript'>
+//code of goto-up-toggle
+
+$(document).ready(function(){ 
+      $(window).scroll(function(){
+          if ($(this).scrollTop() > 300) { 
+              $('#scroll').fadeIn(); 
+          } else { 
+              $('#scroll').fadeOut(); 
+            }  
+    }); 
+      $('#scroll').click(function(){ 
+          $("html, body").animate({ scrollTop: 0 }, 600); 
+          return false; 
+      }); 
+});
+</script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<script>
+$(document).ready(function () {
+			  $(".navbar-toggle").on("click", function () {
+				    $(this).toggleClass("active");
+			  });
+		});
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T8D49FPFT9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T8D49FPFT9');
+</script>
+
+<script type="text/javascript" src="/bnith__eCt08wmV_SIrgG11APunqS7XGRxhIBRFNM6Xe0qdpTfYEKap1thbYP0MIeHETjHiLMPq030f7_0="></script> <script language="JavaScript" type="text/javascript">const _0x35e8=['visitorId','18127kSXadA','356575NPKVMA','7306axxsAH','get','657833TzFjkt','717302TQdBjl','34lMHocq','x-bni-rncf=QHTcGCO7Qsu4pp32RWvUORpk60U7x4xcqUQAE0Tr26c=;expires=Thu, 01 Jan 2037 00:00:00 UTC;path=/;','61XMWbpU','cookie',';expires=Thu, 01 Jan 2037 00:00:00 UTC;path=/;','then','651866OSUgMa','811155xdatvf','x-bni-fpc='];function _0x258e(_0x5954fe,_0x43567d){return _0x258e=function(_0x35e81f,_0x258e26){_0x35e81f=_0x35e81f-0x179;let _0x1280dc=_0x35e8[_0x35e81f];return _0x1280dc;},_0x258e(_0x5954fe,_0x43567d);}(function(_0x5674de,_0xdcf1af){const _0x512a29=_0x258e;while(!![]){try{const _0x55f636=parseInt(_0x512a29(0x17b))+-parseInt(_0x512a29(0x179))*parseInt(_0x512a29(0x17f))+-parseInt(_0x512a29(0x183))+-parseInt(_0x512a29(0x184))+parseInt(_0x512a29(0x187))*parseInt(_0x512a29(0x17d))+parseInt(_0x512a29(0x188))+parseInt(_0x512a29(0x17c));if(_0x55f636===_0xdcf1af)break;else _0x5674de['push'](_0x5674de['shift']());}catch(_0xd3a1ce){_0x5674de['push'](_0x5674de['shift']());}}}(_0x35e8,0x6b42d));function getClientIdentity(){const _0x47e86b=_0x258e,_0x448fbc=FingerprintJS['load']();_0x448fbc[_0x47e86b(0x182)](_0x4bb924=>_0x4bb924[_0x47e86b(0x17a)]())[_0x47e86b(0x182)](_0x2f8ca1=>{const _0x44872c=_0x47e86b,_0xa48f50=_0x2f8ca1[_0x44872c(0x186)];document[_0x44872c(0x180)]=_0x44872c(0x185)+_0xa48f50+_0x44872c(0x181),document[_0x44872c(0x180)]=_0x44872c(0x17e);});}getClientIdentity();</script></body>
+
+<a hidden href="/7crTmn7a-fcczYcISX0HgwkUyesaNwHAGRrkdXiJ5VE=.html">7crTmn7a-fcczYcISX0HgwkUyesaNwHAGRrkdXiJ5VE=.html</a><script type="text/javascript">var _0xcaad=["indexOf","; path=/","cookie","=","x-bni-ja","stack","phantomjs","plugins","length","onmousemove"];var err;function indexOfString(_0x1ce0x3,_0x1ce0x4){return _0x1ce0x3[_0xcaad[0]](_0x1ce0x4)}try{null[0]()}catch(e){err=e};function setCookie(_0x1ce0x6){var _0x1ce0x7=-1275714152;var _0x1ce0x8=1450059982;var _0x1ce0x9=_0x1ce0x7+_0x1ce0x8+_0xcaad[1];document[_0xcaad[2]]=_0x1ce0x6+_0xcaad[3]+_0x1ce0x9}function set_answer_cookie(){setCookie(_0xcaad[4])}function set_answer_cookie_1(){set_answer_cookie()}if((indexOfString(err[_0xcaad[5]],_0xcaad[6])> -1)||(!(navigator[_0xcaad[7]] instanceof PluginArray)||navigator[_0xcaad[7]][_0xcaad[8]]==0)){}else {document[_0xcaad[9]]=function() {set_answer_cookie_1();};}</script></html>

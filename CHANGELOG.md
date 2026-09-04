@@ -5,6 +5,9 @@ All notable changes to the Saltwater Long Range Trip Planner. Newest first.
 ## [2026-09-03]
 
 ### Added
+- **`refresh_multiday.py`** — headless fetch of multi-day boat schedules from Fisherman's Landing, Seaforth, Point Loma Sportfishing, and H&M Landing; keeps 1.5-day+ trips returning 5–10 AM, drops long-range boats, fills chartered capacities from per-boat maximums, writes `data/`. Safety nets: retries, fetch budget, stale-landing carry-forward, hold on row collapse, idempotent exit.
+- **`tests/test_refresh_multiday.py`** with saved fixtures — 15 offline tests.
+- **`data/`** audit outputs from the first live run (539 kept rows from 2,005 raw).
 - **`index.html`** — GitHub Pages entry point that redirects the bare site URL to `saltwater_trip_planner.html`.
 
 ### Changed

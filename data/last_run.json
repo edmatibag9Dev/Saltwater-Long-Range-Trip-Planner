@@ -1,0 +1,40 @@
+{
+  "digest": "209f6833077d1ae1",
+  "dry_run": true,
+  "html_written": false,
+  "outcome": "landed",
+  "per_landing": {
+    "FL": {
+      "error": "",
+      "kept": 288,
+      "pages": 13,
+      "raw": 624,
+      "status": "ok"
+    },
+    "HM": {
+      "error": "",
+      "kept": 125,
+      "pages": 1,
+      "raw": 520,
+      "status": "ok"
+    },
+    "PL": {
+      "error": "",
+      "kept": 66,
+      "pages": 25,
+      "raw": 488,
+      "status": "ok"
+    },
+    "SF": {
+      "error": "",
+      "kept": 60,
+      "pages": 16,
+      "raw": 374,
+      "status": "ok"
+    }
+  },
+  "prev_rows_kept": 0,
+  "rows_kept": 539,
+  "rows_raw": 2005,
+  "ts": "2026-09-03T18:39:42-07:00"
+}

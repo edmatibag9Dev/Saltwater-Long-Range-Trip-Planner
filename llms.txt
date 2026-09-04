@@ -15,10 +15,13 @@
 - [index.html](index.html): GitHub Pages entry point — redirects to the dashboard file below.
 - [saltwater_trip_planner.html](saltwater_trip_planner.html): the entire dashboard — Trip Finder, Processing Planner, and Processing Calculator tabs; trip data lives in the inline `RAW` JS array; return dates are derived at runtime from departure date + trip length.
 
+## Refresh
+- [refresh_multiday.py](refresh_multiday.py): headless multi-day refresh (four landings) — writes data/ and the MULTI-DAY block; tests in tests/.
+
 ## Key rules
 - Single self-contained HTML file: all CSS/JS inline, opens via file://, no external dependencies, no localStorage (in-memory state only).
 - Trip data is a snapshot — every refresh must update the visible "data as of" disclaimer and README data-freshness note, and link to live sources.
 - fishingreservations.net blocks rapid automated requests (CAPTCHA error 338): refresh data by reading pre-loaded browser tabs, never rapid sequential scraping.
-- Processing Planner is derived from the trip data array — never store return dates separately.
+- Long-range rows: return dates are derived from departure + trip length. Multi-day rows (MULTI block, auto-generated): return date/time are stored as posted by the landing, never hand-edited.
 - GitHub updates go through the Contents API: GET the file sha first, then PUT with sha; skipping the GET causes a 409.
 - Data refresh commits use the `data` type with a body of at least 3 bullets; README updated on every feat/fix/data commit.
