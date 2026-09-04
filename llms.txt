@@ -6,6 +6,7 @@
 > Pure HTML/CSS/JS in one file — no server, no build step.
 
 ## Start here
+- [BUILD-PLAN.md](BUILD-PLAN.md): the 2026-09 multi-day design — decisions, data sources, safety nets (§10), phase results.
 - [AGENTS.md](AGENTS.md): canonical agent guide — GitHub operations rules, Contents API protocol, scraping workarounds.
 - [README.md](README.md): human quickstart — features, usage, data sources, refresh instructions.
 - [CHANGELOG.md](CHANGELOG.md): version history, newest first.
@@ -19,6 +20,8 @@
 - [refresh_multiday.py](refresh_multiday.py): headless multi-day refresh (four landings) — writes data/ and the MULTI-DAY block; tests in tests/.
 
 ## Key rules
+- The `MULTI` block is written only by `refresh_multiday.py` (Sunday task `saltwater-multiday-refresh`); never hand-edit between its markers.
+- Interactive sessions leave the tree clean, or the Sunday preflight aborts (`dirty-tree`).
 - Single self-contained HTML file: all CSS/JS inline, opens via file://, no external dependencies, no localStorage (in-memory state only).
 - Trip data is a snapshot — every refresh must update the visible "data as of" disclaimer and README data-freshness note, and link to live sources.
 - fishingreservations.net blocks rapid automated requests (CAPTCHA error 338): refresh data by reading pre-loaded browser tabs, never rapid sequential scraping.

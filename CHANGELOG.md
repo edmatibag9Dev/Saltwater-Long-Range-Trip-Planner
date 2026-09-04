@@ -2,6 +2,18 @@
 
 All notable changes to the Saltwater Long Range Trip Planner. Newest first.
 
+## [2026-09-04]
+
+### Added
+- **Scheduled task `saltwater-multiday-refresh`** (Sundays 8:15 AM): pulls the four landings, tests, commits, pushes, touches `data/last-success`, posts one line to #fishing-report-alerts every run, writes a heartbeat. Registered with the fleet watchdog and ops-watcher. Supervised first run landed commit ca37cb3.
+- **Carry-forward** in `refresh_multiday.py`: landings drop a trip the moment it departs, so previous rows that departed before the run and return later are kept.
+- **README freshness line** ("Last multi-day refresh") stamped by the script on every refresh.
+- **`BUILD-PLAN.md`** — the full plan with decisions, safety nets, and phase gate results.
+
+### Changed
+- AGENTS.md: token rule now uses the local `gh` login (Contents API only in sandboxes); new Rule 11 for the weekly refresh; File map and never-do list updated.
+
+
 ## [2026-09-03]
 
 ### Added

@@ -50,6 +50,7 @@ This dashboard was built to answer two questions at a glance:
 | `data/multiday_trips.csv` | Latest kept multi-day rows (1.5-day+, returning 5–10 AM, long-range boats removed) — the audit copy of what the planner shows |
 | `data/landing_trips_raw.csv` | Every trip parsed from the four landings before filtering, for audit |
 | `data/boat_capacity.json`, `data/sources.json`, `data/last_run.json`, `data/refresh.log` | Per-boat max capacity (fills chartered rows), per-landing fetch status and last-good date, last-run summary for the scheduled task, append-only run log |
+| `BUILD-PLAN.md` | The 2026-09 build plan: problem, decisions, data sources, design, safety nets, phase gate results |
 | `README.md` | This file |
 
 ---
@@ -199,6 +200,8 @@ python3 refresh_multiday.py            # fetch, write data/, update the planner'
 python3 refresh_multiday.py --dry-run  # fetch and write data/ only
 python3 tests/test_refresh_multiday.py # offline tests against saved pages
 ```
+
+The scheduled task **`saltwater-multiday-refresh`** runs this every Sunday at 8:15 AM on Ed's Mac, runs both test suites, commits as `data(multiday): …`, pushes (which republishes GitHub Pages), and posts one line to Slack #fishing-report-alerts whether it succeeded or not — a silent Sunday means the run did not happen. If a run fails, the line says why; rerun with `rerun saltwater-multiday-refresh` in #ops-control or "Run now" in the Scheduled sidebar.
 
 Rules applied: trip length 1.5 days or longer, return time 5:00–10:00 AM, long-range boats dropped (they live in `RAW`). Safety nets: 30 s per-request timeout with two retries, 10-minute fetch budget, a failed landing keeps its previous rows and is marked stale, a row-count collapse below 60 % of the last run holds the page and writes the CSV to `data/hold/`, and an unchanged result exits `already-landed` without rewriting anything. Exit codes: 0 landed / already-landed, 2 partial, 3 hold, 4 failed. A weekly scheduled task (Sunday 8:15 AM) runs this and pushes the result.
 
