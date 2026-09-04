@@ -20,7 +20,7 @@ Ground truth: `git -C /Users/edmatibag/Documents/Claude/ringer-jobs/agents-fix-s
 | `saltwater_trip_planner.html` | yes | The entire dashboard — single self-contained HTML file with all CSS/JS inline. Three tabs: Trip Finder (aggregates trips across 11 San Diego long-range boats), Processing Planner (derives boat returns per day from departure + trip length), and Processing Calculator (estimates/compares fish-processing cost between Fisherman's Processing and Five Star). Long-range trip data lives in the inline `RAW` JS array; multi-day boat rows live in the auto-generated `MULTI` block between `// ══ MULTI-DAY DATA START/END` markers (written by `refresh_multiday.py`, never hand-edited); in-memory state only, no localStorage. Opens via `file://` with no build step. |
 | `index.html` | yes | GitHub Pages entry point: a meta-refresh redirect to `saltwater_trip_planner.html` so the bare Pages URL opens the dashboard. No content of its own. |
 | `Saltwater_Fish_Processing_Calculator_v2.xlsx` | yes | Standalone spreadsheet version of the Fish Processing Calculator — the offline/reference model the in-dashboard Processing Calculator tab is derived from (species-based catch input, per-processor rates, card fees, value-added eligibility). Kept in-repo so the rate logic is auditable outside the HTML. |
-| `test-multiday.js` | yes | jsdom integration test for the multi-day Processing Planner. Run with `node test-multiday.js` from the repo root (jsdom resolves from the Cowork project folder's `node_modules`). Must pass before any commit that touches the dashboard or `data/`. |
+| `test-multiday.js` | yes | jsdom integration test for the multi-day Processing Planner. Run with `node test-multiday.js` from the repo root, or `npm test` from the Cowork project folder. jsdom resolves from that folder's `node_modules` — see "Node dependencies" below. Must pass before any commit that touches the dashboard or `data/`. |
 | `refresh_multiday.py` | yes | Headless refresh of multi-day boat schedules from the four SD landings (FL/SF/PL paged HTML, H&M JSONP). Applies the 1.5-day / 5–10 AM / no-long-range rules, fills capacity, writes `data/`, rewrites the MULTI-DAY block between marker comments in the dashboard. Never touches git. |
 | `tests/test_refresh_multiday.py`, `tests/fixtures/` | yes | Offline tests + saved pages (2026-09-03) for the refresh script. Run before every data commit. |
 | `data/` | yes (except `data/hold/`) | Audit outputs of the refresh: kept CSV, raw CSV, capacity table, per-source status, last-run summary, run log. `data/hold/` is gitignored. |
@@ -32,9 +32,49 @@ Ground truth: `git -C /Users/edmatibag/Documents/Claude/ringer-jobs/agents-fix-s
 | `llms.txt` | yes | Machine-readable index of the repo's docs — plain-English summary, "Start here" links, the dashboard entry, and the key invariants (self-contained HTML, snapshot data freshness, scraping workaround, Contents-API SHA-first rule). |
 | `AGENTS.md` | yes | This file — the canonical agent entry point for GitHub operations in this repo (bootstrap check, commit standards, Contents API protocol, data-freshness disclosure, scraping protocol, repo inventory, self-contained-deliverable rules, session continuity, never-do list, and the File map above). |
 
-> ℹ️ No `.gitignore`, `BUILD-PLAN.md`, `SPEC-*.md`, `SCHEDULE.md`, or `CLAUDE.md` are tracked in this
-> repo today. If generated output or real/personal data is added later, add a `.gitignore` (per
-> `~/Documents/Claude/REPO-STANDARD.md`) and mark gitignored paths `no (gitignored)` here with why.
+> ℹ️ No `SPEC-*.md`, `SCHEDULE.md`, or `CLAUDE.md` are tracked in this repo today. `.gitignore` and
+> `BUILD-PLAN.md` are — both appear in the File map above. If generated output or real/personal data
+> is added later, extend `.gitignore` (per `~/Documents/Claude/REPO-STANDARD.md`) and mark gitignored
+> paths `no (gitignored)` here with why.
+
+---
+
+## Node dependencies — they live one level up, and they are pinned
+
+The dashboard itself has **no runtime dependencies** — `saltwater_trip_planner.html` is self-contained
+and opens over `file://` with no build step. That invariant does not change. The Node packages exist
+only for the test harness and for tooling that sits outside this repo.
+
+They are declared in `package.json` in the **Cowork project folder**, the parent of this clone:
+
+```
+~/Documents/Claude/Projects/Build Saltwater Trip Planner/
+├── package.json          ← the manifest + package-lock.json (NOT in this repo)
+├── node_modules/
+└── repo/                 ← this repository
+```
+
+| Package | Why |
+|---|---|
+| `jsdom` | `test-multiday.js` — the Processing Planner integration test |
+| `docx` | Word-document generation for the `trips/` archive scripts, outside this repo |
+
+**Never add a `package.json` to this repo.** It would imply a build step the dashboard does not have,
+and `node_modules/` is gitignored here precisely because the dependency tree is the parent folder's
+concern, not the repository's.
+
+**Install and run from the parent folder:**
+
+```bash
+cd ~/Documents/Claude/Projects/Build\ Saltwater\ Trip\ Planner
+npm install     # restores both packages from package-lock.json
+npm test        # runs repo/test-multiday.js
+```
+
+> ⚠️ **Do not run `npm install <pkg> --no-save` in that folder.** With a manifest present npm now
+> prunes anything not declared, so a `--no-save` install silently deletes the other package —
+> `npm install docx --no-save` removed `jsdom` on 2026-09-04 and broke `test-multiday.js` until it
+> was reinstalled. Add the dependency to `package.json` and run a plain `npm install` instead.
 
 ---
 

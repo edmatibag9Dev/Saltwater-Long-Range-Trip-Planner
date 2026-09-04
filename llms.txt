@@ -7,7 +7,7 @@
 
 ## Start here
 - [BUILD-PLAN.md](BUILD-PLAN.md): the 2026-09 multi-day design — decisions, data sources, safety nets (§10), phase results.
-- [AGENTS.md](AGENTS.md): canonical agent guide — GitHub operations rules, Contents API protocol, scraping workarounds.
+- [AGENTS.md](AGENTS.md): canonical agent guide — GitHub operations rules, Contents API protocol, scraping workarounds, Node dependency layout.
 - [README.md](README.md): human quickstart — features, usage, data sources, refresh instructions.
 - [CHANGELOG.md](CHANGELOG.md): version history, newest first.
 - [CONTRIBUTING.md](CONTRIBUTING.md): commit + README standard.
@@ -23,6 +23,7 @@
 - The `MULTI` block is written only by `refresh_multiday.py` (Sunday task `saltwater-multiday-refresh`); never hand-edit between its markers.
 - Interactive sessions leave the tree clean, or the Sunday preflight aborts (`dirty-tree`).
 - Single self-contained HTML file: all CSS/JS inline, opens via file://, no external dependencies, no localStorage (in-memory state only).
+- Never add a `package.json` to this repo. The test harness's `jsdom` (and tooling's `docx`) are declared in the parent Cowork folder's manifest; run `npm install` / `npm test` from there. Never `npm install <pkg> --no-save` in that folder — it prunes the packages it was not asked for.
 - Trip data is a snapshot — every refresh must update the visible "data as of" disclaimer and README data-freshness note, and link to live sources.
 - fishingreservations.net blocks rapid automated requests (CAPTCHA error 338): refresh data by reading pre-loaded browser tabs, never rapid sequential scraping.
 - Long-range rows: return dates are derived from departure + trip length. Multi-day rows (MULTI block, auto-generated): return date/time are stored as posted by the landing, never hand-edited.

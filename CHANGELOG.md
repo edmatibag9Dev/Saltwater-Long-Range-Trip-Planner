@@ -12,6 +12,7 @@ All notable changes to the Saltwater Long Range Trip Planner. Newest first.
 
 ### Changed
 - AGENTS.md: token rule now uses the local `gh` login (Contents API only in sandboxes); new Rule 11 for the weekly refresh; File map and never-do list updated.
+- AGENTS.md: new "Node dependencies" section — `jsdom` and `docx` are declared in a `package.json` in the parent Cowork folder, not in this repo; documents `npm test`, the never-add-a-manifest-here rule, and the `--no-save` pruning trap that deleted `jsdom` and broke `test-multiday.js`. Corrected the stale File map footnote that claimed `.gitignore` and `BUILD-PLAN.md` were untracked when both are listed as tracked directly above it.
 
 
 ## [2026-09-03]
