@@ -1,5 +1,5 @@
 {
-  "digest": "9a4c7333dba0ce3c",
+  "digest": "90e23cde098aed18",
   "dry_run": false,
   "html_written": true,
   "outcome": "landed",
@@ -8,34 +8,34 @@
       "error": "",
       "kept": 288,
       "pages": 13,
-      "raw": 621,
+      "raw": 613,
       "status": "ok"
     },
     "HM": {
       "error": "",
-      "kept": 125,
+      "kept": 124,
       "pages": 1,
-      "raw": 514,
+      "raw": 504,
       "status": "ok"
     },
     "PL": {
       "error": "",
       "kept": 66,
-      "pages": 25,
-      "raw": 485,
+      "pages": 24,
+      "raw": 475,
       "status": "ok"
     },
     "SF": {
       "error": "",
-      "kept": 60,
-      "pages": 16,
-      "raw": 372,
+      "kept": 59,
+      "pages": 15,
+      "raw": 361,
       "status": "ok"
     }
   },
   "prev_rows_kept": 539,
-  "rows_carried": 3,
-  "rows_kept": 539,
-  "rows_raw": 1991,
-  "ts": "2026-09-04T06:54:56-07:00"
+  "rows_carried": 14,
+  "rows_kept": 537,
+  "rows_raw": 1952,
+  "ts": "2026-09-06T08:20:17-07:00"
 }

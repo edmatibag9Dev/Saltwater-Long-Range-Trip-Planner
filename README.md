@@ -140,7 +140,7 @@ Searcher and Intrepid were added 2026-09-03 and seeded from the Fisherman's Land
 | Point Loma Sportfishing | https://www.pointlomasportfishing.com/schedules.php (paged) |
 | H&M Landing | https://www.hmlanding.com/xolacache (JSONP feed behind the trip calendar) |
 
-**Last multi-day refresh:** 2026-09-04 (updated automatically by `refresh_multiday.py`)
+**Last multi-day refresh:** 2026-09-06 (updated automatically by `refresh_multiday.py`)
 
 Calibration source for past days: https://www.sandiegofishreports.com/dock_totals/boats.php?date=YYYY-MM-DD (boats by landing with anglers and trip type).
 
