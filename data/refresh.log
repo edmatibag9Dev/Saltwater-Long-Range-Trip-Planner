@@ -2,3 +2,5 @@
 {"ts": "2026-09-04T06:54:56-07:00", "outcome": "landed", "kept": 539, "raw": 1991, "per_landing": {"FL": "ok:288", "SF": "ok:60", "PL": "ok:66", "HM": "ok:125"}, "html_written": true}
 2026-09-04T06:58:12-07:00 ping=webhook
 {"ts": "2026-09-06T08:20:17-07:00", "outcome": "landed", "kept": 537, "raw": 1952, "per_landing": {"FL": "ok:288", "SF": "ok:59", "PL": "ok:66", "HM": "ok:124"}, "html_written": true}
+2026-09-06T08:23:14-07:00 ping=webhook
+{"ts": "2026-09-13T08:20:28-07:00", "outcome": "landed", "kept": 498, "raw": 1823, "per_landing": {"FL": "ok:265", "SF": "ok:56", "PL": "ok:59", "HM": "ok:118"}, "html_written": true}
