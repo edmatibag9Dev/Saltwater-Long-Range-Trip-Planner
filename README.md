@@ -4,9 +4,13 @@ A self-contained HTML dashboard for planning long-range saltwater fishing trips 
 
 ---
 
-## Overview / Purpose
+## Project Overview
 
 Planning a long-range fishing trip out of San Diego means checking 11 different boat reservation websites, each with its own layout and availability system. This tool aggregates all of them into a single dashboard so you can compare trips, check availability, and click directly to the booking page — all in one place.
+
+---
+
+## Purpose
 
 The second problem this solves is **fish processing planning**. Knowing how many boats are returning on any given day — and how many anglers are on each — lets you plan processing capacity, staffing, and timing in advance rather than reacting on the day. Since September 2026 this counts the **multi-day boats** (1.5-day trips and longer) from Fisherman's Landing, H&M Landing, Point Loma Sportfishing, and Seaforth alongside the long-range fleet. On 2026-08-28 the long-range-only view showed 2 boats and 44 anglers; the dock actually took 16 boats and about 285 anglers that morning.
 
@@ -35,15 +39,15 @@ This dashboard was built to answer two questions at a glance:
 
 ---
 
-## Files
+## File Descriptions
 
 | File | Description |
 |------|-------------|
 | `saltwater_trip_planner.html` | Main dashboard — self-contained, open directly in browser. Long-range trips live in the inline `RAW` array; multi-day trips in the auto-generated `MULTI` block between marker comments |
 | `test-multiday.js` | jsdom integration test of the multi-day Processing Planner (data block vs CSV, rules, Searcher/Intrepid seed, every month renders, Sep 6–7 spot check, Trip Finder isolation, header stamps). `node test-multiday.js` |
 | `index.html` | GitHub Pages entry point — redirects the bare site URL to `saltwater_trip_planner.html` |
-| `CONTRIBUTING.md` | Commit message and README standards for this repo |
-| `AGENTS.md` | AI agent behavior rules for GitHub operations and repo maintenance |
+| `CONTRIBUTING.md` | Commit message, README and staging standards (verbatim copy of the canonical file) |
+| `AGENTS.md` | Canonical guide for AI agents — file map, data contract, verification gates, scraping protocol, weekly refresh rules |
 | `Saltwater_Fish_Processing_Calculator_v2.xlsx` | Offline per-fish processing-cost workbook (Numbers-compatible) — same engine rules, for use at sea |
 | `refresh_multiday.py` | Fetches multi-day boat schedules from the four San Diego landings, applies the processing-planner rules, writes `data/` and (in Phase 2) the planner's MULTI-DAY block. Headless, no browser. |
 | `tests/test_refresh_multiday.py` | 15 offline tests for the refresh script (parser, rules, capacity fill, dedupe, block writer, stale/hold safety nets) using saved pages in `tests/fixtures/` |
@@ -52,6 +56,10 @@ This dashboard was built to answer two questions at a glance:
 | `data/boat_capacity.json`, `data/sources.json`, `data/last_run.json`, `data/refresh.log` | Per-boat max capacity (fills chartered rows), per-landing fetch status and last-good date, last-run summary for the scheduled task, append-only run log |
 | `BUILD-PLAN.md` | The 2026-09 build plan: problem, decisions, data sources, design, safety nets, phase gate results |
 | `README.md` | This file |
+| `tests/fixtures/` | Saved landing pages (2026-09-03) the offline refresh tests parse instead of fetching |
+| `CHANGELOG.md` | Version history in Keep a Changelog format, newest first |
+| `llms.txt` | Machine-readable index of the repo's docs for AI agents |
+| `.gitignore` | Keeps `data/hold/`, `data/last-success`, secrets/local config (`.env*`, `CONFIG.local.md`), caches and OS noise out of git |
 
 ---
 
@@ -109,6 +117,47 @@ Estimate and compare what your catch will cost to process at two San Diego proce
 
 > Rates are entered from each processor's published price sheet (June 2026) and may change — always confirm at drop-off. For offline use at sea, `Saltwater_Fish_Processing_Calculator_v2.xlsx` in this repo applies the same per-fish rules in the Numbers app (one row per kept fish). San Diego Fish Processing is excluded because it publishes no rates.
 
+### Update / Refresh Instructions
+
+#### Multi-day boats (Processing Planner only)
+
+Multi-day boats from Fisherman's Landing, H&M Landing, Point Loma Sportfishing, and Seaforth are refreshed by `refresh_multiday.py`, which needs no browser — all four sources load headlessly:
+
+```
+python3 refresh_multiday.py            # fetch, write data/, update the planner's MULTI-DAY block
+python3 refresh_multiday.py --dry-run  # fetch and write data/ only
+python3 tests/test_refresh_multiday.py # offline tests against saved pages
+```
+
+The scheduled task **`saltwater-multiday-refresh`** runs this every Sunday at 8:15 AM on Ed's Mac, runs both test suites, commits as `data(multiday): …`, pushes (which republishes GitHub Pages), and posts one line to Slack #fishing-report-alerts whether it succeeded or not — a silent Sunday means the run did not happen. If a run fails, the line says why; rerun with `rerun saltwater-multiday-refresh` in #ops-control or "Run now" in the Scheduled sidebar.
+
+Rules applied: trip length 1.5 days or longer, return time 5:00–10:00 AM, long-range boats dropped (they live in `RAW`). Safety nets: 30 s per-request timeout with two retries, 10-minute fetch budget, a failed landing keeps its previous rows and is marked stale, a row-count collapse below 60 % of the last run holds the page and writes the CSV to `data/hold/`, and an unchanged result exits `already-landed` without rewriting anything. Exit codes: 0 landed / already-landed, 2 partial, 3 hold, 4 failed. A weekly scheduled task (Sunday 8:15 AM) runs this and pushes the result.
+
+#### Long-range boats (manual)
+
+To pull fresh availability data:
+
+1. Open all 9 reservation links in your browser (see Data Sources below)
+2. Use the Claude in Chrome extension to read each page — ask Claude to extract all trip data for the target months
+3. Update the `RAW` array in `saltwater_trip_planner.html` with new spot counts, availability codes, and any new/removed trips
+4. Save the file and open it in your browser to verify
+5. Commit using the `data` type: `data(trip-planner): refresh availability snapshot — <month> <year>`
+6. Push the updated file to GitHub via the Contents API (GET sha first, then PUT with sha)
+
+**To add a new month's data** — simply append new entries to the `RAW` array with the correct departure dates. The month filter and processing planner will pick them up automatically.
+
+**To flag your own trip** — add `'ed'` to the flags array in the trip's data row: `[boatIdx, name, deptDate, days, capacity, spots, price, ['ed']]`
+
+### Reservation Tips
+
+- Most boats require a **50% deposit** to hold a spot — full balance due 45–60 days before departure
+- **Passports required** on all trips fishing in Mexican waters
+- **Mexican fishing permits** are not included in most trip prices — budget an additional fee
+- **Fuel surcharges** may be added at time of sailing depending on diesel prices
+- **Travel insurance strongly recommended** — most deposits are non-refundable within 90–180 days of departure
+- For wait list trips, call the boat office directly — cancellations open spots frequently
+- Trips marked "invite only" require a code from the charter master — Claude cannot book these for you
+
 ---
 
 ## Data Sources
@@ -150,11 +199,29 @@ Calibration source for past days: https://www.sandiegofishreports.com/dock_total
 
 ---
 
-## Known Limitations & Workarounds
+## Known Limitations
 
 ### CAPTCHA on fishingreservations.net
 
 8 of the 9 boats use the `fishingreservations.net` booking platform. This platform applies bot/CAPTCHA detection (error 338) when receiving rapid sequential automated requests from the same IP address.
+
+### Availability is a snapshot
+
+The open spot counts and wait list statuses shown in the dashboard reflect the state at the time of the last data pull.
+
+### Red Rooster III — no 2026 schedule
+
+Red Rooster III posts their schedule on a custom site (`redrooster3.com`) rather than `fishingreservations.net`. As of the last data pull, only the 2025 fall season schedule was available.
+
+### Angler counts are capacity-based
+
+The Processing Planner shows **boat capacity** as the angler count, not actual bookings. Real passenger counts may be lower. Charter and private trips with no listed capacity default to ~20 for planning purposes.
+
+---
+
+## Workarounds
+
+### CAPTCHA on fishingreservations.net
 
 **Workaround for data refreshes:**
 1. Open each of the 9 boat reservation links manually in your browser (all at once in separate tabs is fine)
@@ -164,15 +231,15 @@ Calibration source for past days: https://www.sandiegofishreports.com/dock_total
 
 ### Availability is a snapshot
 
-The open spot counts and wait list statuses shown in the dashboard reflect the state at the time of the last data pull. Always click **Book Now →** to verify current availability on the live reservation page before making plans.
+Always click **Book Now →** to verify current availability on the live reservation page before making plans.
 
 ### Red Rooster III — no 2026 schedule
 
-Red Rooster III posts their schedule on a custom site (`redrooster3.com`) rather than `fishingreservations.net`. As of the last data pull, only the 2025 fall season schedule was available. Check their site directly for 2026 dates.
+Check their site directly for 2026 dates.
 
 ### Angler counts are capacity-based
 
-The Processing Planner shows **boat capacity** as the angler count, not actual bookings. Real passenger counts may be lower. Charter and private trips with no listed capacity default to ~20 for planning purposes.
+No workaround.
 
 ---
 
@@ -189,48 +256,6 @@ The Processing Planner shows **boat capacity** as the angler count, not actual b
 
 ---
 
-## Update / Refresh Instructions
-
-### Multi-day boats (Processing Planner only)
-
-Multi-day boats from Fisherman's Landing, H&M Landing, Point Loma Sportfishing, and Seaforth are refreshed by `refresh_multiday.py`, which needs no browser — all four sources load headlessly:
-
-```
-python3 refresh_multiday.py            # fetch, write data/, update the planner's MULTI-DAY block
-python3 refresh_multiday.py --dry-run  # fetch and write data/ only
-python3 tests/test_refresh_multiday.py # offline tests against saved pages
-```
-
-The scheduled task **`saltwater-multiday-refresh`** runs this every Sunday at 8:15 AM on Ed's Mac, runs both test suites, commits as `data(multiday): …`, pushes (which republishes GitHub Pages), and posts one line to Slack #fishing-report-alerts whether it succeeded or not — a silent Sunday means the run did not happen. If a run fails, the line says why; rerun with `rerun saltwater-multiday-refresh` in #ops-control or "Run now" in the Scheduled sidebar.
-
-Rules applied: trip length 1.5 days or longer, return time 5:00–10:00 AM, long-range boats dropped (they live in `RAW`). Safety nets: 30 s per-request timeout with two retries, 10-minute fetch budget, a failed landing keeps its previous rows and is marked stale, a row-count collapse below 60 % of the last run holds the page and writes the CSV to `data/hold/`, and an unchanged result exits `already-landed` without rewriting anything. Exit codes: 0 landed / already-landed, 2 partial, 3 hold, 4 failed. A weekly scheduled task (Sunday 8:15 AM) runs this and pushes the result.
-
-
-To pull fresh availability data:
-
-1. Open all 9 reservation links in your browser (see Data Sources above)
-2. Use the Claude in Chrome extension to read each page — ask Claude to extract all trip data for the target months
-3. Update the `RAW` array in `saltwater_trip_planner.html` with new spot counts, availability codes, and any new/removed trips
-4. Save the file and open it in your browser to verify
-5. Commit using the `data` type: `data(trip-planner): refresh availability snapshot — <month> <year>`
-6. Push the updated file to GitHub via the Contents API (GET sha first, then PUT with sha)
-
-**To add a new month's data** — simply append new entries to the `RAW` array with the correct departure dates. The month filter and processing planner will pick them up automatically.
-
-**To flag your own trip** — add `'ed'` to the flags array in the trip's data row: `[boatIdx, name, deptDate, days, capacity, spots, price, ['ed']]`
-
----
-
-## Reservation Tips
-
-- Most boats require a **50% deposit** to hold a spot — full balance due 45–60 days before departure
-- **Passports required** on all trips fishing in Mexican waters
-- **Mexican fishing permits** are not included in most trip prices — budget an additional fee
-- **Fuel surcharges** may be added at time of sailing depending on diesel prices
-- **Travel insurance strongly recommended** — most deposits are non-refundable within 90–180 days of departure
-- For wait list trips, call the boat office directly — cancellations open spots frequently
-- Trips marked "invite only" require a code from the charter master — Claude cannot book these for you
-
----
-
 *Last data pull: June 2026 | Processing rates: June 2026 | Built with Claude (Anthropic) | Standards: CONTRIBUTING.md + AGENTS.md*
+
+*Last updated: 2026-10-09*

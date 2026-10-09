@@ -7,7 +7,7 @@
 
 ## Start here
 - [BUILD-PLAN.md](BUILD-PLAN.md): the 2026-09 multi-day design — decisions, data sources, safety nets (§10), phase results.
-- [AGENTS.md](AGENTS.md): canonical agent guide — GitHub operations rules, Contents API protocol, scraping workarounds, Node dependency layout.
+- [AGENTS.md](AGENTS.md): canonical agent guide — file map, data contract (`RAW`, `MULTI`, `data/`), verification gates, scraping protocol, weekly refresh, Node dependency layout.
 - [README.md](README.md): human quickstart — features, usage, data sources, refresh instructions.
 - [CHANGELOG.md](CHANGELOG.md): version history, newest first.
 - [CONTRIBUTING.md](CONTRIBUTING.md): commit + README standard.

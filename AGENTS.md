@@ -1,19 +1,23 @@
-# Agent Behavior Rules — GitHub Operations
-# Ed Matibag — Global AI Agent Standards
-# Location: ~/Documents/Claude/AGENTS.md
-# Last updated: 2026-09-04
+# AGENTS.md — guide for AI agents working in this repo
+> Standard: REPO-STANDARD 2026-10-09 · Commits, README and staging: CONTRIBUTING.md
 
----
+This file is the canonical entry point for any AI agent (Claude Code, Cowork, Codex, etc.)
+asked to **use, reference, extend, or rebuild** this project. Read it before acting.
 
-## Purpose
+## What this repo is
 
-These rules govern how Claude (and any AI agent) must behave when working with Ed's GitHub repositories. They exist to prevent incomplete commits, stub READMEs, broken pushes, and loss of context between sessions.
+A self-contained HTML dashboard for planning long-range saltwater fishing trips out of San Diego
+(Trip Finder across 11 long-range boats) and for planning fish processing around boat returns
+(Processing Planner, which also counts multi-day boats from the four San Diego landings, and a
+Processing Calculator comparing two processors). It is published on GitHub Pages and refreshed
+weekly by a scheduled task on Ed's Mac.
 
----
+Design in one line: **manual long-range `RAW` array + weekly headless `refresh_multiday.py` → one
+self-contained `saltwater_trip_planner.html` (opens over `file://`) → `git push` republishes Pages.**
 
 ## File map
 
-Ground truth: `git -C /Users/edmatibag/Documents/Claude/ringer-jobs/agents-fix-swarm/repos/Saltwater-Long-Range-Trip-Planner ls-files`. Every backticked path below is a real tracked path in that output.
+Ground truth: `git ls-files` in this clone. Every backticked path below is a real tracked path in that output, unless it is marked gitignored.
 
 | Path | Committed? | Purpose |
 |------|------------|---------|
@@ -23,19 +27,105 @@ Ground truth: `git -C /Users/edmatibag/Documents/Claude/ringer-jobs/agents-fix-s
 | `test-multiday.js` | yes | jsdom integration test for the multi-day Processing Planner. Run with `node test-multiday.js` from the repo root, or `npm test` from the Cowork project folder. jsdom resolves from that folder's `node_modules` — see "Node dependencies" below. Must pass before any commit that touches the dashboard or `data/`. |
 | `refresh_multiday.py` | yes | Headless refresh of multi-day boat schedules from the four SD landings (FL/SF/PL paged HTML, H&M JSONP). Applies the 1.5-day / 5–10 AM / no-long-range rules, fills capacity, writes `data/`, rewrites the MULTI-DAY block between marker comments in the dashboard. Never touches git. |
 | `tests/test_refresh_multiday.py`, `tests/fixtures/` | yes | Offline tests + saved pages (2026-09-03) for the refresh script. Run before every data commit. |
-| `data/` | yes (except `data/hold/`) | Audit outputs of the refresh: kept CSV, raw CSV, capacity table, per-source status, last-run summary, run log. `data/hold/` is gitignored. |
-| `.gitignore` | yes | Ignores `data/hold/`, Python caches, `.DS_Store`, `node_modules/`. |
+| `data/` | yes (except `data/hold/` and `data/last-success`) | Audit outputs of the refresh: kept CSV, raw CSV, capacity table, per-source status, last-run summary, run log. |
+| `data/hold/` | **no (gitignored)** | Scratch CSV written when a refresh is held (row collapse below 60 %); never published. |
+| `data/last-success` | **no (gitignored)** | Empty stamp touched after a verified push; the fleet watchdog reads its mtime. Machine-local state. |
+| `.gitignore` | yes | Ignores `data/hold/`, `data/last-success`, Python caches, `.DS_Store`, `node_modules/`, secrets and local-only config (`.env*`, `CONFIG.local.md`), `.venv/`, `*.bak*`. |
 | `BUILD-PLAN.md` | yes | The 2026-09-03 build plan for multi-day boats in the Processing Planner: problem and 8/28 calibration, Ed's decisions, data sources, design, refresh pipeline, the scheduled task, alerts and safety nets (§10), phase gates with results. Read this before touching the planner or the refresh. |
-| `README.md` | yes | Human quickstart — overview, features, usage, data sources, refresh instructions, "Files" table, and "Last updated" date. The 9-section README per `~/Documents/Claude/CONTRIBUTING.md`, ≥ 400 words. |
+| `README.md` | yes | Human quickstart — the nine sections per `CONTRIBUTING.md` (overview, purpose, features, file descriptions, how to use incl. refresh instructions, data sources, limitations, workarounds, build notes) and the "Last updated" date. |
 | `CHANGELOG.md` | yes | Version history in Keep a Changelog format, newest first (`### Added / Changed / Fixed / Removed`). Documents the Processing Calculator addition and the Teal-Sage rebrand, among other changes. |
-| `CONTRIBUTING.md` | yes | Commit + README standard pushed from `~/Documents/Claude/CONTRIBUTING.md`. Defines `feat`/`fix`/`data` commit body rules (≥ 3 bullets) and the 9-section README requirement. |
-| `llms.txt` | yes | Machine-readable index of the repo's docs — plain-English summary, "Start here" links, the dashboard entry, and the key invariants (self-contained HTML, snapshot data freshness, scraping workaround, Contents-API SHA-first rule). |
-| `AGENTS.md` | yes | This file — the canonical agent entry point for GitHub operations in this repo (bootstrap check, commit standards, Contents API protocol, data-freshness disclosure, scraping protocol, repo inventory, self-contained-deliverable rules, session continuity, never-do list, and the File map above). |
+| `CONTRIBUTING.md` | yes | Verbatim copy of `~/.claude/CONTRIBUTING.md`: commit format, the 9-section README requirement, staging rules. |
+| `llms.txt` | yes | Machine-readable index of the repo's docs — plain-English summary, "Start here" links, the dashboard entry, and the key invariants. |
+| `AGENTS.md` | yes | This file — the canonical agent entry point for this repo. |
 
 > ℹ️ No `SPEC-*.md`, `SCHEDULE.md`, or `CLAUDE.md` are tracked in this repo today. `.gitignore` and
 > `BUILD-PLAN.md` are — both appear in the File map above. If generated output or real/personal data
-> is added later, extend `.gitignore` (per `~/Documents/Claude/REPO-STANDARD.md`) and mark gitignored
+> is added later, extend `.gitignore` (per `~/.claude/REPO-STANDARD.md` §8) and mark gitignored
 > paths `no (gitignored)` here with why.
+
+## The data contract (`RAW`, the `MULTI` block, `data/`)
+
+Three interfaces, all inside this repo:
+
+```
+// saltwater_trip_planner.html — long-range rows (hand-maintained)
+// [boatIdx, name, deptDate, days, capacity, spots, price, flags]
+[0,'Open 3-Day',           '2026-06-02',3,25,1,   '$1,580',[]],
+// spots: -2 in progress · -1 charter/private · 0 wait list · 1–3 low · 4+ open · flag 'ed' = Ed's trip
+
+// ══ MULTI-DAY DATA START (auto-generated by refresh_multiday.py — do not hand-edit) ══
+const MULTI_AS_OF = '2026-10-04';
+const MULTI_SOURCES = {"FL":{"label":"Fisherman's Landing","as_of":"2026-10-04","status":"ok"}, ...};
+// [landing, boat, tripType, days, deptDate, deptTime, retDate, retTime, cap, spots]
+const MULTI = [ ... ];
+// ══ MULTI-DAY DATA END ══
+```
+
+```
+data/multiday_trips.csv header:
+landing,boat,ttype,days,dep,deptime,ret,rettime,cap,cap_source,spots,price,src
+
+data/last_run.json keys: digest, dry_run, html_written, outcome, per_landing{FL,HM,PL,SF},
+  prev_rows_kept, rows_carried, rows_kept, rows_raw, ts
+outcome words: landed · already-landed · partial · hold · failed
+refresh_multiday.py exit codes: 0 landed / already-landed · 2 partial · 3 hold · 4 failed
+```
+
+Rules an agent must preserve:
+- Only `refresh_multiday.py` writes between the `MULTI-DAY DATA START/END` markers. Never hand-edit them; fix the script and its tests instead.
+- Long-range rows derive return dates from departure + trip length. Multi-day rows store the return date and time as posted by the landing — the one sanctioned exception to derive-don't-store.
+- The refresh never touches `RAW` or `BOATS`; those stay manual (Rule 6 Chrome-tab workaround).
+- The dashboard stays a single self-contained file with two visible freshness stamps (see "Repo-specific additions" below).
+- The scheduled task depends on `data/last_run.json`, the exit codes and the outcome words above, and `data/last-success`. Change them only together with the task's SKILL.md and `BUILD-PLAN.md` §10.3.
+
+## How it works
+
+1. **View (any browser).** `index.html` redirects to `saltwater_trip_planner.html`, which renders all three tabs client-side from `RAW` and `MULTI`. No server, no build step; GitHub Pages serves `main` at the repo root.
+2. **Long-range refresh (manual, native Mac + Claude in Chrome).** Ed opens the boat reservation pages in browser tabs; Claude reads them through the Chrome extension and updates `RAW` (Rule 6). Committed as a `data` commit.
+3. **Multi-day refresh (scheduled, native Mac).** Every Sunday the `saltwater-multiday-refresh` task runs `refresh_multiday.py`, both test suites, an explicitly staged `data(multiday)` commit and a native `git push` (Rule 11).
+4. **Tests (native).** `node test-multiday.js` (jsdom from the parent folder's `node_modules`) and `python3 tests/test_refresh_multiday.py` (offline fixtures).
+5. **Publish.** A push to `main` republishes GitHub Pages.
+
+## How to extend
+
+- **Add or refresh long-range trips:** edit the `RAW` array in `saltwater_trip_planner.html`; new months appear in both tabs automatically. Update the long-range "data as of" stamp and the README data-coverage line.
+- **Flag your own trip:** add `'ed'` to the flags array of that `RAW` row.
+- **Change the multi-day rules (trip length, return window, landings):** edit `refresh_multiday.py` and `tests/test_refresh_multiday.py` (add fixtures under `tests/fixtures/`); never edit the `MULTI` block.
+- **Change processing rates or value-added rules:** edit the Processing Calculator tab in the HTML and keep `Saltwater_Fish_Processing_Calculator_v2.xlsx` in step; the Catch Logger's `engine.js` is the canonical implementation of these cost rules (README "How to Use").
+- **Add a Node test dependency:** add it to `package.json` in the parent Cowork folder and run a plain `npm install` there (see "Node dependencies" below). Never add a `package.json` here.
+
+## Privacy — hard rules
+
+- This repo is **public**. Never commit secrets, tokens or the PAT (Rule 4 below), or `.env*` / `CONFIG.local.md`.
+- Never add an email address, Slack workspace or channel ID, or account number. If one is ever needed, use a placeholder (`<ALERT_EMAIL>`, `<SLACK_CHANNEL_ID>`) and keep the real value in the gitignored `CONFIG.local.md` (REPO-STANDARD §8).
+- `data/hold/` and `data/last-success` stay gitignored.
+
+## Verification gates
+
+Run before declaring a change done:
+
+1. `node test-multiday.js` passes — required before any commit that touches the dashboard or `data/` (needs `npm install` in the parent folder first).
+2. `python3 tests/test_refresh_multiday.py` passes — required before every data commit and any change to `refresh_multiday.py`.
+3. Open `saltwater_trip_planner.html` over `file://`: all three tabs render and both freshness stamps show.
+4. `git status --short` shows only files you meant to change, plus at most `data/refresh.log`, `data/hold/`, `data/last-success` — otherwise the Sunday preflight aborts with `dirty-tree`.
+5. `python3 ~/.claude/skills/repo-standard/scripts/repo-check.py .` reports no FAIL lines.
+
+---
+
+## GitHub operations — generic rules live in GITHUB-OPERATIONS.md
+
+The generic rules this file used to carry (bootstrap check, commit standards, README on every
+feature commit, push workflow and Contents-API protocol, data-freshness disclosure, repo inventory,
+self-contained deliverables, session continuity, never-do list) are owned by
+`~/.claude/GITHUB-OPERATIONS.md` (Rules 1–5 and 7–10), with commits, README and staging owned by
+`CONTRIBUTING.md`. Follow those. This repo adds the following on top:
+
+### Repo-specific additions
+
+- **Push (Rule 4; amended 2026-09-04, Ed's decision D7 in BUILD-PLAN.md):** on Ed's Mac, git and `gh` are already logged in as `edmatibag9Dev` — push with plain `git push origin main` from the clone at `~/Documents/Claude/Projects/Build Saltwater Trip Planner/repo/`. No PAT is created, pasted, or stored. The weekly scheduled task pushes this way. The Contents API is only for sandboxes where `git` is unavailable.
+- **Self-contained deliverable (Rule 8):** show two "data as of" stamps — long-range (manual refresh) and multi-day (weekly auto refresh, amber when any landing is older than 14 days). Long-range rows derive return dates from departure + trip length; multi-day rows store the return date and time as posted by the landing (fractional trip lengths, explicit return times) — the one sanctioned exception to the derive-don't-store rule.
+- **Session continuity (Rule 9):** also read `BUILD-PLAN.md` (this repo) for the multi-day design and its safety nets.
+- **Never do (Rule 10):** never hand-edit the `MULTI` block.
 
 ---
 
@@ -78,68 +168,6 @@ npm test        # runs repo/test-multiday.js
 
 ---
 
-## Rule 1 — Repo Bootstrap Check
-
-**At the start of any task involving a GitHub repository:**
-
-1. List the repo contents via `GET /repos/{owner}/{repo}/contents/`
-2. Check for `CONTRIBUTING.md` and `AGENTS.md`
-3. If either file is missing — push the canonical version from `~/Documents/Claude/` **before doing anything else**
-4. Read both files completely before writing any code, committing anything, or modifying the README
-
-> Do not skip this check even if you are confident the files exist. Always verify.
-
----
-
-## Rule 2 — Commit Standards
-
-Follow `~/Documents/Claude/CONTRIBUTING.md` exactly. Summary:
-
-- All `feat`, `fix`, `data` commits require a body with ≥ 3 bullets
-- No one-liner commits — ever
-- Subject line: imperative mood, max 72 chars
-- Body: specific bullets describing what changed, why, and any caveats
-
----
-
-## Rule 3 — README on Every Feature Commit
-
-Every `feat`, `fix`, or `data` commit must update the README. The README must:
-
-- Have all 9 required sections (see CONTRIBUTING.md)
-- Be ≥ 400 words
-- Include updated data source links, feature descriptions, and usage instructions
-- Never be a stub
-
----
-
-## Rule 4 — GitHub Contents API Protocol
-
-In sandbox environments where `git clone` is blocked, use the GitHub Contents API.
-
-**Always follow this sequence for updates:**
-1. `GET /repos/{owner}/{repo}/contents/{path}` — retrieve current SHA
-2. `PUT` with `{ message, content (base64), sha }` — push update
-
-Skipping the GET will cause a **409 Conflict**. This is a known failure mode — always GET first.
-
-**Token handling (amended 2026-09-04, Ed's decision D7 in BUILD-PLAN.md):**
-- On Ed's Mac, git and `gh` are already logged in as `edmatibag9Dev` — push with plain `git push origin main` from the clone at `~/Documents/Claude/Projects/Build Saltwater Trip Planner/repo/`. No PAT is created, pasted, or stored. The weekly scheduled task pushes this way.
-- The Contents-API sequence above is for sandboxes where `git` is unavailable. There Ed provides a PAT for the session — do not store it in any file or memory; verify Contents: Read & Write if a 403 is returned; `GET /user` to confirm the username before any push.
-
----
-
-## Rule 5 — Data Freshness Disclosure
-
-When the dashboard or tool contains scraped or snapshot data:
-
-- Always include a data freshness note in the README
-- Always include a visible disclaimer in the UI
-- Always link to the live source so the user can verify current data
-- Document the scraping method and any known blockers (e.g. CAPTCHA)
-
----
-
 ## Rule 6 — Scraping Protocol (fishingreservations.net)
 
 Specific to Ed's saltwater fishing tools:
@@ -153,42 +181,6 @@ Specific to Ed's saltwater fishing tools:
 
 ---
 
-## Rule 7 — Ed's Repo Inventory
-
-| Repo | Purpose | Key File |
-|------|---------|---------|
-| `Saltwater-Long-Range-Trip-Planner` | Trip finder + fish processing planner (11 long-range boats + multi-day boats from 4 landings) | `saltwater_trip_planner.html`, `refresh_multiday.py` |
-| `ai-task-manager` | AI-powered task management app | Next.js app |
-| `Wiki-Page-from-Open-Brain` | Wiki generator from Open Brain thoughts | `open-brain-wiki.html` |
-
-GitHub username: `edmatibag9Dev`
-
----
-
-## Rule 8 — Self-Contained Deliverables
-
-When building HTML dashboards or tools:
-
-- Single file — all CSS and JS inline, no external dependencies
-- Must open directly in browser (`file://`) with no build step
-- No localStorage — use in-memory JS state
-- All data links open in new tab
-- Include a visible "data as of [date]" disclaimer when showing snapshot data — two stamps: long-range (manual refresh) and multi-day (weekly auto refresh, amber when any landing is older than 14 days)
-- Long-range rows derive return dates from departure + trip length. Multi-day rows store the return date and time as posted by the landing (fractional trip lengths, explicit return times) — this is the one sanctioned exception to the derive-don't-store rule
-
----
-
-## Rule 9 — Session Continuity
-
-At the start of any session involving a known project:
-
-1. Read `~/Documents/Claude/CONTRIBUTING.md` and `AGENTS.md`
-2. Read `BUILD-PLAN.md` (this repo) for the multi-day design and its safety nets; check memory for project context
-3. Check the repo for current file state before making changes
-4. Never assume the previous session's work is still current — verify by reading files
-
----
-
 ## Rule 11 — Weekly Multi-Day Refresh (scheduled task)
 
 - Task `saltwater-multiday-refresh` runs Sundays 8:15 AM (plus jitter) on Ed's Mac: `git pull --rebase --autostash` → `python3 refresh_multiday.py` → `node test-multiday.js` + `python3 tests/test_refresh_multiday.py` → explicit staging with a deletion guard → `data(multiday)` commit → push → `touch data/last-success` → one Slack line to #fishing-report-alerts every run → heartbeat row. Full contract in the task's SKILL.md and `BUILD-PLAN.md` §10.
@@ -197,16 +189,3 @@ At the start of any session involving a known project:
 - A stale landing keeps its previous rows; a row collapse below 60 % holds the page; a departed-but-unreturned boat is carried forward. These are in the script, not the prompt — keep them there.
 - Interactive sessions must leave the tree clean (only `data/refresh.log`, `data/hold/`, `data/last-success` may differ) or the Sunday preflight aborts with `dirty-tree`.
 - Ops coverage: ops-watcher (daily 8:04), fleet-sentinel (Class-1 auto-restart, never on STALLED), launchd fleet watchdog (`data/last-success` mtime). To rerun by hand: `rerun saltwater-multiday-refresh` in #ops-control, or "Run now" in the Scheduled sidebar.
-
----
-
-## Rule 10 — Never Do These
-
-- ❌ Push a stub or placeholder README
-- ❌ Write a one-liner commit message on a feat/fix/data commit
-- ❌ Update an existing GitHub file without getting its SHA first
-- ❌ Store Ed's PAT in any file, memory, or log
-- ❌ Assume git clone will work in a sandbox — use the Contents API
-- ❌ Skip the CONTRIBUTING.md / AGENTS.md bootstrap check
-- ❌ Hand-edit the `MULTI` block or run `git add -A` in this repo
-- ❌ Leave a dashboard without a data freshness disclaimer

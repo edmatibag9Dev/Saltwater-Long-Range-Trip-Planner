@@ -1,6 +1,17 @@
 # Changelog
 
 All notable changes to the Saltwater Long Range Trip Planner. Newest first.
+Format follows [Keep a Changelog](https://keepachangelog.com/); dates are America/Los_Angeles.
+Gitignored data/output files are never committed.
+
+## [2026-10-09] — Conform to repo standard 2026-10-09
+
+### Changed
+- AGENTS.md restructured to the standard: fixed opening line and `Standard:` stamp, then the seven required sections (What this repo is, File map, The data contract, How it works, How to extend, Privacy — hard rules, Verification gates). The generic GitHub-operations rules (Rules 1–5, 7–10, forked from the June global rulebook) are replaced by a link to `~/.claude/GITHUB-OPERATIONS.md`; the repo-specific additions to Rules 4, 8, 9 and 10, the File map, Node dependencies, Rule 6 scraping protocol and Rule 11 weekly refresh are kept.
+- README.md split into the nine separate CONTRIBUTING.md sections: "Overview / Purpose" → Project Overview + Purpose, "Files" → File Descriptions (missing files added), "Known Limitations & Workarounds" → Known Limitations + Workarounds. "Update / Refresh Instructions" and "Reservation Tips" moved under How to Use as subsections. Added the `Last updated` line.
+- .gitignore gains the standard entries `.env`, `.env.*`, `!.env.example`, `CONFIG.local.md`, `*.bak*`, `.venv/`.
+- CHANGELOG.md now declares the Keep a Changelog format.
+- llms.txt: AGENTS.md entry re-described to match its new contents.
 
 ## [2026-09-04]
 

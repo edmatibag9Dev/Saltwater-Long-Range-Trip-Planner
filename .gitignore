@@ -5,3 +5,13 @@ __pycache__/
 .DS_Store
 node_modules/
 data/last-success
+
+# Secrets and local-only config (personal identifiers scrubbed from committed docs)
+.env
+.env.*
+!.env.example
+CONFIG.local.md
+
+# Backups and environments
+*.bak*
+.venv/
