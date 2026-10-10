@@ -4,6 +4,11 @@ All notable changes to the Saltwater Long Range Trip Planner. Newest first.
 Format follows [Keep a Changelog](https://keepachangelog.com/); dates are America/Los_Angeles.
 Gitignored data/output files are never committed.
 
+## [2026-10-10] — Fix docs that contradicted the code
+
+### Fixed
+- README long-range refresh step 6 now says `git push origin main` (decision D7) instead of the GitHub Contents API.
+
 ## [2026-10-09] — Conform to repo standard 2026-10-09
 
 ### Changed

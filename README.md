@@ -142,7 +142,7 @@ To pull fresh availability data:
 3. Update the `RAW` array in `saltwater_trip_planner.html` with new spot counts, availability codes, and any new/removed trips
 4. Save the file and open it in your browser to verify
 5. Commit using the `data` type: `data(trip-planner): refresh availability snapshot — <month> <year>`
-6. Push the updated file to GitHub via the Contents API (GET sha first, then PUT with sha)
+6. Push with `git push origin main` from this clone (decision D7 in BUILD-PLAN.md). The GitHub Contents API is only for a sandbox where `git` cannot run.
 
 **To add a new month's data** — simply append new entries to the `RAW` array with the correct departure dates. The month filter and processing planner will pick them up automatically.
 
@@ -258,4 +258,4 @@ No workaround.
 
 *Last data pull: June 2026 | Processing rates: June 2026 | Built with Claude (Anthropic) | Standards: CONTRIBUTING.md + AGENTS.md*
 
-*Last updated: 2026-10-09*
+*Last updated: 2026-10-10*
