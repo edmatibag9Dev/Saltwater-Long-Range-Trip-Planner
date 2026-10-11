@@ -1,41 +1,41 @@
 {
-  "digest": "c16b65da46a90ed3",
+  "digest": "bb97d13fc6c28c78",
   "dry_run": false,
   "html_written": true,
   "outcome": "landed",
   "per_landing": {
     "FL": {
       "error": "",
-      "kept": 204,
+      "kept": 183,
       "pages": 10,
-      "raw": 445,
+      "raw": 444,
       "status": "ok"
     },
     "HM": {
       "error": "",
-      "kept": 88,
+      "kept": 77,
       "pages": 1,
-      "raw": 375,
+      "raw": 460,
       "status": "ok"
     },
     "PL": {
       "error": "",
-      "kept": 40,
-      "pages": 20,
-      "raw": 397,
+      "kept": 34,
+      "pages": 21,
+      "raw": 402,
       "status": "ok"
     },
     "SF": {
       "error": "",
-      "kept": 47,
-      "pages": 13,
-      "raw": 299,
+      "kept": 42,
+      "pages": 11,
+      "raw": 263,
       "status": "ok"
     }
   },
-  "prev_rows_kept": 417,
+  "prev_rows_kept": 379,
   "rows_carried": 14,
-  "rows_kept": 379,
-  "rows_raw": 1516,
-  "ts": "2026-10-04T08:25:41-07:00"
+  "rows_kept": 336,
+  "rows_raw": 1569,
+  "ts": "2026-10-11T08:22:39-07:00"
 }
