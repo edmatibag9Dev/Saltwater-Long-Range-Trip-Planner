@@ -18,3 +18,5 @@
 {"ts": "2026-10-25T08:22:00-07:00", "outcome": "landed", "kept": 374, "raw": 1422, "per_landing": {"FL": "ok:230", "SF": "ok:33", "PL": "ok:49", "HM": "ok:62"}, "html_written": true}
 2026-10-25T08:24:24-07:00 ping=webhook
 {"ts": "2026-11-01T07:22:35-08:00", "outcome": "landed", "kept": 319, "raw": 1304, "per_landing": {"FL": "ok:215", "SF": "ok:24", "PL": "ok:42", "HM": "ok:38"}, "html_written": true}
+2026-11-01T08:24:48-07:00 ping=webhook
+{"ts": "2026-11-08T07:22:26-08:00", "outcome": "landed", "kept": 341, "raw": 1255, "per_landing": {"FL": "ok:211", "SF": "ok:29", "PL": "ok:75", "HM": "ok:26"}, "html_written": true}
