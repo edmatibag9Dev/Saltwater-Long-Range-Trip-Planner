@@ -1,5 +1,4 @@
 landing,boat,ttype,days,dep,deptime,ret,rettime,cap,cap_source,spots,price,src
-FL,Pacific Queen,2 Day Limited Load,2.0,2026-11-08,10:00 AM,2026-11-10,6:00 AM,29,listed,5,$983.25,page1
 FL,Islander,3 Day (No Passports),3.0,2026-11-10,11:00 AM,2026-11-13,7:00 AM,24,listed,24,$1474.88,page1
 FL,Pacific Queen,1.5 Day Limited Load,1.5,2026-11-10,6:00 PM,2026-11-12,6:00 AM,33,listed,29,$543.38,page1
 FL,Pacific Queen,3 Day Limited Load,3.0,2026-11-12,10:00 AM,2026-11-15,6:00 AM,25,listed,Full,$1500.75,page1
@@ -209,13 +208,13 @@ FL,Pacific Queen,3 Day Limited Load,3.0,2027-11-21,9:00 AM,2027-11-24,6:00 AM,24
 SF,Aztec,1.5 Day Limited Load,1.5,2026-11-09,3:00 PM,2026-11-11,6:00 AM,28,listed,28,$555,page1
 SF,Cortez,2.5 Day Limited Load,2.5,2026-11-10,2:30 PM,2026-11-13,6:00 AM,15,listed,Full,$950,page1
 SF,Aztec,1.5 Day Limited Load,1.5,2026-11-11,3:00 PM,2026-11-13,6:00 AM,28,listed,25,$555,page1
-SF,Tribute,1.5 Day Limited Load,1.5,2026-11-11,5:00 PM,2026-11-13,6:00 AM,30,listed,27,$555,page1
-SF,Aztec,1.5 Day Limited Load,1.5,2026-11-13,3:00 PM,2026-11-15,6:00 AM,28,listed,7,$555,page2
-SF,Tribute,1.5 Day Limited Load,1.5,2026-11-13,5:00 PM,2026-11-15,6:00 AM,30,listed,24,$555,page2
+SF,Tribute,1.5 Day Limited Load,1.5,2026-11-11,5:00 PM,2026-11-13,6:00 AM,30,listed,26,$555,page1
+SF,Aztec,1.5 Day Limited Load,1.5,2026-11-13,3:00 PM,2026-11-15,6:00 AM,28,listed,1,$555,page2
+SF,Tribute,1.5 Day Limited Load,1.5,2026-11-13,5:00 PM,2026-11-15,6:00 AM,30,listed,26,$555,page2
 SF,Tribute,1.5 Day Limited Load,1.5,2026-11-15,5:00 PM,2026-11-17,6:00 AM,30,listed,30,$555,page2
 SF,Aztec,1.5 Day Limited Load,1.5,2026-11-16,3:00 PM,2026-11-18,6:00 AM,28,listed,28,$555,page2
-SF,Tribute,1.5 Day Limited Load,1.5,2026-11-18,5:00 PM,2026-11-20,6:00 AM,30,listed,22,$555,page3
-SF,Tribute,1.5 Day Limited Load,1.5,2026-11-20,5:00 PM,2026-11-22,6:00 AM,30,listed,28,$555,page3
+SF,Tribute,1.5 Day Limited Load,1.5,2026-11-18,5:00 PM,2026-11-20,6:00 AM,30,listed,22,$555,page2
+SF,Tribute,1.5 Day Limited Load,1.5,2026-11-20,5:00 PM,2026-11-22,6:00 AM,30,listed,26,$555,page3
 SF,Tribute,1.5 Day Limited Load,1.5,2026-11-22,5:00 PM,2026-11-24,6:00 AM,30,listed,30,$555,page3
 SF,Tribute,1.5 Day Limited Load,1.5,2026-11-27,5:00 PM,2026-11-29,6:00 AM,30,listed,27,$555,page4
 SF,Tribute,1.5 Day Limited Load,1.5,2026-11-29,5:00 PM,2026-12-01,6:00 AM,30,listed,30,$555,page4
@@ -229,15 +228,15 @@ SF,Tribute,1.5 Day Limited Load,1.5,2026-12-11,5:00 PM,2026-12-13,6:00 AM,30,lis
 SF,Tribute,1.5 Day Limited Load,1.5,2026-12-13,5:00 PM,2026-12-15,6:00 AM,30,listed,30,$555,page4
 SF,Tribute,1.5 Day Limited Load,1.5,2026-12-16,5:00 PM,2026-12-18,6:00 AM,30,listed,30,$555,page4
 SF,Tribute,1.5 Day Limited Load,1.5,2026-12-18,5:00 PM,2026-12-20,6:00 AM,30,listed,30,$555,page4
-SF,Tribute,1.5 Day Limited Load,1.5,2026-12-20,5:00 AM,2026-12-22,6:00 AM,30,listed,30,$555,page5
-SF,Pacific Voyager,5 Day Freelance (Passport Required),5.0,2026-12-26,9:00 AM,2026-12-31,6:00 AM,12,listed,6,"$2,500",page5
+SF,Tribute,1.5 Day Limited Load,1.5,2026-12-20,5:00 AM,2026-12-22,6:00 AM,30,listed,30,$555,page4
+SF,Pacific Voyager,5 Day Freelance (Passport Required),5.0,2026-12-26,9:00 AM,2026-12-31,6:00 AM,12,listed,6,"$2,500",page4
 SF,Tribute,1.5 Day Limited Load,1.5,2026-12-27,5:00 PM,2026-12-29,6:00 AM,30,listed,30,$555,page5
 PL,New Lo-An,2 Day,2.0,2026-11-11,10:00 AM,2026-11-13,6:00 AM,25,listed,6,$828.00,page1
 PL,New Lo-An,3 Day Charter,3.0,2026-11-13,10:00 AM,2026-11-16,6:00 AM,27,boat-max,,,page2
 PL,New Lo-An,2 Day,2.0,2026-11-16,10:00 AM,2026-11-18,6:00 AM,25,listed,22,$828.00,page2
 PL,New Lo-An,2 Day,2.0,2026-11-18,10:00 AM,2026-11-20,6:00 AM,25,listed,25,$828.00,page3
 PL,New Lo-An,1.5 Day Charter,1.5,2026-11-20,5:00 PM,2026-11-22,6:00 AM,27,boat-max,,,page3
-PL,New Lo-An,1.5 Day,1.5,2026-12-02,6:00 PM,2026-12-04,6:00 AM,25,listed,24,$621.00,page6
+PL,New Lo-An,1.5 Day,1.5,2026-12-02,6:00 PM,2026-12-04,6:00 AM,25,listed,24,$621.00,page5
 PL,New Lo-An,1.5 Day,1.5,2026-12-04,6:00 PM,2026-12-06,6:00 AM,25,listed,24,$621.00,page6
 PL,Wildcard 95,1.5 Day Charter,1.5,2026-12-04,7:00 PM,2026-12-06,6:00 AM,32,boat-max,,,page6
 PL,New Lo-An,1.5 Day,1.5,2026-12-09,6:00 PM,2026-12-11,6:00 AM,25,listed,25,$621.00,page6
@@ -257,8 +256,8 @@ PL,Wildcard 95,1.5 Day Baja Coast,1.5,2027-02-19,7:00 PM,2027-02-21,6:00 AM,32,l
 PL,Wildcard 95,1.5 Day Baja Coast,1.5,2027-02-26,7:00 PM,2027-02-28,6:00 AM,32,listed,32,$476.10,page8
 PL,New Lo-An,2.5 Day,2.5,2027-03-04,6:00 PM,2027-03-07,6:00 AM,20,listed,20,"$1,190.25",page8
 PL,New Lo-An,2.5 Day,2.5,2027-03-11,6:00 PM,2027-03-14,6:00 AM,20,listed,20,"$1,190.25",page8
-PL,New Lo-An,2.5 Day Charter,2.5,2027-03-19,6:00 PM,2027-03-22,6:00 AM,27,boat-max,,,page9
-PL,New Lo-An,2.5 Day,2.5,2027-03-25,6:00 PM,2027-03-28,6:00 AM,20,listed,20,"$1,190.25",page9
+PL,New Lo-An,2.5 Day Charter,2.5,2027-03-19,6:00 PM,2027-03-22,6:00 AM,27,boat-max,,,page8
+PL,New Lo-An,2.5 Day,2.5,2027-03-25,6:00 PM,2027-03-28,6:00 AM,20,listed,20,"$1,190.25",page8
 PL,New Lo-An,2.5 Day,2.5,2027-04-01,6:00 PM,2027-04-04,6:00 AM,20,listed,20,"$1,190.25",page9
 PL,New Lo-An,2 Day,2.0,2027-04-04,10:00 AM,2027-04-06,6:00 AM,25,listed,25,$879.75,page9
 PL,New Lo-An,2 Day,2.0,2027-04-06,10:00 AM,2027-04-08,6:00 AM,25,listed,25,$879.75,page9
@@ -267,57 +266,57 @@ PL,New Lo-An,2.5 Day Charter,2.5,2027-04-11,6:00 PM,2027-04-14,6:00 AM,27,boat-m
 PL,New Lo-An,2.5 Day Charter,2.5,2027-04-15,6:00 PM,2027-04-18,6:00 AM,27,boat-max,,,page9
 PL,New Lo-An,2 Day,2.0,2027-04-18,10:00 AM,2027-04-20,6:00 AM,25,listed,25,$879.75,page9
 PL,New Lo-An,2 Day,2.0,2027-04-21,10:00 AM,2027-04-23,6:00 AM,25,listed,25,$879.75,page9
-PL,New Lo-An,3 Day Charter,3.0,2027-04-23,10:00 AM,2027-04-26,6:00 AM,27,boat-max,,,page10
+PL,New Lo-An,3 Day Charter,3.0,2027-04-23,10:00 AM,2027-04-26,6:00 AM,27,boat-max,,,page9
 PL,New Lo-An,3 Day,3.0,2027-04-26,10:00 AM,2027-04-29,6:00 AM,20,listed,20,"$1,319.63",page10
 PL,New Lo-An,2.5 Day Charter,2.5,2027-04-29,6:00 PM,2027-05-02,6:00 AM,27,boat-max,,,page10
 PL,New Lo-An,3 Day,3.0,2027-05-02,10:00 AM,2027-05-05,6:00 AM,20,listed,20,"$1,319.63",page10
 PL,New Lo-An,2 Day,2.0,2027-05-05,10:00 AM,2027-05-07,6:00 AM,25,listed,25,$879.75,page10
-PL,New Lo-An,2.5 Day Charter,2.5,2027-05-07,6:00 PM,2027-05-10,6:00 AM,27,boat-max,,,page11
+PL,New Lo-An,2.5 Day Charter,2.5,2027-05-07,6:00 PM,2027-05-10,6:00 AM,27,boat-max,,,page10
 PL,New Lo-An,2 Day,2.0,2027-05-10,10:00 AM,2027-05-12,6:00 AM,25,listed,25,$879.75,page11
 PL,New Lo-An,2 Day,2.0,2027-05-12,10:00 AM,2027-05-14,6:00 AM,25,listed,25,$879.75,page11
 PL,New Lo-An,2 Day Charter,2.0,2027-05-14,10:00 AM,2027-05-16,6:00 AM,27,boat-max,,,page11
 PL,New Lo-An,2 Day,2.0,2027-05-16,10:00 AM,2027-05-18,6:00 AM,25,listed,25,$879.75,page11
 PL,New Lo-An,3 Day,3.0,2027-05-18,10:00 AM,2027-05-21,6:00 AM,20,listed,20,"$1,319.63",page11
 PL,New Lo-An,3 Day Charter,3.0,2027-05-21,10:00 AM,2027-05-24,6:00 AM,27,boat-max,,,page11
-PL,New Lo-An,3 Day Charter,3.0,2027-05-24,10:00 AM,2027-05-27,6:00 AM,27,boat-max,,,page12
+PL,New Lo-An,3 Day Charter,3.0,2027-05-24,10:00 AM,2027-05-27,6:00 AM,27,boat-max,,,page11
 PL,New Lo-An,2 Day,2.0,2027-05-30,10:00 AM,2027-06-01,6:00 AM,25,listed,25,$879.75,page12
 PL,New Lo-An,2 Day,2.0,2027-06-01,10:00 AM,2027-06-03,6:00 AM,25,listed,25,$879.75,page12
 PL,New Lo-An,3 Day Charter,3.0,2027-06-03,10:00 AM,2027-06-06,6:00 AM,27,boat-max,,,page12
-PL,New Lo-An,3 Day Charter,3.0,2027-06-06,10:00 AM,2027-06-09,6:00 AM,27,boat-max,,,page13
-PL,New Lo-An,2 Day,2.0,2027-06-09,10:00 AM,2027-06-11,6:00 AM,25,listed,25,$879.75,page13
-PL,New Lo-An,2 Day Charter,2.0,2027-06-11,10:00 AM,2027-06-13,6:00 AM,27,boat-max,,,page13
+PL,New Lo-An,3 Day Charter,3.0,2027-06-06,10:00 AM,2027-06-09,6:00 AM,27,boat-max,,,page12
+PL,New Lo-An,2 Day,2.0,2027-06-09,10:00 AM,2027-06-11,6:00 AM,25,listed,25,$879.75,page12
+PL,New Lo-An,2 Day Charter,2.0,2027-06-11,10:00 AM,2027-06-13,6:00 AM,27,boat-max,,,page12
 PL,New Lo-An,2 Day Charter,2.0,2027-06-13,10:00 AM,2027-06-16,6:00 AM,27,boat-max,,,page13
 PL,New Lo-An,2 Day,2.0,2027-06-16,10:00 AM,2027-06-18,6:00 AM,25,listed,25,$983.25,page13
 PL,New Lo-An,2 Day,2.0,2027-06-18,10:00 AM,2027-06-20,6:00 AM,25,listed,25,$983.25,page13
 PL,New Lo-An,2 Day,2.0,2027-06-20,10:00 AM,2027-06-22,6:00 AM,25,listed,25,$983.25,page13
 PL,New Lo-An,2 Day,2.0,2027-06-22,10:00 AM,2027-06-24,6:00 AM,25,listed,25,$983.25,page13
-PL,New Lo-An,3 Day Charter,3.0,2027-06-24,10:00 AM,2027-06-27,6:00 AM,27,boat-max,,,page14
+PL,New Lo-An,3 Day Charter,3.0,2027-06-24,10:00 AM,2027-06-27,6:00 AM,27,boat-max,,,page13
 PL,New Lo-An,3 Day Charter,3.0,2027-06-27,10:00 AM,2027-06-30,6:00 AM,27,boat-max,,,page14
 PL,New Lo-An,2 Day,2.0,2027-06-30,10:00 AM,2027-07-02,6:00 AM,25,listed,25,$983.25,page14
 PL,New Lo-An,2 Day,2.0,2027-07-02,10:00 AM,2027-07-04,6:00 AM,25,listed,25,$983.25,page14
-PL,New Lo-An,2 Day Charter,2.0,2027-07-07,10:00 AM,2027-07-09,6:00 AM,27,boat-max,,,page15
+PL,New Lo-An,2 Day Charter,2.0,2027-07-07,10:00 AM,2027-07-09,6:00 AM,27,boat-max,,,page14
 PL,New Lo-An,2 Day Charter,2.0,2027-07-09,10:00 AM,2027-07-11,6:00 AM,27,boat-max,,,page15
 PL,New Lo-An,2.5 Day Charter,2.5,2027-07-16,10:00 AM,2027-07-19,6:00 AM,27,boat-max,,,page15
 PL,New Lo-An,2 Day,2.0,2027-07-19,10:00 AM,2027-07-21,6:00 AM,25,listed,25,$983.25,page15
 PL,New Lo-An,2 Day,2.0,2027-07-21,10:00 AM,2027-07-23,6:00 AM,25,listed,25,$983.25,page15
 PL,New Lo-An,3 Day Charter,3.0,2027-07-23,10:00 AM,2027-07-26,6:00 AM,27,boat-max,,,page15
-PL,New Lo-An,3 Day Charter,3.0,2027-07-26,10:00 AM,2027-07-29,6:00 AM,27,boat-max,,,page16
+PL,New Lo-An,3 Day Charter,3.0,2027-07-26,10:00 AM,2027-07-29,6:00 AM,27,boat-max,,,page15
 PL,New Lo-An,3 Day Charter,3.0,2027-07-29,10:00 AM,2027-08-01,6:00 AM,27,boat-max,,,page16
-PL,New Lo-An,2 Day,2.0,2027-08-15,10:00 AM,2027-08-17,6:00 AM,25,listed,25,$983.25,page17
+PL,New Lo-An,2 Day,2.0,2027-08-15,10:00 AM,2027-08-17,6:00 AM,25,listed,25,$983.25,page16
 PL,New Lo-An,2 Day,2.0,2027-08-17,10:00 AM,2027-08-19,6:00 AM,25,listed,25,$983.25,page17
 HM,Electra,2 Day - Freelance,2.0,2026-11-08,10:00 AM,2026-11-10,6:00 AM,25,listed,Full,$720,xolacache
 HM,Sea Adventure 80,2 Day - Freelance,2.0,2026-11-10,10:00 AM,2026-11-12,5:00 AM,28,listed,28,$720,xolacache
 HM,Ocean Odyssey,1.5 Day - Freelance,1.5,2026-11-10,7:00 PM,2026-11-12,6:00 AM,29,listed,28,$535.0048309178744,xolacache
 HM,Sea Adventure 80,2 Day - Freelance,2.0,2026-11-12,10:00 AM,2026-11-14,5:00 AM,28,listed,24,$720,xolacache
 HM,Electra,3 Day - Freelance,3.0,2026-11-12,10:00 AM,2026-11-15,6:00 AM,24,listed,Full,$1050,xolacache
-HM,Old Glory,1.5 Day - Freelance,1.5,2026-11-13,6:00 PM,2026-11-15,6:00 AM,29,listed,12,$489.99999999999994,xolacache
+HM,Old Glory,1.5 Day - Freelance,1.5,2026-11-13,6:00 PM,2026-11-15,6:00 AM,29,listed,9,$489.99999999999994,xolacache
 HM,Ocean Odyssey,1.5 Day - Freelance,1.5,2026-11-13,7:00 PM,2026-11-15,6:00 AM,29,listed,5,$545.0048309178744,xolacache
 HM,Sea Adventure 80,2 Day - Freelance,2.0,2026-11-14,10:00 AM,2026-11-16,5:00 AM,28,listed,23,$720,xolacache
 HM,Electra,2 Day - Freelance,2.0,2026-11-15,10:00 AM,2026-11-17,6:00 AM,25,listed,16,$620,xolacache
 HM,Sea Adventure 80,3 Day - Freelance,3.0,2026-11-16,10:00 AM,2026-11-19,5:00 AM,28,listed,26,$1200,xolacache
 HM,Electra,2 Day - Freelance,2.0,2026-11-20,10:00 AM,2026-11-22,6:00 AM,25,listed,16,$620,xolacache
 HM,Old Glory,1.5 Day - Freelance,1.5,2026-11-20,6:00 PM,2026-11-22,6:00 AM,29,listed,22,$489.99999999999994,xolacache
-HM,Electra,2 Day - Freelance,2.0,2026-11-27,10:00 AM,2026-11-29,6:00 AM,25,listed,20,$620,xolacache
+HM,Electra,2 Day - Freelance,2.0,2026-11-27,10:00 AM,2026-11-29,6:00 AM,25,listed,19,$620,xolacache
 HM,Sea Adventure 80,3.5 Day - Freelance,3.5,2026-11-27,6:00 PM,2026-12-01,6:00 AM,25,listed,25,$1200,xolacache
 HM,Vision,Explore and Discover - 2.5 Dive Trip,2.58,2027-05-28,5:00 PM,2027-05-31,7:00 AM,32,listed,32,$1195.0048309178744,xolacache
 HM,Vision,Explore and Discover - 2.5 Dive Trip,2.58,2027-06-17,5:00 PM,2027-06-20,7:00 AM,32,listed,32,$1195.0048309178744,xolacache

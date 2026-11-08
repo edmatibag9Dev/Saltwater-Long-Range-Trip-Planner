@@ -1,0 +1,27 @@
+{
+  "outcome": "failed",
+  "per_processor": {
+    "fp": {
+      "diffs": [],
+      "error": "no offline fixture",
+      "http": null,
+      "name": "Fisherman's Processing",
+      "scraped": {},
+      "status": "failed",
+      "stored": {},
+      "unreadable": []
+    },
+    "fs": {
+      "diffs": [],
+      "error": "no offline fixture",
+      "http": null,
+      "name": "Five Star Fish Processing",
+      "scraped": {},
+      "status": "failed",
+      "stored": {},
+      "unreadable": []
+    }
+  },
+  "rate_date": "November 2026",
+  "ts": "2026-11-08T13:51:28-08:00"
+}

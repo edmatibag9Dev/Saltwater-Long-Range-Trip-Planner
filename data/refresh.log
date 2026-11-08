@@ -20,3 +20,6 @@
 {"ts": "2026-11-01T07:22:35-08:00", "outcome": "landed", "kept": 319, "raw": 1304, "per_landing": {"FL": "ok:215", "SF": "ok:24", "PL": "ok:42", "HM": "ok:38"}, "html_written": true}
 2026-11-01T08:24:48-07:00 ping=webhook
 {"ts": "2026-11-08T07:22:26-08:00", "outcome": "landed", "kept": 341, "raw": 1255, "per_landing": {"FL": "ok:211", "SF": "ok:29", "PL": "ok:75", "HM": "ok:26"}, "html_written": true}
+2026-11-08T08:24:26-07:00 ping=webhook
+{"ts": "2026-11-08T13:25:20-08:00", "outcome": "partial", "multiday": {"outcome": "landed", "kept": 340, "raw": 1242, "html": true, "per_landing": {"FL": "ok:210", "SF": "ok:29", "PL": "ok:75", "HM": "ok:26"}}, "longrange": {"outcome": "partial", "kept": 901, "unresolved": 2, "html": true}}
+{"ts": "2026-11-08T13:27:40-08:00", "outcome": "already-landed", "multiday": {"outcome": "already-landed", "kept": 340, "raw": 1242, "html": false, "per_landing": {"FL": "ok:210", "SF": "ok:29", "PL": "ok:75", "HM": "ok:26"}}, "longrange": {"outcome": "already-landed", "kept": 901, "unresolved": 2, "html": false}}

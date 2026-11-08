@@ -1,5 +1,13 @@
-# BUILD PLAN — Multi-Day Boats in the Processing Planner
-# Saltwater Long Range Trip Planner · drafted 2026-09-03 · status: awaiting Ed's go
+# BUILD PLAN — Trip Planner data refresh
+# Saltwater Long Range Trip Planner
+
+Sections 1–10 are the original plan, **Multi-Day Boats in the Processing Planner** (drafted
+2026-09-03, built and landed 2026-09-04). Section 11 extends the same pipeline to the planner's
+other two data surfaces — the long-range boats and the fish-processor rates — and was drafted and
+built 2026-11-08. Read §1–10 for the multi-day design and the scheduled task's operational
+contract (§10.3), and §11 for everything the long-range and rate work changed on top of it.
+
+Status: built. The scheduled task has run every Sunday since 2026-09-06.
 
 ---
 
@@ -134,6 +142,7 @@ Safety rules baked into the script:
 
 - Cron `15 8 * * 0` (Sunday 8:15 AM local). Ed moved it off 8:00 on 2026-09-03 because
   `weekly-brain-review` (8:00 Sun) and `ops-watcher` (8:00 daily) fire in that minute.
+  (The clock time the task actually fires at is not 8:15 — see §11, "Fire time".)
 - Steps: `git pull` → `python3 refresh_multiday.py` → `node test-multiday.js` → stage listed
   files → commit `data(multiday): refresh multi-day returns <date>` with ≥3 bullets and the
   Co-Authored-By trailer → `git push` → verify → ping (Slack webhook primary, push fallback)
@@ -179,7 +188,7 @@ Safety rules baked into the script:
 | # | Question | Resolution |
 |---|---|---|
 | 1 | Searcher and Intrepid | Added to the LR set as boats 10 and 11 (Trip Finder + manual refresh). Seeded from landing-page rows. |
-| 2 | Sunday run time | 8:15 AM (`15 8 * * 0`) |
+| 2 | Sunday run time | 8:15 AM (`15 8 * * 0`) — in practice 15:21 UTC; see §11 |
 | 3 | Chartered rows with no capacity | Default to the boat's max observed capacity (Claude's call, stated to Ed) |
 | 4 | Pages entry point | Add `index.html` redirect |
 | 5 | Clone location | `…/Build Saltwater Trip Planner/repo/` (Claude's call, stated to Ed) |
@@ -241,3 +250,68 @@ site push. The plan records it here so no future run re-derives it.
 - [x] 2026-09-04 · Supervised "Run now" by Ed: landed, all four landings ok, 539 rows (3 carried forward), commit ca37cb3 pushed, both test suites green, ping=webhook, heartbeat ok, `data/last-success` touched, Pages shows `MULTI_AS_OF = '2026-09-04'`. Finding: the step-6 ping line is appended to `data/refresh.log` after the commit and left the tree dirty (the run committed it as 3601309 on its own judgment). Fix applied to the contract, not the script: preflight now ignores `data/refresh.log`, `data/hold/`, `data/last-success`; pull uses `--autostash`; step 4 stages the log so the ping line rides the next commit; no second commit.
 - [x] 2026-09-04 · `#fishing-report-alerts` webhook confirmed: `alert-sent`.
 - [ ] First unattended Sunday (2026-09-06) verified Monday: heartbeat row present, Slack line received, `mission-control.html` shows the task OK.
+
+---
+
+## 11. Long-range boats and processor rates (added 2026-11-08 at Ed's request)
+
+Everything above concerns the multi-day boats. This section is the second piece of work: putting
+the planner's other two data surfaces on the same weekly pipeline. It extends §10's contract rather
+than replacing it — the deltas to §10.3 are listed at the end.
+
+A review of the planner's update schedule found only one of its three data surfaces on a schedule.
+The long-range `RAW` array was four months stale (snapshot 2026-07-12) and the processor rates five
+months (stamped June 2026), with nothing watching either. Ed's decisions, 2026-11-08:
+
+- **D8 — one task, not two.** The long-range refresh folds into `refresh_multiday.py` and the
+  existing Sunday task rather than getting its own: one commit, one Slack line, one heartbeat, one
+  watchdog row, and the test suites already in place. `fleet_watchdog.py` needs no change — same
+  task id, same cron, same `data/last-success` proxy. The 240-minute grace still covers a run that
+  now fetches 11 more pages (measured: 1 m 45 s for all 15 sources).
+- **D9 — rates are alert-only.** `check_rates.py` reports and never edits. Both processors publish a
+  cash and a credit column, and Five Star prices 3 mil and 5 mil bags differently, so mapping a
+  sheet onto `PROCESSORS` is judgement; a wrong auto-edit would silently misprice every quote.
+- **D10 — Rule 6's CAPTCHA claim was wrong** for the pages the planner needs. All 11 boat `/sales/`
+  pages return HTTP 200 with full schedule tables under the same User-Agent and 1.5 s spacing the
+  landings use — they are the same platform and URL shape as the Seaforth and Fisherman's pages. The
+  Chrome-tab workaround is kept as a repair path, not the weekly job.
+- **D11 — never publish a guessed trip field.** The 11 boat pages vary much more than the landings:
+  five wait-list spellings, five charter spellings, three price formats, two different name/length
+  separators. A row is written only when every field parses cleanly; otherwise it keeps its previous
+  `RAW` values and is counted as `unresolved`. A parser quirk becomes a number in the Slack line
+  instead of wrong trip data. Two rows (Royal Star) are in that state and are expected to stay there,
+  so unresolved rows only make the run partial above 5 % of those scraped.
+- **D12 — carry the curation forward.** `RAW` holds what the pages cannot supply: the `'ed'` flag,
+  shortened trip names, and departed trips. All three survive a refresh, keyed on
+  `(boatIdx, deptDate)`; a trip whose departure moves loses its flag and needs it re-added. A
+  refresh that drops the `'ed'` flag is a failed refresh, asserted in both suites.
+- **D13 — collapse is judged per boat**, never on the ~900-row total, or one boat emptying would hide
+  behind the other ten. A future trip missing from a healthy page is treated as cancelled, dropped,
+  and logged by name (16 on the first run).
+
+Contract changes the layers above depend on (extends §10.3): `data/last_run.json` keeps every field
+it had at the top level and adds `multiday` and `longrange` sub-objects; `outcome` and the exit code
+are now the worse of the two surfaces; `data/rates_check.json` is new. The Slack line grows to four
+segments (header, multi-day, long-range, rates).
+
+First run, 2026-11-08 (interactive, supervised): multi-day landed 340 rows; long-range landed 901
+rows across all 11 boats with 2 unresolved and 16 cancelled trips dropped; rates reported no change
+for both processors after the Five Star cash/credit correction; both suites green (2538 jsdom
+assertions, 41 Python tests).
+
+### Fire time (resolved 2026-11-08: document it, do not change it)
+
+The cron reads `15 8 * * 0` — Sunday 8:15 AM local — plus a fixed ~6 minute jitter, but the
+scheduler holds the fire time as a **UTC instant, 15:21 UTC**, not as a local wall-clock time.
+Observed: 08:21 local on 2026-10-25 (PDT), then 07:21 on 2026-11-01 and 2026-11-08 after DST
+ended (PST); `nextRunAt` for 2026-11-15 is 15:21 UTC. So the task runs at **8:21 AM in summer and
+7:21 AM in winter**.
+
+**D14 — Ed's call: correct the documentation, leave the schedule alone.** The four landings and the
+11 boats post their schedules days to months ahead, so an hour either way changes no data, and the
+fleet watchdog's 240-minute grace absorbs it in both seasons. Re-pinning the cron would only move
+the problem to the other half of the year. Anyone tempted to "fix" the 7:21 AM should read this
+first: the cron expression is not what decides the clock time.
+
+Every doc that used to state "8:15 AM" now says "Sunday morning" (the two dashboard stamps, the
+README refresh section, AGENTS.md Rule 11) or carries the UTC-instant explanation.

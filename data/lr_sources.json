@@ -1,0 +1,145 @@
+{
+  "americanangler": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "American Angler",
+    "rows_kept": 85,
+    "rows_raw": 54,
+    "slug": "americanangler",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "excel": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Excel",
+    "rows_kept": 69,
+    "rows_raw": 43,
+    "slug": "excel",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "independence": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Independence",
+    "rows_kept": 63,
+    "rows_raw": 37,
+    "slug": "independence",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "intrepid": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Intrepid",
+    "rows_kept": 60,
+    "rows_raw": 53,
+    "slug": "intrepid",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "polarissupreme": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Polaris Supreme",
+    "rows_kept": 136,
+    "rows_raw": 90,
+    "slug": "polarissupreme",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "royalpolaris": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Royal Polaris",
+    "rows_kept": 74,
+    "rows_raw": 49,
+    "slug": "royalpolaris",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "royalstar": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Royal Star",
+    "rows_kept": 80,
+    "rows_raw": 50,
+    "slug": "royalstar",
+    "status": "ok",
+    "unresolved": 2
+  },
+  "searcher": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Searcher",
+    "rows_kept": 68,
+    "rows_raw": 57,
+    "slug": "searcher",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "shogun": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Shogun",
+    "rows_kept": 97,
+    "rows_raw": 62,
+    "slug": "shogun",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "soa": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Spirit of Adv.",
+    "rows_kept": 87,
+    "rows_raw": 49,
+    "slug": "soa",
+    "status": "ok",
+    "unresolved": 0
+  },
+  "vagabond": {
+    "error": "",
+    "http": [
+      200
+    ],
+    "last_good": "2026-11-08",
+    "name": "Vagabond",
+    "rows_kept": 82,
+    "rows_raw": 44,
+    "slug": "vagabond",
+    "status": "ok",
+    "unresolved": 0
+  }
+}

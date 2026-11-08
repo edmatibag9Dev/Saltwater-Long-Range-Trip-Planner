@@ -49,12 +49,13 @@ This dashboard was built to answer two questions at a glance:
 | `CONTRIBUTING.md` | Commit message, README and staging standards (verbatim copy of the canonical file) |
 | `AGENTS.md` | Canonical guide for AI agents — file map, data contract, verification gates, scraping protocol, weekly refresh rules |
 | `Saltwater_Fish_Processing_Calculator_v2.xlsx` | Offline per-fish processing-cost workbook (Numbers-compatible) — same engine rules, for use at sea |
-| `refresh_multiday.py` | Fetches multi-day boat schedules from the four San Diego landings, applies the processing-planner rules, writes `data/` and (in Phase 2) the planner's MULTI-DAY block. Headless, no browser. |
+| `refresh_multiday.py` | Fetches **both** sets of schedules — the four San Diego landings into the MULTI-DAY block and all 11 long-range boats into the `RAW` block — applies the planner's rules, preserves your own curation in `RAW`, and writes `data/`. Headless, no browser. |
+| `check_rates.py` | Compares both fish processors' published cash rates to what the Processing Calculator quotes and writes `data/rates_check.json`. Reports only — it never edits the dashboard. |
 | `tests/test_refresh_multiday.py` | 15 offline tests for the refresh script (parser, rules, capacity fill, dedupe, block writer, stale/hold safety nets) using saved pages in `tests/fixtures/` |
 | `data/multiday_trips.csv` | Latest kept multi-day rows (1.5-day+, returning 5–10 AM, long-range boats removed) — the audit copy of what the planner shows |
 | `data/landing_trips_raw.csv` | Every trip parsed from the four landings before filtering, for audit |
 | `data/boat_capacity.json`, `data/sources.json`, `data/last_run.json`, `data/refresh.log` | Per-boat max capacity (fills chartered rows), per-landing fetch status and last-good date, last-run summary for the scheduled task, append-only run log |
-| `BUILD-PLAN.md` | The 2026-09 build plan: problem, decisions, data sources, design, safety nets, phase gate results |
+| `BUILD-PLAN.md` | The data-refresh design: §1–10 the 2026-09 multi-day work (problem, decisions, data sources, safety nets, phase gate results), §11 the 2026-11 extension to the long-range boats and processor rates |
 | `README.md` | This file |
 | `tests/fixtures/` | Saved landing pages (2026-09-03) the offline refresh tests parse instead of fetching |
 | `CHANGELOG.md` | Version history in Keep a Changelog format, newest first |
@@ -115,36 +116,87 @@ Estimate and compare what your catch will cost to process at two San Diego proce
 5. Read the side-by-side quote: processing subtotal → card fee → **Est. total**, with Fisherman's also showing a **Net est. total** after its prepaid $100 deposit
 6. The lower-cost processor is flagged; the **comparison matrix** below covers locations, dock pickup, hours, rates, deposit terms, and shipping
 
-> Rates are entered from each processor's published price sheet (June 2026) and may change — always confirm at drop-off. For offline use at sea, `Saltwater_Fish_Processing_Calculator_v2.xlsx` in this repo applies the same per-fish rules in the Numbers app (one row per kept fish). San Diego Fish Processing is excluded because it publishes no rates.
+> Rates are entered from each processor's published price sheet and verified against both live pages on 2026-11-08 — always confirm at drop-off. `check_rates.py` re-checks them every Sunday and reports any change. Every stored rate is the **cash** figure; the card price is derived by adding the processor's own fee. For offline use at sea, `Saltwater_Fish_Processing_Calculator_v2.xlsx` in this repo applies the same per-fish rules in the Numbers app (one row per kept fish). San Diego Fish Processing is excluded because it publishes no rates.
 
 ### Update / Refresh Instructions
 
+One command refreshes every trip on the dashboard. Nothing needs a browser — all 15 sources load
+headlessly:
+
+```
+python3 refresh_multiday.py                  # fetch, write data/, update BOTH data blocks
+python3 refresh_multiday.py --dry-run        # fetch and write data/ only, leave the page alone
+python3 refresh_multiday.py --skip-longrange # multi-day only
+python3 check_rates.py                       # compare the processors' published rates (reports only)
+node test-multiday.js                        # dashboard integration tests
+python3 tests/test_refresh_multiday.py       # offline tests against saved pages
+```
+
+The scheduled task **`saltwater-multiday-refresh`** ("Saltwater Trip Planner refresh") runs all of
+this every Sunday morning on Ed's Mac, runs both test suites, commits as `data(refresh): …`,
+pushes (which republishes GitHub Pages), and posts one line to Slack #fishing-report-alerts whether
+it succeeded or not — a silent Sunday means the run did not happen. If a run fails, the line says
+why; rerun with `rerun saltwater-multiday-refresh` in #ops-control or "Run now" in the Scheduled
+sidebar. A full run takes about two minutes.
+
+The cron says 8:15 AM, but the scheduler holds the fire time as a fixed UTC instant (15:21 UTC),
+so the actual clock time is **8:21 AM in summer and 7:21 AM in winter**. Left as is — the landings
+and boats post days ahead, so the hour makes no difference to the data.
+
 #### Multi-day boats (Processing Planner only)
 
-Multi-day boats from Fisherman's Landing, H&M Landing, Point Loma Sportfishing, and Seaforth are refreshed by `refresh_multiday.py`, which needs no browser — all four sources load headlessly:
+Sources: Fisherman's Landing, H&M Landing, Point Loma Sportfishing, Seaforth.
 
-```
-python3 refresh_multiday.py            # fetch, write data/, update the planner's MULTI-DAY block
-python3 refresh_multiday.py --dry-run  # fetch and write data/ only
-python3 tests/test_refresh_multiday.py # offline tests against saved pages
-```
+Rules applied: trip length 1.5 days or longer, return time 5:00–10:00 AM, long-range boats dropped
+(they live in `RAW`). Safety nets: 30 s per-request timeout with two retries, 10-minute fetch
+budget, a failed landing keeps its previous rows and is marked stale, a row-count collapse below
+60 % of the last run holds the page and writes the CSV to `data/hold/`, a boat that has departed but
+not returned is carried forward, and an unchanged result exits `already-landed` without rewriting
+anything.
 
-The scheduled task **`saltwater-multiday-refresh`** runs this every Sunday at 8:15 AM on Ed's Mac, runs both test suites, commits as `data(multiday): …`, pushes (which republishes GitHub Pages), and posts one line to Slack #fishing-report-alerts whether it succeeded or not — a silent Sunday means the run did not happen. If a run fails, the line says why; rerun with `rerun saltwater-multiday-refresh` in #ops-control or "Run now" in the Scheduled sidebar.
+#### Long-range boats (Trip Finder + Processing Planner)
 
-Rules applied: trip length 1.5 days or longer, return time 5:00–10:00 AM, long-range boats dropped (they live in `RAW`). Safety nets: 30 s per-request timeout with two retries, 10-minute fetch budget, a failed landing keeps its previous rows and is marked stale, a row-count collapse below 60 % of the last run holds the page and writes the CSV to `data/hold/`, and an unchanged result exits `already-landed` without rewriting anything. Exit codes: 0 landed / already-landed, 2 partial, 3 hold, 4 failed. A weekly scheduled task (Sunday 8:15 AM) runs this and pushes the result.
+Automated since 2026-11-08, from each boat's own `/sales/` page. Before that these 11 boats were
+updated by hand through a browser extension, and the snapshot had drifted four months — the booking
+pages were believed to block automated requests, which turned out not to be true of the pages the
+planner needs.
 
-#### Long-range boats (manual)
+`RAW` holds three things the boat pages cannot supply, and the refresh carries all three forward:
 
-To pull fresh availability data:
+- **your own trip flag** — `'ed'` on a trip's flags array. Matched on boat + departure date, so a
+  trip that gets rescheduled loses the flag and needs it re-added.
+- **shortened trip names** — the pages shout them across several lines
+  (`PENN SPONSORED ULTRA LIMITED LOAD` / `**DEFINTE GO**`). An existing name always wins; only a
+  trip never seen before takes the page's own wording, which you can then tidy by hand.
+- **trips that already departed** — the pages drop a trip the moment it sails, so past months stay
+  browsable only because the refresh keeps them.
 
-1. Open all 9 reservation links in your browser (see Data Sources below)
-2. Use the Claude in Chrome extension to read each page — ask Claude to extract all trip data for the target months
-3. Update the `RAW` array in `saltwater_trip_planner.html` with new spot counts, availability codes, and any new/removed trips
-4. Save the file and open it in your browser to verify
-5. Commit using the `data` type: `data(trip-planner): refresh availability snapshot — <month> <year>`
-6. Push with `git push origin main` from this clone (decision D7 in BUILD-PLAN.md). The GitHub Contents API is only for a sandbox where `git` cannot run.
+Safety nets beyond the multi-day ones: the 60 % collapse guard runs **per boat**, so one boat
+emptying cannot hide behind the other ten; a row whose fields do not all parse cleanly keeps its
+previous values and is counted as `unresolved` rather than published as a guess (two rows on Royal
+Star do this every week — it is the steady state, and only above 5 % of rows does it flag the run);
+and a future trip that has vanished from a healthy page is treated as cancelled, dropped, and
+logged by name.
 
-**To add a new month's data** — simply append new entries to the `RAW` array with the correct departure dates. The month filter and processing planner will pick them up automatically.
+Exit codes for both surfaces, whichever is worse: 0 landed / already-landed, 2 partial, 3 hold,
+4 failed.
+
+**Do not hand-edit `RAW` or the `MULTI` block** — both are generated between marker comments and the
+next run overwrites anything you put there. To change what the refresh produces, edit
+`refresh_multiday.py` and its tests. New months appear in both tabs automatically.
+
+#### Processing rates
+
+`check_rates.py` compares both processors' published **cash** rates to what the calculator quotes
+and writes `data/rates_check.json`. It **never edits the dashboard**: the published sheets carry a
+cash and a credit column, and Five Star prices 3 mil and 5 mil bags differently, so choosing the
+right figure is a judgement call. The Sunday run reports any difference in its Slack line and you
+update `PROCESSORS` yourself.
+
+Every rate stored in `PROCESSORS` is the **cash** figure. The card price is derived — `calcQuotes`
+adds the processor's own fee (3 % Fisherman's, 3.95 % Five Star) on top. Storing a value from a
+published credit-card column charges that fee twice; three Five Star fields did exactly that until
+2026-11-08. After any rate edit, run `python3 check_rates.py` and confirm it reports no change.
 
 **To flag your own trip** — add `'ed'` to the flags array in the trip's data row: `[boatIdx, name, deptDate, days, capacity, spots, price, ['ed']]`
 
@@ -178,7 +230,10 @@ All trip data was scraped directly from each boat's live reservation system. The
 | Searcher | https://searcher.fishingreservations.net/sales/ |
 | Intrepid | https://intrepid.fishingreservations.net/sales/ |
 
-Searcher and Intrepid were added 2026-09-03 and seeded from the Fisherman's Landing and Point Loma landing schedule pages (their own booking pages serve a CAPTCHA to headless requests). Verify them at the next manual long-range refresh.
+All 11 are read weekly by `refresh_multiday.py` straight from these pages, which load headlessly —
+no browser needed (verified 2026-11-08). Searcher and Intrepid were added 2026-09-03 and originally
+seeded second-hand from the landing schedule pages because their own booking pages were thought to
+CAPTCHA; they do not, and both are now read directly like the rest.
 
 **Multi-day boats (Processing Planner only)** — refreshed weekly by `refresh_multiday.py`, no browser needed:
 
@@ -191,11 +246,23 @@ Searcher and Intrepid were added 2026-09-03 and seeded from the Fisherman's Land
 
 **Last multi-day refresh:** 2026-11-08 (updated automatically by `refresh_multiday.py`)
 
+**Last long-range refresh:** 2026-11-08 (updated automatically by `refresh_multiday.py`)
+
 Calibration source for past days: https://www.sandiegofishreports.com/dock_totals/boats.php?date=YYYY-MM-DD (boats by landing with anglers and trip type).
 
 **Red Rooster III** (`https://www.redrooster3.com/trips.htm`) is tracked but had no 2026 fall schedule posted at the time of the last data pull — only 2025 dates were available.
 
-**Data coverage:** long-range trips through December 2027 (snapshot 2026-07-12; Searcher/Intrepid 2026-09-03). Multi-day trips as far as each landing posts — H&M posts about four months ahead, the other three post 12–16 months ahead — so far-future months undercount H&M until they publish.
+**Processing rates** — read weekly by `check_rates.py`, which reports changes and edits nothing:
+
+| Processor | Published rates |
+|------|-----------------|
+| Fisherman's Processing | https://www.fishermansprocessing.com/ (rate card on the home page) |
+| Five Star Fish Processing | https://www.fivestar.net/pricing.php |
+
+**Data coverage:** long-range trips from May 2026 through January 2028 — past months are kept so the
+Processing Planner stays browsable, and the boats publish 12–14 months ahead. Multi-day trips as far
+as each landing posts — H&M posts about four months ahead, the other three post 12–16 months ahead —
+so far-future months undercount H&M until they publish.
 
 ---
 
@@ -203,11 +270,21 @@ Calibration source for past days: https://www.sandiegofishreports.com/dock_total
 
 ### CAPTCHA on fishingreservations.net
 
-8 of the 9 boats use the `fishingreservations.net` booking platform. This platform applies bot/CAPTCHA detection (error 338) when receiving rapid sequential automated requests from the same IP address.
+The booking platform applies bot/CAPTCHA detection (error 338) to rapid sequential automated
+requests from one IP. The refresh stays under it by sending a browser User-Agent and spacing
+requests 1.5 s apart, which has held across ~50 requests per run. A CAPTCHA response is recognised
+and treated as a failed fetch, so that source keeps its previous rows and is marked stale rather
+than publishing nothing.
+
+### A few rows each week are not re-read
+
+Two Royal Star rows print the next trip's name where the availability count belongs. Rather than
+guess, the refresh keeps whatever those rows held before and counts them as `unresolved` in its
+report. They are the only ones as of 2026-11-08, and the Slack line carries the count every week.
 
 ### Availability is a snapshot
 
-The open spot counts and wait list statuses shown in the dashboard reflect the state at the time of the last data pull.
+The open spot counts and wait list statuses shown in the dashboard reflect the state at the time of the last data pull — at most a week old, and refreshed every Sunday morning.
 
 ### Red Rooster III — no 2026 schedule
 
@@ -223,11 +300,24 @@ The Processing Planner shows **boat capacity** as the angler count, not actual b
 
 ### CAPTCHA on fishingreservations.net
 
-**Workaround for data refreshes:**
-1. Open each of the 9 boat reservation links manually in your browser (all at once in separate tabs is fine)
-2. Once the pages are loaded in your browser, use the Claude in Chrome extension to read each tab's content
-3. Claude reads through your authenticated browser session — the CAPTCHA does not trigger because the pages are already loaded
-4. Shogun typically loads cleanly on the first automated request before blocking kicks in
+Not needed for the weekly refresh — kept as the repair path if a boat ever starts refusing
+headless requests. The refresh would mark that boat stale and keep its previous rows, so the
+dashboard degrades rather than breaking, and you can fill the gap by hand:
+
+1. Open the boat's reservation link in your browser
+2. Use the Claude in Chrome extension to read the tab's content
+3. Claude reads through your loaded session, so the CAPTCHA does not trigger
+
+Check whether it is actually needed before reaching for it:
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36' https://shogun.fishingreservations.net/sales/
+```
+
+### A few rows each week are not re-read
+
+Edit those rows in `RAW` directly. The refresh will keep your values — an unresolved row is never
+overwritten from the page.
 
 ### Availability is a snapshot
 
@@ -256,6 +346,6 @@ No workaround.
 
 ---
 
-*Last data pull: June 2026 | Processing rates: June 2026 | Built with Claude (Anthropic) | Standards: CONTRIBUTING.md + AGENTS.md*
+*Last data pull: 2026-11-08 (automatic, every Sunday) | Processing rates verified: 2026-11-08 | Built with Claude (Anthropic) | Standards: CONTRIBUTING.md + AGENTS.md*
 
-*Last updated: 2026-10-10*
+*Last updated: 2026-11-08*

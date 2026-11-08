@@ -6,7 +6,7 @@
 > Pure HTML/CSS/JS in one file — no server, no build step.
 
 ## Start here
-- [BUILD-PLAN.md](BUILD-PLAN.md): the 2026-09 multi-day design — decisions, data sources, safety nets (§10), phase results.
+- [BUILD-PLAN.md](BUILD-PLAN.md): the data-refresh design. §1–10 the 2026-09 multi-day work (decisions, data sources, safety nets, the task's contract in §10.3, phase results); §11 the 2026-11 long-range + processor-rate extension (decisions D8–D13).
 - [AGENTS.md](AGENTS.md): canonical agent guide — file map, data contract (`RAW`, `MULTI`, `data/`), verification gates, scraping protocol, weekly refresh, Node dependency layout.
 - [README.md](README.md): human quickstart — features, usage, data sources, refresh instructions.
 - [CHANGELOG.md](CHANGELOG.md): version history, newest first.
@@ -14,18 +14,22 @@
 
 ## Dashboard
 - [index.html](index.html): GitHub Pages entry point — redirects to the dashboard file below.
-- [saltwater_trip_planner.html](saltwater_trip_planner.html): the entire dashboard — Trip Finder, Processing Planner, and Processing Calculator tabs; long-range trip data lives in the inline `RAW` JS array (return dates derived from departure + trip length); multi-day rows live in the auto-generated `MULTI` block (return date/time as posted). Tests: `node test-multiday.js`, `python3 tests/test_refresh_multiday.py`.
+- [saltwater_trip_planner.html](saltwater_trip_planner.html): the entire dashboard — Trip Finder, Processing Planner, and Processing Calculator tabs. Long-range trip data lives in the auto-generated `RAW` block (return dates derived from departure + trip length); multi-day rows live in the auto-generated `MULTI` block (return date/time as posted). Two self-checking freshness stamps, `#lr-stamp` and `#multi-stamp`. Tests: `node test-multiday.js`, `python3 tests/test_refresh_multiday.py`.
 
 ## Refresh
-- [refresh_multiday.py](refresh_multiday.py): headless multi-day refresh (four landings) — writes data/ and the MULTI-DAY block; tests in tests/.
+- [refresh_multiday.py](refresh_multiday.py): headless refresh of BOTH trip-data blocks — the four landings into the MULTI-DAY block and all 11 long-range boats into the `RAW` block. Writes data/; `--skip-longrange` does multi-day only; tests in tests/.
+- [check_rates.py](check_rates.py): compares both fish processors' published cash rates to the dashboard's `PROCESSORS` and writes data/rates_check.json. Reports only — never edits the dashboard.
 
 ## Key rules
-- The `MULTI` block is written only by `refresh_multiday.py` (Sunday task `saltwater-multiday-refresh`); never hand-edit between its markers.
+- The `MULTI` and `RAW` blocks are both written only by `refresh_multiday.py` (Sunday task `saltwater-multiday-refresh`); never hand-edit between their markers. `BOATS` stays hand-maintained and must keep the same order as the script's `BOAT_SOURCES`.
+- A refresh must preserve what the boat pages cannot supply: the `'ed'` trip flag, curated trip names (matched on boatIdx + departure date), and trips that already departed.
+- A long-range row whose fields do not all parse cleanly keeps its previous values and is counted as `unresolved`; never publish a guessed trip field.
+- Processing rates in `PROCESSORS` are CASH figures — `calcQuotes` adds each processor's `ccFee` on top, so a credit-column value charges the fee twice. `check_rates.py` must report no change after any rate edit.
 - Interactive sessions leave the tree clean, or the Sunday preflight aborts (`dirty-tree`).
 - Single self-contained HTML file: all CSS/JS inline, opens via file://, no external dependencies, no localStorage (in-memory state only).
 - Never add a `package.json` to this repo. The test harness's `jsdom` (and tooling's `docx`) are declared in the parent Cowork folder's manifest; run `npm install` / `npm test` from there. Never `npm install <pkg> --no-save` in that folder — it prunes the packages it was not asked for.
 - Trip data is a snapshot — every refresh must update the visible "data as of" disclaimer and README data-freshness note, and link to live sources.
-- fishingreservations.net blocks rapid automated requests (CAPTCHA error 338): refresh data by reading pre-loaded browser tabs, never rapid sequential scraping.
-- Long-range rows: return dates are derived from departure + trip length. Multi-day rows (MULTI block, auto-generated): return date/time are stored as posted by the landing, never hand-edited.
-- GitHub updates go through the Contents API: GET the file sha first, then PUT with sha; skipping the GET causes a 409.
+- fishingreservations.net blocks rapid automated requests (CAPTCHA error 338): send a browser User-Agent and space requests 1.5 s apart, as both scripts do. All 15 sources load headlessly (landings verified 2026-09-03, all 11 boats 2026-11-08). Reading pre-loaded browser tabs is the repair path if a page starts refusing, not the weekly job.
+- Long-range rows (`RAW` block, auto-generated): return dates are derived from departure + trip length. Multi-day rows (MULTI block, auto-generated): return date/time are stored as posted by the landing. Never hand-edit either block.
+- Push with plain `git push origin main` from this clone (decision D7; git and gh are already logged in on Ed's Mac, no PAT). The GitHub Contents API is only for a sandbox where git cannot run — there, GET the file sha first, then PUT with sha, or you get a 409.
 - Data refresh commits use the `data` type with a body of at least 3 bullets; README updated on every feat/fix/data commit.

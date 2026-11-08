@@ -1,41 +1,179 @@
 {
-  "digest": "b4a05812f458301b",
+  "digest": "e1ea620b1f7ab7ab",
   "dry_run": false,
-  "html_written": true,
-  "outcome": "landed",
+  "html_written": false,
+  "longrange": {
+    "digest": "ec8679efc848f721",
+    "dropped_future": 0,
+    "html_written": false,
+    "outcome": "already-landed",
+    "per_boat": {
+      "americanangler": {
+        "error": "",
+        "kept": 85,
+        "name": "American Angler",
+        "raw": 54,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "excel": {
+        "error": "",
+        "kept": 69,
+        "name": "Excel",
+        "raw": 43,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "independence": {
+        "error": "",
+        "kept": 63,
+        "name": "Independence",
+        "raw": 37,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "intrepid": {
+        "error": "",
+        "kept": 60,
+        "name": "Intrepid",
+        "raw": 53,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "polarissupreme": {
+        "error": "",
+        "kept": 136,
+        "name": "Polaris Supreme",
+        "raw": 90,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "royalpolaris": {
+        "error": "",
+        "kept": 74,
+        "name": "Royal Polaris",
+        "raw": 49,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "royalstar": {
+        "error": "",
+        "kept": 80,
+        "name": "Royal Star",
+        "raw": 50,
+        "status": "ok",
+        "unresolved": 2
+      },
+      "searcher": {
+        "error": "",
+        "kept": 68,
+        "name": "Searcher",
+        "raw": 57,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "shogun": {
+        "error": "",
+        "kept": 97,
+        "name": "Shogun",
+        "raw": 62,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "soa": {
+        "error": "",
+        "kept": 87,
+        "name": "Spirit of Adv.",
+        "raw": 49,
+        "status": "ok",
+        "unresolved": 0
+      },
+      "vagabond": {
+        "error": "",
+        "kept": 82,
+        "name": "Vagabond",
+        "raw": 44,
+        "status": "ok",
+        "unresolved": 0
+      }
+    },
+    "prev_rows_kept": 901,
+    "rows_kept": 901,
+    "unresolved": 2
+  },
+  "multiday": {
+    "digest": "e1ea620b1f7ab7ab",
+    "html_written": false,
+    "outcome": "already-landed",
+    "per_landing": {
+      "FL": {
+        "error": "",
+        "kept": 210,
+        "pages": 9,
+        "raw": 426,
+        "status": "ok"
+      },
+      "HM": {
+        "error": "",
+        "kept": 26,
+        "pages": 1,
+        "raw": 291,
+        "status": "ok"
+      },
+      "PL": {
+        "error": "",
+        "kept": 75,
+        "pages": 19,
+        "raw": 364,
+        "status": "ok"
+      },
+      "SF": {
+        "error": "",
+        "kept": 29,
+        "pages": 7,
+        "raw": 161,
+        "status": "ok"
+      }
+    },
+    "prev_rows_kept": 340,
+    "rows_carried": 12,
+    "rows_kept": 340,
+    "rows_raw": 1242
+  },
+  "outcome": "already-landed",
   "per_landing": {
     "FL": {
       "error": "",
-      "kept": 211,
+      "kept": 210,
       "pages": 9,
-      "raw": 427,
+      "raw": 426,
       "status": "ok"
     },
     "HM": {
       "error": "",
       "kept": 26,
       "pages": 1,
-      "raw": 299,
+      "raw": 291,
       "status": "ok"
     },
     "PL": {
       "error": "",
       "kept": 75,
       "pages": 19,
-      "raw": 367,
+      "raw": 364,
       "status": "ok"
     },
     "SF": {
       "error": "",
       "kept": 29,
       "pages": 7,
-      "raw": 162,
+      "raw": 161,
       "status": "ok"
     }
   },
-  "prev_rows_kept": 319,
+  "prev_rows_kept": 340,
   "rows_carried": 12,
-  "rows_kept": 341,
-  "rows_raw": 1255,
-  "ts": "2026-11-08T07:22:26-08:00"
+  "rows_kept": 340,
+  "rows_raw": 1242,
+  "ts": "2026-11-08T13:27:40-08:00"
 }

@@ -1,0 +1,1847 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="X-UA-Compatible" content="IE=edge">
+<script type="text/javascript" src="js/jsnlog.min.js"></script>
+<script language="javascript">
+var appender= JL.createAjaxAppender();
+appender.setOptions({"url":"utilities\/jsnlog.logger.php"});
+JL().setOptions({"appenders": [appender]});
+</script>
+
+<title>Excel Sportfishing - Reservation System</title>
+<link href="/sales/css/schedule.css?v=20160115" rel="stylesheet" type="text/css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/responsive.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/styles.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/core.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/swiper.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&subset=latin-ext" rel="stylesheet" type="text/css">
+<link href="/sales/css/ideaboxNews.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css">
+<link href="/sales/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css">
+<link href="/sales/css/style-dev.css?v=20240104" rel="stylesheet" type="text/css">
+<link href="/sales/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="/sales/js/jquery-3.7.1.min.js" type="text/javascript"></script>
+<script src="/sales/js/menumaker.min.js" type="text/javascript"></script>
+<script src="/sales/js/script.js" type="text/javascript"></script>
+<script src="/sales/js/math.min.js" type="text/javascript"></script>
+<script src="/sales/js/respond.min.js" type="text/javascript"></script>
+<script src="/sales/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script src="/sales/js/ideaboxNews.js" type="text/javascript"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/sales/js/jquery.blockUI.js" type="text/javascript"></script>
+<script src="/sales/js/resos.js?v=20261014e" type="text/javascript"></script>
+<script src="/sales/js/phone-format.min.js" type="text/javascript"></script>
+<script src="/sales/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+	var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+	var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+	var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+	if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.01
+	var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+	d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+	if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+	for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+	if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+	var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+	if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+$(document).ready(function () {
+	MM_preloadImages('images/but-arrow2.png','images/but-audio2.png','images/but-vid2.png','images/but-photo2.png','images/but-wifi2.png','images/but-safe2.png','images/but-fb2.png','images/but-tw2.png','images/but-yt2.png','images/but-g2.png','images/but-p2.png');
+});
+</script>
+<link rel="apple-touch-icon" sizes="57x57" href="/sales/images/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/sales/images/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/sales/images/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/sales/images/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/sales/images/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/sales/images/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/sales/images/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/sales/images/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/sales/images/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/sales/images/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/sales/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/sales/images/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/sales/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/sales/images/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/sales/images/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+    <div class="ideaboxNews in-easing" id="idx1">
+    
+         <ul>
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261107-54cdc653.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Got Into Some Wahoo Action Today</h2>
+                    <span>7 NOVEMBER 2026, SATURDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261107-54cdc653.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					Big tuna no-showed today, but we were fortunate enough to get in on a little bit of wahoo action. Hoping... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=246989">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261105-607cc831.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Worked our way down the coast today</h2>
+                    <span>5 NOVEMBER 2026, THURSDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261105-607cc831.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					Worked our way down the coast today, making a few stops for some fresh fish for the galley. We start... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=246804">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261104-23e4a0af.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Merritt 10-day group is loaded up</h2>
+                    <span>4 NOVEMBER 2026, WEDNESDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261104-23e4a0af.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	Merritt 10-day group is loaded up with beautiful bait from #everinghambaitco and headed south. Wish us luck!
+
+	... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=246733">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261029-6ae4392b.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Collonello 10-day Trip </h2>
+                    <span>28 OCTOBER 2026, WEDNESDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261029-6ae4392b.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					Starting our Collonello 10-day trip off right! The excellent quality continues down south. Lets keep it going!
+   ... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=246069">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261022-3787f16b.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>The outstanding fishing continues down below </h2>
+                    <span>22 OCTOBER 2026, THURSDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261022-3787f16b.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					The outstanding fishing continues down below for the PELAGIC 8-day group. A great time to be on the water!
+ ... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=245229">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261021-52b170fe.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>As good as it gets on this beautiful grade tuna today! </h2>
+                    <span>21 OCTOBER 2026, WEDNESDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261021-52b170fe.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	BOOM! As good as it gets on this beautiful grade tuna today! Pelagic Group is STOKED!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=245029">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261016-d1dd55ec.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Fun trip with great people</h2>
+                    <span>16 OCTOBER 2026, FRIDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261016-d1dd55ec.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	Did some inshore fishing yesterday where we had excellent fishing for bass with a little bit of yellowtail and dorado... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=244611">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261015-b42a3737.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Nice Ride Up </h2>
+                    <span>14 OCTOBER 2026, WEDNESDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261015-b42a3737.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					Had a nice ride up and was lucky enough to land some real beauties. Hoping for a few exotics tomorrow.
+... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=244554">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261013-2ab3cc01.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Turis Group Trip Check In</h2>
+                    <span>13 OCTOBER 2026, TUESDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261013-2ab3cc01.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	Another fine day out on the water with the Turis Group.
+
+
+
+
+
+
+
+
+
+
+
+
+
+	... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=244530">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261012-1f1ae720.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>The storm has passed and we are back on the fishing grounds</h2>
+                    <span>12 OCTOBER 2026, MONDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261012-1f1ae720.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	The storm has passed and we are back on the fishing grounds. Putting together a nice day of wahoo and... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=244516">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261006-4075d2fe.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Back end of our Phenix Rods trip</h2>
+                    <span>6 OCTOBER 2026, TUESDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261006-4075d2fe.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	A few go-arounds on this nice grade tuna on the back end of our Phenix Rods trip.
+
+
+
+
+	... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=244273">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261004-e5b9651d.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>A little rally on some wahoo</h2>
+                    <span>4 OCTOBER 2026, SUNDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261004-e5b9651d.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					A little rally on some wahoo for the Phenix Rods group before we make our next move!
+   ... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=244224">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20261002-b50ec29e.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Phenix Rods 10-day trip </h2>
+                    <span>1 OCTOBER 2026, THURSDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20261002-b50ec29e.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					Currently out on our Phenix Rods 10-day trip and we are back on the fish. Quality tuna and yellowtail to... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=244178">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20260924-ffa0d51f.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Pulling on big tuna and wahoo in beautiful weather</h2>
+                    <span>24 SEPTEMBER 2026, THURSDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20260924-ffa0d51f.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	Epic past couple of days for the McGrouther Group pulling on big tuna and wahoo in beautiful weather. These guys... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=243950">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20260921-7b5f0709.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Stellar fishing today for the McGrouther group!</h2>
+                    <span>21 SEPTEMBER 2026, MONDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20260921-7b5f0709.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	Stellar fishing today for the McGrouther group! Good grade tuna with a few wahoo and dorado in the mix. A... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=243863">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20260920-76b32896.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Annual McGrouther 8-day trip</h2>
+                    <span>20 SEPTEMBER 2026, SUNDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20260920-76b32896.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	Left yesterday on our annual McGrouther 8-day trip with 19 anglers. Everyone on board is fired up and ready to... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=243838">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20260918-33f50548.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Finished off our trip with some offshore action</h2>
+                    <span>18 SEPTEMBER 2026, FRIDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20260918-33f50548.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+						Finished off our trip with some offshore action. Found some kelps holding wahoo and dorado. A nice little finisher.
+
+
+
+
+	... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=243781">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20260916-cdf71922.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Everyone on board getting in on the action!</h2>
+                    <span>16 SEPTEMBER 2026, WEDNESDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20260916-cdf71922.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	9/11 First Responders have been enjoying some excellent, shark free fishing for this nice grade tuna up to 120 pounds.... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=243714">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20260914-ca34e668.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Annual 9/11 First Responders 8-day trip </h2>
+                    <span>14 SEPTEMBER 2026, MONDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20260914-ca34e668.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	We are out on our annual 9/11 First Responders 8-day trip and we decided to start at the lower end... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=243639">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li>
+            	<div class="in-image" style="background: url('//media.fishreports.com/reports/img-20260909-fcb62ada.jpg'); background-size: cover; background-position: center;">
+                    <span class="in-darkblue"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content">
+                	<h2>Gallagher/ Bob Sands group</h2>
+                    <span>9 SEPTEMBER 2026, WEDNESDAY</span>
+					<br>
+					<br>
+					<br>
+                    
+                    <div class="row ">
+					<div class="col-md-12 report-image-padd">
+					<img src="//media.fishreports.com/reports/img-20260909-fcb62ada.jpg" class='img-thumbnail center-block'>
+					<br>
+					<h4 class='text-center'>by Excel Long Range Sportfishing</h4>
+					<div style='padding: 10px;'>
+					
+	Nothing has come easy for the Gallagher/ Bob Sands group. Hurricane Marie really stirred up the water up down below... <a href="https://www.excelsportfishing.com/detailed_report.php?report_id=243423">more&nbsp;&raquo;</a>					</div>
+					</div>
+					</div>
+                </div>
+            </li>			
+			<li class="more-reports-in-image">
+            	<div class="in-image more-reports-in-image" style="background: url(''); background-size: cover; background-position: center;">
+                    <span class="in-turquoise"><h6>Read more</h6></span>
+                </div>
+                <div class="in-content more-reports-in-image">
+                	<h2>More Reports</h2>
+                    <span>View Report Archive</span>
+					<br>
+					<br>
+					<br>
+                    <div>
+            </li>
+			<li style="height: 50px;">
+            </li>		
+        </ul>
+        <div class="in-viewer">
+        	<div class="in-viewer-header">
+            	<img src="trash/img1.jpg">
+                <div>
+                	<h2>no title...</h2>
+                    <span>no date...</span>
+                </div>
+            </div>
+			 <div class="ad_set">
+			 <!-- audio include here! --></div>
+            <div class="in-viewer-content">
+            	no content...
+            </div>
+            <span class="in-viewer-close"></span>
+        </div>
+    </div>
+	
+<div class="container-fluid">
+<div class="row no-gutter">
+<div id="wrap-head">
+  <!-- Start header--> 
+  <div class="col-md-3">
+  	<div id="wrap-logo"><a href="/sales/"><img src="/sales/images/excel-logo.png" alt="Excel Sportfishing"></a></div>
+  </div>
+  <div class="col-md-9">
+	<div id="wrap-nav">
+	
+	<div id="cssmenu" class="align-right">
+  <ul>
+     <li class="reports_section">
+		<a id="slideidea" href="javascript:" class="visible-lg-block">Reports</a>
+		<a href="https://www.excelsportfishing.com/fishreports.php" class="hidden-lg">Reports</a>
+	 </li>
+     <li><a href="https://www.excelsportfishing.com/links.php">Links</a></li>
+     <li><a href="https://www.excelsportfishing.com/contact.php">Contact</a></li>
+     <li><a href="https://www.excelsportfishing.com/gallery.php">Gallery</a></li>
+     <li><a href="#">Your Trip</a>
+        <ul>
+			<li><a href="https://www.excelsportfishing.com/content/what-to-expect.php">What to Expect</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/what-to-bring.php">What to Bring</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/rental-tackle.php">Rental Tackle</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/suggested-gear.php">Suggested Gear</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/suggested-tackle.php">Suggested Tackle</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/code-of-ethics.php">Code of Ethics</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/fish-species.php">Fish Species</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/fish-processing.php">Fish Processing</a></li>
+        </ul>
+     </li>
+     <li><a href="https://www.excelsportfishing.com/content/about.php">The Boat</a>
+        <ul>
+			<li><a href="https://www.excelsportfishing.com/content/view-our-rooms.php">Our Rooms</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/lounge-and-galley.php">Lounge and Galley</a></li>
+			<li><a href="https://www.excelsportfishing.com/crew.php">Meet Our Crew</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/bill-poole.php">Bill Poole</a></li>
+			<li><a href="https://www.excelsportfishing.com/content/gigapan.php">Gigapan Images</a></li>
+		</ul>
+     </li>
+	 <li><a href="https://excel.fishingreservations.net/sales">Schedule</a></li>
+	 <li><a href="https://www.excelsportfishing.com/">Home</a></li>
+  </ul>
+</div>	
+	</div>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="post-head">
+<div class='container-fluid' id='resos'>
+<div class='row' style='margin-top: 10px;'>
+<div class='col-xs-12 col-md-4 col-md-offset-4'>
+<div class='passport-wrapper'><img src='/sales/images/Passport.png'> <strong>Passports <span class='red'>REQUIRED</span> on all trips!</strong></div>
+</div>
+<div class='col-xs-12 col-md-4'>
+<span class='pull-right'>
+<label>Manage your account:</label> <a href='usersignin.php?action=profile' class='btn btn-default'>Login.</a><br><br></span>
+</div>
+<br><br>
+<div class="col-xs-12">
+		<table class="scale-table">
+			<tbody>
+				<tr>
+					<td colspan="2" class="scale-title">Excel Sportfishing Trip Schedule</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">November, 2026</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="804111">&nbsp;</td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="804111">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Merritt 10 - OPEN</strong> - 
+10 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Wed. 11-4-2026<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 11-14-2026<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>28</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$5,560 Check</b><br>$5,754.60 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>2</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="956065"><a href="/sales/usersignin.php?trip_id=956065" class="myButton_lite" id="trip-956065-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="956065">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Team Hoo 10 - OPEN</strong> - 
+10 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 11-14-2026<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Tue. 11-24-2026<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>28</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$5,560 Check</b><br>$5,754.60 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>1</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="888189"><a href="/sales/waitlist_form.php?trip_id=888189" class="myButton_red" id="trip-888189-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="888189">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Bull's Wahoo Scramble - Open</strong> - 
+12 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 11-28-2026<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Thu. 12-10-2026<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>27</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$6,420 Check</b><br>$6,644.70 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">December, 2026</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1078277"><a href="/sales/waitlist_form.php?trip_id=1078277" class="myButton_red" id="trip-1078277-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1078277">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Aviation & Anglers - OPEN</strong> - 
+4 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Thu. 12-10-2026<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Mon. 12-14-2026<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,310 Check</b><br>$2,390.85 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td rowspan="2" class="scale-data scale-dark trip-cell" data-trip-id="1019837">&nbsp;</td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1019837">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Granma Fuku's New Year Special - PRIVATE</strong> - 
+4 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sun. 12-27-2026<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Thu. 12-31-2026<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>24</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,670 Check</b><br>$2,763.45 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full'>Private</span></div>
+						</div>
+					</td>
+				</tr>                                <tr>
+                                        <td class="scale-group scale-dark trip-cell" data-trip-id="1019837">
+                                                <div id="CollapsiblePanel1" class="CollapsiblePanel">
+                                                <div class="CollapsiblePanelTab" tabindex="0">
+                                                <i class="fa fa-arrow-right"></i> <strong>Trip Details</strong> <span class="font_black13">- click to expand</span></div>
+                                                <div class="CollapsiblePanelContent">
+                                                Granma Fuku's New Year Special - PRIVATE                                                </div>
+                                                </div>
+                                        </td>
+                                </tr>				<tr>
+					<td colspan="2" class="scale-break">January, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="971050"><a href="/sales/waitlist_form.php?trip_id=971050" class="myButton_red" id="trip-971050-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="971050">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Team Hoo Cow Hunt - OPEN</strong> - 
+16 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Mon. 1-4-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Wed. 1-20-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>18</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$8,760 Check</b><br>$9,066.60 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="884118"><a href="/sales/usersignin.php?trip_id=884118" class="myButton_lite" id="trip-884118-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="884118">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Ultra Limited - OPEN</strong> - 
+16 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Fri. 1-22-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sun. 2-7-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>18</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$8,760 Check</b><br>$9,066.60 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>1</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">April, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="876375"><a href="/sales/usersignin.php?trip_id=876375" class="myButton_lite" id="trip-876375-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="876375">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Okuma Reels - OPEN</strong> - 
+16 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Wed. 4-21-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Fri. 5-7-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>21</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$7,990 Check</b><br>$8,269.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>3</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">May, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1052892"><a href="/sales/usersignin.php?trip_id=1052892" class="myButton_lite" id="trip-1052892-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1052892">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>OPEN
+
+</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Mon. 5-10-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Thu. 5-13-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$1,780 Check</b><br>$1,842.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>2</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1052891"><a href="/sales/waitlist_form.php?trip_id=1052891" class="myButton_red" id="trip-1052891-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1052891">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>STAR-BATT - OPEN</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Thu. 5-13-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sun. 5-16-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$1,780 Check</b><br>$1,842.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1052890">&nbsp;</td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1052890">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>PRIVATE CHARTER</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sun. 5-16-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Wed. 5-19-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span>-</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full'>Private</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1052889"><a href="/sales/usersignin.php?trip_id=1052889" class="myButton_lite" id="trip-1052889-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1052889">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>OPEN</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Wed. 5-19-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 5-22-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$1,780 Check</b><br>$1,842.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>OPEN</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051889"><a href="/sales/usersignin.php?trip_id=1051889" class="myButton_lite" id="trip-1051889-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051889">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>OPEN </strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 5-22-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Tue. 5-25-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$1,780 Check</b><br>$1,842.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>OPEN</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1015516"><a href="/sales/waitlist_form.php?trip_id=1015516" class="myButton_red" id="trip-1015516-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1015516">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Limited Load - OPEN</strong> - 
+4 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Tue. 5-25-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 5-29-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>24</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$3,190 Check</b><br>$3,301.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051890"><a href="/sales/waitlist_form.php?trip_id=1051890" class="myButton_red" id="trip-1051890-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051890">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Memorial Day - Limited Load - OPEN</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 5-29-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Tue. 6-1-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>24</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,340 Check</b><br>$2,421.90 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">June, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1022424"><a href="/sales/waitlist_form.php?trip_id=1022424" class="myButton_red" id="trip-1022424-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1022424">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>John's Big Bluefin or Bust - OPEN</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Tue. 6-1-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Fri. 6-4-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>24</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,340 Check</b><br>$2,421.90 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="976284"><a href="/sales/usersignin.php?trip_id=976284" class="myButton_lite" id="trip-976284-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="976284">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Phenix Rods 8 - Damian Best - OPEN</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Fri. 6-4-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 6-12-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$3,790 Check</b><br>$3,922.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>3</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051888"><a href="/sales/usersignin.php?trip_id=1051888" class="myButton_lite" id="trip-1051888-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051888">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Excel - Family/Kids Adventure #1 - OPEN</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 6-12-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Tue. 6-15-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>33</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$1,780 Check</b><br>$1,842.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>2</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1033159"><a href="/sales/waitlist_form.php?trip_id=1033159" class="myButton_red" id="trip-1033159-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1033159">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Pelagic Gear - Limited Load - OPEN</strong> - 
+4 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Tue. 6-15-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 6-19-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>24</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$3,190 Check</b><br>$3,301.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="985221"><a href="/sales/waitlist_form.php?trip_id=985221" class="myButton_red" id="trip-985221-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="985221">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Father's Day - OPEN</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 6-19-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Tue. 6-22-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$1,780 Check</b><br>$1,842.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051887">&nbsp;</td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051887">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Western Feed - PRIVATE CHARTER</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Tue. 6-22-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Fri. 6-25-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>-</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span>-</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full'>Private</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051886">&nbsp;</td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051886">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>PRIVATE CHARTER</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Fri. 6-25-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Mon. 6-28-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>-</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span>-</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full'>Private</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051885">&nbsp;</td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051885">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Josh Rytz - Onda Lending - PRIVATE CHARTER</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Mon. 6-28-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Thu. 7-1-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>24</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,340 Check</b><br>$2,421.90 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full'>Private</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">July, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051884"><a href="/sales/waitlist_form.php?trip_id=1051884" class="myButton_red" id="trip-1051884-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051884">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Bill Poole Memorial - OPEN</strong> - 
+4 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Thu. 7-1-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Mon. 7-5-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,380 Check</b><br>$2,463.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051883"><a href="/sales/waitlist_form.php?trip_id=1051883" class="myButton_red" id="trip-1051883-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1051883">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Costa Del Mar - Limited Load - OPEN</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Mon. 7-5-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Thu. 7-8-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>24</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,340 Check</b><br>$2,421.90 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051882"><a href="/sales/waitlist_form.php?trip_id=1051882" class="myButton_red" id="trip-1051882-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051882">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Excel Family/Kids Adventure #2 - OPEN</strong> - 
+3 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Thu. 7-8-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sun. 7-11-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>33</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$1,780 Check</b><br>$1,842.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="940560"><a href="/sales/waitlist_form.php?trip_id=940560" class="myButton_red" id="trip-940560-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="940560">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Tuna Rodeo - OPEN</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sun. 7-11-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Mon. 7-19-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$4,590 Check</b><br>$4,750.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1047553"><a href="/sales/waitlist_form.php?trip_id=1047553" class="myButton_red" id="trip-1047553-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1047553">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Cortland Line Company - Open</strong> - 
+4 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Mon. 7-19-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Fri. 7-23-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,380 Check</b><br>$2,463.30 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1029931"><a href="/sales/waitlist_form.php?trip_id=1029931" class="myButton_red" id="trip-1029931-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="1029931">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Tuna Slicers - OPEN</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Fri. 7-23-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 7-31-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>26</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$5,590 Check</b><br>$5,785.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051881"><a href="/sales/waitlist_form.php?trip_id=1051881" class="myButton_red" id="trip-1051881-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051881">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Seeker Rods - OPEN</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 7-31-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sun. 8-8-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$4,590 Check</b><br>$4,750.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">August, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="947633"><a href="/sales/waitlist_form.php?trip_id=947633" class="myButton_red" id="trip-947633-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="947633">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Merritt - OPEN</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sun. 8-8-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Mon. 8-16-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$4,590 Check</b><br>$4,750.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051878">&nbsp;</td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1051878">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Brown Charter - PRIVATE CHARTER</strong> - 
+4 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Thu. 8-19-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Mon. 8-23-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>29</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$2,470 Check</b><br>$2,556.45 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full'>Private</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="987461"><a href="/sales/waitlist_form.php?trip_id=987461" class="myButton_red" id="trip-987461-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="987461">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Coronado Brewing Co. - OPEN</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Mon. 8-23-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Tue. 8-31-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>30</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$4,850 Check</b><br>$5,019.75 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="928117"><a href="/sales/usersignin.php?trip_id=928117" class="myButton_lite" id="trip-928117-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="928117">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Gallagher / Bob Sands Tackle - OPEN</strong> - 
+10 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Tue. 8-31-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Fri. 9-10-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>25</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$6,330 Check</b><br>$6,551.55 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>2</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">September, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="989189"><a href="/sales/waitlist_form.php?trip_id=989189" class="myButton_red" id="trip-989189-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="989189">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>911 - First Responders - OPEN</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Fri. 9-10-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 9-18-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$4,590 Check</b><br>$4,750.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1044906">&nbsp;</td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1044906">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>McGrouther Limited Load - PRIVATE CHARTER</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 9-18-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sun. 9-26-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>18</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$7,370 Check</b><br>$7,627.95 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full'>Private</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="986680"><a href="/sales/waitlist_form.php?trip_id=986680" class="myButton_red" id="trip-986680-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="986680">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Phenix Rods 10 - OPEN</strong> - 
+10 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sun. 9-26-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Wed. 10-6-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$4,990 Check</b><br>$5,164.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">October, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="876376"><a href="/sales/waitlist_form.php?trip_id=876376" class="myButton_red" id="trip-876376-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="876376">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>BHP/Trophy Tackle - Tim Turis - OPEN</strong> - 
+10 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Wed. 10-6-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 10-16-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>26</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$6,090 Check</b><br>$6,303.15 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="921868"><a href="/sales/waitlist_form.php?trip_id=921868" class="myButton_red" id="trip-921868-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="921868">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Pelagic Gear 8 - OPEN</strong> - 
+8 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 10-16-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sun. 10-24-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>32</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$4,590 Check</b><br>$4,750.65 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="846511"><a href="/sales/waitlist_form.php?trip_id=846511" class="myButton_red" id="trip-846511-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="846511">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Colonello - OPEN</strong> - 
+10 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sun. 10-24-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Wed. 11-3-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>28</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$5,720 Check</b><br>$5,920.20 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td colspan="2" class="scale-break">November, 2027</td>    
+				</tr>
+				<tr>
+					<td class="scale-head" width="5%"><img src="/sales/images/bug_null.png" alt="trip active" /></td>
+					<td class="scale-head" width="95%">
+						<div class="row">
+							<div class="col-xs-6 col-md-4 trip-info-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-depart-head"><span class='lbl'></span></div>
+							<div class="col-xs-6 col-md-2 trip-return-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-load-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-2 trip-price-head"><span class='lbl'></span></div>
+							<div class="col-xs-4 col-md-1 trip-spots-head"><span class='lbl'></span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="846303"><a href="/sales/usersignin.php?trip_id=846303" class="myButton_lite" id="trip-846303-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="846303">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Merritt 10 - OPEN</strong> - 
+10 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Wed. 11-3-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Sat. 11-13-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>28</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$5,720 Check</b><br>$5,920.20 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='font_green13'>OPEN</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1030623"><a href="/sales/waitlist_form.php?trip_id=1030623" class="myButton_red" id="trip-1030623-btn"></a></td>
+					<td class="scale-data scale-light trip-cell" data-trip-id="1030623">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Team Hoo 10 - OPEN</strong> - 
+10 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 11-13-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Tue. 11-23-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>28</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$5,720 Check</b><br>$5,920.20 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="907278"><a href="/sales/waitlist_form.php?trip_id=907278" class="myButton_red" id="trip-907278-btn"></a></td>
+					<td class="scale-data scale-dark trip-cell" data-trip-id="907278">
+						<div class="row">
+							<div class="col-xs-12 col-md-4 trip-info"><span class='lbl'></span>
+							<strong>Bull's Wahoo Scramble - Open</strong> - 
+12 Day
+							<hr class='trip-info-break hidden-md hidden-lg'>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-depart"><span class='lbl'></span>Sat. 11-27-2027<br class='hidden-xs hidden-sm'> 11:00 AM</div>
+							<div class="col-xs-12 col-sm-6 col-md-2 trip-return"><span class='lbl'></span>Thu. 12-9-2027<br class='hidden-xs hidden-sm'> 8:00 AM</div>
+							<div class="col-xs-4 col-md-1 trip-load"><span class='lbl'></span>27</div>
+							<div class="col-xs-4 col-md-2 trip-price"><span class='lbl'></span><b>$6,600 Check</b><br>$6,831.00 Credit</div>
+							<div class="col-xs-4 col-md-1 trip-spots"><span class='lbl'></span><span class='trip_full' style='font-size: 0.9em'>Join the wait list</span></div>
+						</div>
+					</td>
+				</tr>				<tr>
+					<td class="scale-foot" colspan="2">&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		<br><br>
+</div>
+<script type="text/javascript">
+function updateLabels() {
+	if (window.matchMedia('(min-width: 992px)').matches) {
+        $('.trip-info .lbl').html('');
+        $('.trip-depart .lbl').html('');
+        $('.trip-return .lbl').html('');
+        $('.trip-load .lbl').html('');
+        $('.trip-price .lbl').html('');
+        $('.trip-spots .lbl').html('');
+        $('.trip-info-head .lbl').html('Trip Info');
+        $('.trip-depart-head .lbl').html('Departure');
+        $('.trip-return-head .lbl').html('Return');
+        $('.trip-load-head .lbl').html('Load');
+        $('.trip-price-head .lbl').html('Price');
+        $('.trip-spots-head .lbl').html('Spots');
+	$('.boat-filter').css('margin-top', '44px');
+	$('.trip-info').css('text-align', 'left');
+	$('.trip-depart, .trip-return, .trip-load, .trip-price, .trip-spots').css('text-align', 'center');
+    } else if (window.matchMedia('(min-width: 768px)').matches) {
+        $('.trip-lbl .lbl').html('Trip Info: ');
+        $('.trip-depart .lbl').html('Departs: ');
+        $('.trip-return .lbl').html('Returns: ');
+        $('.trip-load .lbl').html('Load:&nbsp;');
+        $('.trip-spots .lbl').html('Spots:&nbsp;');
+        $('.trip-info-head .lbl').html('');
+        $('.trip-depart-head .lbl').html('');
+        $('.trip-return-head .lbl').html('');
+        $('.trip-load-head .lbl').html('');
+        $('.trip-price-head .lbl').html('');
+        $('.trip-spots-head .lbl').html('');
+	$('.trip-load, .trip-price').css('text-align', 'left');
+	$('.boat-filter').css('margin-top', '44px');
+	$('.trip-info, .trip-price').css('text-align', 'center');
+	$('.trip-depart, .trip-return, .trip-spots').css('text-align', 'right');
+	$('.trip-spots .lbl, .trip-load .lbl, .trip-price .lbl').css('float', 'inherit').css('clear', 'both').css('display', 'inline-block');
+    } else {
+        $('.trip-info .lbl').html('');
+        $('.trip-depart .lbl').html('Departs: ');
+        $('.trip-return .lbl').html('Returns: ');
+        $('.trip-load .lbl').html('Load: ');
+        $('.trip-spots .lbl').html('Spots: ');
+        $('.trip-info-head .lbl').html('');
+        $('.trip-depart-head .lbl').html('');
+        $('.trip-return-head .lbl').html('');
+        $('.trip-load-head .lbl').html('');
+        $('.trip-price-head .lbl').html('');
+        $('.trip-spots-head .lbl').html('');
+	$('.boat-filter').css('margin-top', 'inherit');
+	$('.trip-info, .trip-price').css('text-align', 'center');
+	$('.trip-depart, .trip-return, .trip-spots, .trip-load').css('text-align', 'right');
+	$('.trip-spots .lbl, .trip-load .lbl, .trip-price .lbl').css('float', 'left').css('clear', 'both').css('display', 'block');
+    }
+}
+
+$(window).resize(function () {
+        updateLabels();
+});var CollapsiblePanel1 = new Spry.Widget.CollapsiblePanel('CollapsiblePanel1', {contentIsOpen: false});
+
+$(document).ready(function () {
+	$('.call-btn').click(function () {
+		alert('Please call ' + $(this).attr('data-phone-number') + ' to inquire about this trip.');
+	});
+	$('.trip-cell').click(function (event) {
+		var tripId = $(this).data('trip-id');
+		var $btn = $("#trip-" + tripId + "-btn")
+		if ($btn.length) {
+			$btn.get(0).click();
+		}
+	});
+	$('.trip-cell').hover(function () {
+		$(this).closest('table').find('td[data-trip-id=' + $(this).attr('data-trip-id') + ']').addClass('highlight');
+	}, function () {
+		$(this).closest('table').find('td[data-trip-id=' + $(this).attr('data-trip-id') + ']').removeClass('highlight');
+	});
+	updateLabels();
+});
+</script></div>
+<br><br>
+<div class='row'>
+<div class='col-xs-12 col-lg-10 col-lg-offset-1'>
+<div class='panel' style='padding: 10px'>
+<h3 class='text-center'>Terms &amp; Conditions</h3>
+<font color="red"><b>By placing a deposit on any trip you are acknowledging and agreeing to all of the Excel's Terms and Conditions.</b></font>
+<ul>
+ <li>Your credit card will be billed immediately upon the completion of your order. Once we receive an authorization we will send you a confirmation email. You will ONLY receive confirmation if your credit card is successfully billed. You will notice a credit card charge on your statement from Excel Long-Range Sportfishing.</li> <li>
+Gratuities, Rental Tackle, Terminal Tackle, Mexican Excursion Permits and Mexican Visa's are not included.
+</li> <li>All passengers will be required to have a Passport or Valid Government issued photo ID.
+</li> <li>Passports are mandatory for ALL trips.
+</li> <li>The minimum deposit for any trip up to 10 days long is $500. For trips that are 11 days or longer the minimum deposit is $1000. Deposits for all trip more than a year in advance are $500.
+</li> <li>Boarding order and room assignments will be based on the initial deposit date. In the case of private charters, charter master may elect to assign rooms and boarding orders.
+</li> <li>All fares are based on double occupancy. When available and requested, additional charges may apply for private staterooms, plus staterooms 15 and 18.
+</li> <li>To compensate for any last minute cancellations, we reserve the right to overbook by one reservation on ALL trips.
+ </li> <li>  For ALL Trips 50% of the trip cost is due 180 days prior to trip's departure date. 
+ </li> <li> Payment in full is due 60 days before the date of departure. 
+ </li> <li> If 50% is not received at least 180 days prior to the trip, boarding order and state room assignment is subject to change and spot may be subject to sale.
+</li> <li><font color="red"><b>Payments will be charged to credit cards on file in the date structured noted above unless we are notified of another means of payment by email.</b></font>
+</li> <li>Due to increased costs at all levels within the industry, all credit card transactions will be subject to a 3.5% service fee applicable at the time of transaction.  The service fee can be avoided by contacting the office advising a check will be sent in lieu of the credit card payment. 
+</li> <li>Deposits are NON-REFUNDABLE and NON-TRANSFERABLE unless written notice of cancellation is received by postmarked mail or fax 180 days prior to the trip's departure. E-mail cancellations will NOT be accepted. 
+</li> <li>Passenger cancellations within 120 days of departure date will result in a minimum 10% administrative fee based on the full price of the trip. The remaining amount will be retained by Excel and used for a deposit on a trip departing within 365 days of the original tripâ€™s departure date. If the deposit(including any additional payments) has not been used after the 365-day period has lapsed it is forfeited.</li> <li>Passenger cancellations within 90 days of the trip's departure will result in forfeiture of all deposits and payments unless your vacant spot is booked and the trip runs full. 
+</li> <li>Passenger cancellations for any reason within 60 days will result in forfeiture of all deposits and payments.
+</li> <li>All passenger cancellations are subject to a 10% administrative fee based on the total cost of the trip.
+</li> <li>No refunds, credits, roll overs or adjustments of any kind will occur until the trip the deposit was originally made for has departed.  Funds/transfers from trip cancellations can only be applied twice.  If a transfer occurs a third time the funds are forfeit.</li> <li>Trip cancellations that occur before the above terms and conditions will be assessed on a case by case basis.  
+</li> <li>We strongly recommend deposit insurance (www.travelguard.com - 800-826-4919).
+</li> <li>Trip destinations are not guaranteed and are subject to change.
+</li> <li>Department of Consumer Affairs Consumer Information Division
+1625 North Market Blvd., Suite N 112 Sacramento, CA 95834 -(800)952-5210
+</li> <li>Illegal drugs, firearms, or explosives of any kind are not allowed. We reserve the right to refuse passage to any person that appears to be under the influence of drugs or excessive amounts of alcohol. Passengers and their belongings are subject to search before boarding the boat.
+</li> <li>It is Illegal to sell sport caught fish in California. We will assist in the prosecution of anyone involved in these matters. 
+</li> <li>We reserve the right to refuse service to anyone for any reason.
+</li> <li>Floating deposits will be valid for two calendar years from the date of the original trip departure. Then will null and void.
+</li> <li>By booking a trip you have agreed to these terms and conditions
+</li> <li>If the cost of Marine Diesel rises above normal operating levels, a fuel surcharge might be imposed.
+</li> <li>Terms and Conditions are subject to change.
+</li> <li>By placing a deposit on any trip you are acknowledging and agreeing to all of the Excel's Terms and Conditions.
+</li></ul> <font color="red"><b>Feel free to call us with any questions or concerns regarding our Terms and Conditions (619) 223 -7493 M-F 8:30am-4:30pm PST </font></b></div>
+</div>
+</div>
+<br><br>
+</div>
+
+	<div id="loading" style="display:none; padding: 20px;"> 
+		<img src="graphics/icons/gps.gif" />
+		<br class="hidden-xs">
+		<h1 class="hidden-xs">Processing...</h1> 
+		<input type="hidden" id="trip_id" value="0">
+	</div> 
+	
+<br><br>
+
+<div class='container-fluid'>
+<div class="row no-gutter">
+  <div id="foot-wrap">
+  <div class="col-md-4 col-xs-12">
+    <div id="foot-col1">
+	<a href="https://www.facebook.com/ExcelSportfishing/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image11','','/sales/images/but-fb2.png',1)"><img id="Image11" src="/sales/images/but-fb1.png" alt="Facebook" hspace="10"></a>
+	<!--
+	<a href="https://twitter.com" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image12','','/sales/images/but-tw2.png',1)"><img id="Image12" src="/sales/images/but-tw1.png" alt="Twitter" hspace="10"></a>
+	<a href="https://www.youtube.com" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image13','','/sales/images/but-yt2.png',1)"><img id="Image13" src="/sales/images/but-yt1.png" alt="YouTube" hspace="10"></a>
+	<a href="https://plus.google.com" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image14','','/sales/images/but-g2.png',1)"><img id="Image14" src="/sales/images/but-g1.png" alt="Google+" hspace="10"></a>
+	<a href="https://in.pinterest.com" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image15','','/sales/images/but-p2.png',1)"><img id="Image15" src="/sales/images/but-p1.png" alt="Pinterest" hspace="10"></a>
+	-->
+	</div>
+	</div>
+	<div class="col-md-7 col-xs-12">
+    <div id="foot-col2">
+		<p>Custom Programming and Design by <a target="_blank" href="https://www.teck.net/">TECK.net Inc</a>© All Rights Reserved.<br>
+		Fish Report publishing service by <a target="_blank" href="https://www.longrangesportfishing.net/">LongRangeSportFishing.net</a>© All Rights Reserved.<br>
+		Booking Software provided by <a href="https://www.fishingreservations.com/" target="_blank">Fishing Reservations LLC</a>© All Rights Reserved.</p>	
+    </div>
+    </div>
+	<div class="col-md-1 col-xs-12">
+	  <div id="section-return2" class="section-return2-footer">
+    <a class="scroll" href="#top" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','/sales/images/but-arrow2.png',1)">    <img id="Image3" src="/sales/images/but-arrow1.png" alt="Top"></a>
+    </div>  
+	</div>
+  </div>
+  </div>
+  </div>
+<!-- End gridContainer, clearfix-->
+</div>
+</div>
+
+
+<script src="js/exotic-destination.js"></script>  
+
+
+<script>
+	$(document).ready(function(e) {
+        $(".ideaboxNews").ideaboxNews({
+			maxwidth		:'400px',
+			position		:'rightfixed',
+			openspeed		:'slow'
+		});
+    });
+</script>
+<script>
+$(document).ready(function() {
+	$("#idx1").hide();
+	 $('.reports_section').click(function(){ 
+          $("#idx1").toggle(); 
+      }); 
+	
+});
+</script>
+<script>
+$(document).ready(function() {
+	$(".more-reports-in-image").click(function (event) {
+		event.preventDefault();
+		window.location.assign("https://www.excelsportfishing.com/fishreports.php");
+	});
+	
+    var $lightbox = $('#lightbox');
+    
+    $('[data-target="#lightbox"]').on('click', function(event) {
+        var $img = $(this).find('img'), 
+            src = $img.attr('src'),
+            alt = $img.attr('alt'),
+            css = {
+                'maxWidth': $(window).width() - 100,
+                'maxHeight': $(window).height() - 100
+            };
+    
+        $lightbox.find('.close').addClass('hidden');
+        $lightbox.find('img').attr('src', src);
+        $lightbox.find('img').attr('alt', alt);
+        $lightbox.find('img').css(css);
+    });
+    
+    $lightbox.on('shown.bs.modal', function (e) {
+        var $img = $lightbox.find('img');
+            
+        $lightbox.find('.modal-dialog').css({'width': $img.width()});
+        $lightbox.find('.close').removeClass('hidden');
+    });
+});
+
+//code of goto-up-toggle
+
+
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+            $('.scroll').fadeIn();
+        } else {
+            $('.scroll').fadeOut();
+        }
+    });
+
+    $('.scroll').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });
+
+});
+
+//fading effect
+
+$(document).ready(function(){ 
+ $(window).scroll(function(){
+    $(".social").css("opacity", 1 - $(window).scrollTop() / 450);
+  });
+   
+});
+
+$(document).ready(function(){
+    /* Get iframe src attribute value i.e. YouTube video url
+    and store it in a variable */
+	$('.stop_video').click(function() {
+		$("#cartoonVideo").attr('src', '');
+		
+	});	
+});
+
+$('#Image6').mouseover(function(){
+	var url= "";
+	
+	$("#cartoonVideo").attr('src', '');
+	
+	$("#cartoonVideo").attr('src', url);
+});
+$('#media2').mouseover(function(){
+	var url= "";
+	var url_audio= "";
+
+	$("#cartoonVideo").attr('src', '');
+	
+	$("#cartoonVideo").attr('src', url);
+});
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23993771-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript" src="/bnith__VJLsfyx3gx1bpJnGgSOUy1cUPO8QqAEjrpQmVt8tVlRRyjrisT370Sn9CrScb8Q2J2b6lvKI8Uk="></script> <script language="JavaScript" type="text/javascript">const _0x35e8=['visitorId','18127kSXadA','356575NPKVMA','7306axxsAH','get','657833TzFjkt','717302TQdBjl','34lMHocq','x-bni-rncf=ncIe9oB0SqhKd3qBx-XcuFVv75QkM0sMSb3iNnYQYGU=;expires=Thu, 01 Jan 2037 00:00:00 UTC;path=/;','61XMWbpU','cookie',';expires=Thu, 01 Jan 2037 00:00:00 UTC;path=/;','then','651866OSUgMa','811155xdatvf','x-bni-fpc='];function _0x258e(_0x5954fe,_0x43567d){return _0x258e=function(_0x35e81f,_0x258e26){_0x35e81f=_0x35e81f-0x179;let _0x1280dc=_0x35e8[_0x35e81f];return _0x1280dc;},_0x258e(_0x5954fe,_0x43567d);}(function(_0x5674de,_0xdcf1af){const _0x512a29=_0x258e;while(!![]){try{const _0x55f636=parseInt(_0x512a29(0x17b))+-parseInt(_0x512a29(0x179))*parseInt(_0x512a29(0x17f))+-parseInt(_0x512a29(0x183))+-parseInt(_0x512a29(0x184))+parseInt(_0x512a29(0x187))*parseInt(_0x512a29(0x17d))+parseInt(_0x512a29(0x188))+parseInt(_0x512a29(0x17c));if(_0x55f636===_0xdcf1af)break;else _0x5674de['push'](_0x5674de['shift']());}catch(_0xd3a1ce){_0x5674de['push'](_0x5674de['shift']());}}}(_0x35e8,0x6b42d));function getClientIdentity(){const _0x47e86b=_0x258e,_0x448fbc=FingerprintJS['load']();_0x448fbc[_0x47e86b(0x182)](_0x4bb924=>_0x4bb924[_0x47e86b(0x17a)]())[_0x47e86b(0x182)](_0x2f8ca1=>{const _0x44872c=_0x47e86b,_0xa48f50=_0x2f8ca1[_0x44872c(0x186)];document[_0x44872c(0x180)]=_0x44872c(0x185)+_0xa48f50+_0x44872c(0x181),document[_0x44872c(0x180)]=_0x44872c(0x17e);});}getClientIdentity();</script></body>
+
+<a hidden href="/cJ0dn-WJNf9PqZ0v_jhpPTyAmIWnAVOOuxYKhTvY6jA=.html">cJ0dn-WJNf9PqZ0v_jhpPTyAmIWnAVOOuxYKhTvY6jA=.html</a><script type="text/javascript">var _0xcaad=["indexOf","; path=/","cookie","=","x-bni-ja","stack","phantomjs","plugins","length","onmousemove"];var err;function indexOfString(_0x1ce0x3,_0x1ce0x4){return _0x1ce0x3[_0xcaad[0]](_0x1ce0x4)}try{null[0]()}catch(e){err=e};function setCookie(_0x1ce0x6){var _0x1ce0x7=-136043112;var _0x1ce0x8=883730554;var _0x1ce0x9=_0x1ce0x7+_0x1ce0x8+_0xcaad[1];document[_0xcaad[2]]=_0x1ce0x6+_0xcaad[3]+_0x1ce0x9}function set_answer_cookie(){setCookie(_0xcaad[4])}function set_answer_cookie_1(){set_answer_cookie()}if((indexOfString(err[_0xcaad[5]],_0xcaad[6])> -1)||(!(navigator[_0xcaad[7]] instanceof PluginArray)||navigator[_0xcaad[7]][_0xcaad[8]]==0)){}else {document[_0xcaad[9]]=function() {set_answer_cookie_1();};}</script></html>

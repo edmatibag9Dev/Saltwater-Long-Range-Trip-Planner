@@ -1,17 +1,16 @@
 landing,boat,ttype,days,dep,deptime,ret,rettime,cap,cap_source,spots,price,src
-FL,Pacific Queen,2 Day Limited Load,,2026-11-08,10:00 AM,2026-11-10,6:00 AM,29,,5,$983.25,page1
-FL,Tomahawk,3/4 Day,,2026-11-09,5:30 AM,2026-11-09,5:00 PM,35,,24,$165.60,page1
+FL,Tomahawk,3/4 Day,,2026-11-09,5:30 AM,2026-11-09,5:00 PM,35,,21,$165.60,page1
 FL,Searcher,8 Day,,2026-11-09,10:00 AM,2026-11-17,8:00 AM,20,,Waitlist Only,$4795,page1
 FL,Tomahawk,3/4 Day,,2026-11-10,5:30 AM,2026-11-10,5:00 PM,35,,31,$165.60,page1
 FL,Islander,3 Day (No Passports),,2026-11-10,11:00 AM,2026-11-13,7:00 AM,24,,24,$1474.88,page1
 FL,Pacific Queen,1.5 Day Limited Load,,2026-11-10,6:00 PM,2026-11-12,6:00 AM,33,,29,$543.38,page1
-FL,Tomahawk,3/4 Day,,2026-11-11,5:30 AM,2026-11-11,5:00 PM,35,,18,$165.60,page1
+FL,Tomahawk,3/4 Day,,2026-11-11,5:30 AM,2026-11-11,5:00 PM,35,,17,$165.60,page1
 FL,Tomahawk,3/4 Day,,2026-11-12,5:30 AM,2026-11-12,5:00 PM,35,,30,$165.60,page1
 FL,Pacific Queen,3 Day Limited Load,,2026-11-12,10:00 AM,2026-11-15,6:00 AM,25,,Full,$1500.75,page1
 FL,Constitution,5 Day Limited Load,,2026-11-13,9:00 AM,2026-11-18,6:00 AM,16,,Full,$1863,page1
 FL,Islander,4 Day Limited Load,,2026-11-13,11:00 AM,2026-11-17,7:00 AM,24,,24,$2356.70,page1
 FL,Pegasus,2 Day Limited Load,,2026-11-13,6:00 PM,2026-11-15,6:00 PM,19,,3,$828,page1
-FL,Tomahawk,3/4 Day,,2026-11-14,5:30 AM,2026-11-14,5:00 PM,35,,28,$165.60,page1
+FL,Tomahawk,3/4 Day,,2026-11-14,5:30 AM,2026-11-14,5:00 PM,35,,26,$165.60,page1
 FL,Royal Star,11 Day,,2026-11-14,10:00 AM,2026-11-25,8:00 AM,21,,1,$5453.85,page1
 FL,Shogun,10 Day,,2026-11-14,10:00 AM,2026-11-24,6:00 AM,21,,1,$5459,page1
 FL,Excel,10 Day,,2026-11-14,11:00 AM,2026-11-24,8:00 AM,29,,1,$5754.60,page1
@@ -31,7 +30,7 @@ FL,Constitution,5 Day Limited Load,,2026-11-20,9:00 AM,2026-11-25,6:00 AM,16,,Fu
 FL,Islander,3.5 Day Limited Load Offshore,,2026-11-20,5:00 PM,2026-11-24,6:00 AM,20,,18,$2070,page1
 FL,Pegasus,2 Day Limited Load,,2026-11-20,6:00 PM,2026-11-22,6:00 PM,19,,14,$828,page1
 FL,Poseidon,1.5 Day,,2026-11-20,7:00 PM,2026-11-22,6:00 AM,,,Chartered,,page1
-FL,Tomahawk,3/4 Day,,2026-11-21,5:30 AM,2026-11-21,5:00 PM,35,,33,$165.60,page1
+FL,Tomahawk,3/4 Day,,2026-11-21,5:30 AM,2026-11-21,5:00 PM,35,,32,$165.60,page1
 FL,Tomahawk,3/4 Day,,2026-11-22,5:30 AM,2026-11-22,5:00 PM,35,,35,$165.60,page1
 FL,Pacific Queen,3 Day Limited Load,,2026-11-22,10:00 AM,2026-11-25,6:00 AM,24,,15,$1500.75,page1
 FL,Constitution,5 Day Limited Load,,2026-11-27,9:00 AM,2026-12-02,6:00 AM,16,,16,$1863,page1
@@ -132,7 +131,7 @@ FL,Pacific Queen,3 Day,,2027-05-09,10:00 AM,2027-05-12,6:00 AM,,,Chartered,,page
 FL,Poseidon,2 Day Limited Load,,2027-05-09,11:00 AM,2027-05-11,6:00 AM,25,,25,$853.88,page3
 FL,Shogun,2 Day,,2027-05-10,8:00 AM,2027-05-12,6:00 AM,26,,22,$1081.50,page3
 FL,Royal Polaris,4 Day,,2027-05-10,9:00 AM,2027-05-14,6:00 AM,26,,2,$2884,page3
-FL,Excel,3 Day,,2027-05-10,11:00 AM,2027-05-13,8:00 AM,33,,3,$1842.30,page3
+FL,Excel,3 Day,,2027-05-10,11:00 AM,2027-05-13,8:00 AM,33,,2,$1842.30,page3
 FL,Searcher,3 Day,,2027-05-11,10:00 AM,2027-05-14,8:00 AM,18,,13,$1885,page3
 FL,Poseidon,2 Day Limited Load,,2027-05-11,11:00 AM,2027-05-13,6:00 AM,25,,25,$853.88,page3
 FL,Royal Star,8 Day,,2027-05-12,10:00 AM,2027-05-20,8:00 AM,22,,Waitlist Only,$4114.85,page3
@@ -426,36 +425,35 @@ FL,Shogun,5 Day,,2027-12-26,7:00 AM,2027-12-31,6:00 AM,25,,25,$2163,page9
 FL,Royal Star,3 Day,,2027-12-27,10:00 AM,2027-12-30,8:00 AM,24,,24,$1699.50,page9
 FL,Royal Star,12 Day,,2028-01-03,10:00 AM,2028-01-15,8:00 AM,,,Chartered,,page9
 FL,Royal Star,12 Day,,2028-01-15,10:00 AM,2028-01-27,8:00 AM,,,Chartered,,page9
-SF,New Seaforth,PM Half Day,,2026-11-08,12:30 PM,2026-11-08,5:30 PM,55,,Full,$80,page1
 SF,San Diego,Full Day Offshore,,2026-11-09,5:30 AM,2026-11-09,5:00 PM,36,,Full,$250,page1
-SF,New Seaforth,AM Half Day,,2026-11-09,6:00 AM,2026-11-09,11:30 AM,55,,28,$80,page1
-SF,Sea Watch,3/4 Day Local,,2026-11-09,7:00 AM,2026-11-09,4:00 PM,35,,24,$150,page1
-SF,New Seaforth,PM Half Day,,2026-11-09,12:30 PM,2026-11-09,5:30 PM,55,,45,$80,page1
+SF,New Seaforth,AM Half Day,,2026-11-09,6:00 AM,2026-11-09,11:30 AM,55,,26,$80,page1
+SF,Sea Watch,3/4 Day Local,,2026-11-09,7:00 AM,2026-11-09,4:00 PM,35,,11,$150,page1
+SF,New Seaforth,PM Half Day,,2026-11-09,12:30 PM,2026-11-09,5:30 PM,55,,44,$80,page1
 SF,Aztec,1.5 Day Limited Load,,2026-11-09,3:00 PM,2026-11-11,6:00 AM,28,,28,$555,page1
 SF,San Diego,Full Day Offshore,,2026-11-10,5:30 AM,2026-11-10,5:00 PM,36,,Full,$250,page1
-SF,New Seaforth,AM Half Day,,2026-11-10,6:00 AM,2026-11-10,11:30 AM,55,,42,$80,page1
+SF,New Seaforth,AM Half Day,,2026-11-10,6:00 AM,2026-11-10,11:30 AM,55,,39,$80,page1
 SF,Sea Watch,3/4 Day Local,,2026-11-10,7:00 AM,2026-11-10,4:00 PM,35,,29,$150,page1
 SF,Polaris Supreme,8 Day,,2026-11-10,10:00 AM,2026-11-18,5:00 AM,22,,1,"$4,000",page1
-SF,New Seaforth,PM Half Day,,2026-11-10,12:30 PM,2026-11-10,5:30 PM,55,,54,$80,page1
+SF,New Seaforth,PM Half Day,,2026-11-10,12:30 PM,2026-11-10,5:30 PM,55,,52,$80,page1
 SF,Cortez,2.5 Day Limited Load,,2026-11-10,2:30 PM,2026-11-13,6:00 AM,15,,Full,$950,page1
 SF,Sea Watch,Full Day Offshore,,2026-11-11,5:30 AM,2026-11-11,5:00 PM,30,,Full,$250,page1
-SF,New Seaforth,AM Half Day,,2026-11-11,6:00 AM,2026-11-11,11:30 AM,55,,8,$80,page1
-SF,New Seaforth,PM Half Day,,2026-11-11,12:30 PM,2026-11-11,5:30 PM,55,,27,$80,page1
+SF,New Seaforth,AM Half Day,,2026-11-11,6:00 AM,2026-11-11,11:30 AM,55,,Full,$80,page1
+SF,New Seaforth,PM Half Day,,2026-11-11,12:30 PM,2026-11-11,5:30 PM,55,,20,$80,page1
 SF,Aztec,1.5 Day Limited Load,,2026-11-11,3:00 PM,2026-11-13,6:00 AM,28,,25,$555,page1
-SF,Tribute,1.5 Day Limited Load,,2026-11-11,5:00 PM,2026-11-13,6:00 AM,30,,27,$555,page1
-SF,San Diego,Full Day Offshore,,2026-11-12,5:30 AM,2026-11-12,5:00 PM,36,,14,$250,page1
-SF,New Seaforth,AM Half Day,,2026-11-12,6:00 AM,2026-11-12,11:30 AM,55,,49,$80,page1
+SF,Tribute,1.5 Day Limited Load,,2026-11-11,5:00 PM,2026-11-13,6:00 AM,30,,26,$555,page1
+SF,San Diego,Full Day Offshore,,2026-11-12,5:30 AM,2026-11-12,5:00 PM,36,,13,$250,page1
+SF,New Seaforth,AM Half Day,,2026-11-12,6:00 AM,2026-11-12,11:30 AM,55,,46,$80,page1
 SF,Sea Watch,3/4 Day Local,,2026-11-12,7:00 AM,2026-11-12,4:00 PM,35,,32,$150,page1
-SF,New Seaforth,PM Half Day,,2026-11-12,12:30 PM,2026-11-12,5:30 PM,55,,55,$80,page2
-SF,San Diego,Full Day Offshore,,2026-11-13,5:30 AM,2026-11-13,5:00 PM,36,,10,$250,page2
+SF,New Seaforth,PM Half Day,,2026-11-12,12:30 PM,2026-11-12,5:30 PM,55,,55,$80,page1
+SF,San Diego,Full Day Offshore,,2026-11-13,5:30 AM,2026-11-13,5:00 PM,36,,6,$250,page1
 SF,Sea Watch,AM Half Day,,2026-11-13,6:00 AM,2026-11-13,11:30 AM,38,,32,$80,page2
 SF,Sea Watch,PM Half Day,,2026-11-13,12:30 PM,2026-11-13,5:30 PM,38,,38,$80,page2
-SF,Aztec,1.5 Day Limited Load,,2026-11-13,3:00 PM,2026-11-15,6:00 AM,28,,7,$555,page2
-SF,Tribute,1.5 Day Limited Load,,2026-11-13,5:00 PM,2026-11-15,6:00 AM,30,,24,$555,page2
+SF,Aztec,1.5 Day Limited Load,,2026-11-13,3:00 PM,2026-11-15,6:00 AM,28,,1,$555,page2
+SF,Tribute,1.5 Day Limited Load,,2026-11-13,5:00 PM,2026-11-15,6:00 AM,30,,26,$555,page2
 SF,San Diego,Full Day Offshore,,2026-11-14,5:30 AM,2026-11-14,5:00 PM,36,,Full,$250,page2
 SF,New Seaforth,AM Half Day,,2026-11-14,6:00 AM,2026-11-14,11:30 AM,55,,2,$80,page2
-SF,Sea Watch,3/4 Day Local,,2026-11-14,7:00 AM,2026-11-14,4:00 PM,35,,33,$150,page2
-SF,New Seaforth,PM Half Day,,2026-11-14,12:30 PM,2026-11-14,5:30 PM,55,,54,$80,page2
+SF,Sea Watch,3/4 Day Local,,2026-11-14,7:00 AM,2026-11-14,4:00 PM,35,,31,$150,page2
+SF,New Seaforth,PM Half Day,,2026-11-14,12:30 PM,2026-11-14,5:30 PM,55,,52,$80,page2
 SF,San Diego,Full Day Offshore,,2026-11-15,5:30 AM,2026-11-15,5:00 PM,36,,26,$250,page2
 SF,New Seaforth,AM Half Day,,2026-11-15,6:00 AM,2026-11-15,11:30 AM,55,,25,$80,page2
 SF,Sea Watch,3/4 Day Local,,2026-11-15,7:00 AM,2026-11-15,4:00 PM,35,,35,$150,page2
@@ -471,18 +469,18 @@ SF,Sea Watch,PM Half Day,,2026-11-17,12:30 PM,2026-11-17,5:30 PM,38,,38,$80,page
 SF,San Diego,Full Day (Passport Required),,2026-11-18,5:30 AM,2026-11-18,5:00 PM,36,,32,$250,page2
 SF,Sea Watch,AM Half Day,,2026-11-18,6:00 AM,2026-11-18,11:30 AM,38,,37,$80,page2
 SF,Sea Watch,PM Half Day,,2026-11-18,12:30 PM,2026-11-18,5:30 PM,38,,38,$80,page2
-SF,Tribute,1.5 Day Limited Load,,2026-11-18,5:00 PM,2026-11-20,6:00 AM,30,,22,$555,page3
-SF,San Diego,Full Day (Passport Required),,2026-11-19,5:30 AM,2026-11-19,5:00 PM,36,,30,$250,page3
+SF,Tribute,1.5 Day Limited Load,,2026-11-18,5:00 PM,2026-11-20,6:00 AM,30,,22,$555,page2
+SF,San Diego,Full Day (Passport Required),,2026-11-19,5:30 AM,2026-11-19,5:00 PM,36,,30,$250,page2
 SF,Sea Watch,AM Half Day,,2026-11-19,6:00 AM,2026-11-19,11:30 AM,38,,29,$80,page3
 SF,Sea Watch,PM Half Day,,2026-11-19,12:30 PM,2026-11-19,5:30 PM,38,,38,$80,page3
 SF,San Diego,Full Day (Passport Required),,2026-11-20,5:30 AM,2026-11-20,5:00 PM,36,,34,$250,page3
 SF,Sea Watch,AM Half Day,,2026-11-20,6:00 AM,2026-11-20,11:30 AM,38,,37,$80,page3
 SF,Sea Watch,PM Half Day,,2026-11-20,12:30 PM,2026-11-20,5:30 PM,38,,38,$80,page3
-SF,Tribute,1.5 Day Limited Load,,2026-11-20,5:00 PM,2026-11-22,6:00 AM,30,,28,$555,page3
+SF,Tribute,1.5 Day Limited Load,,2026-11-20,5:00 PM,2026-11-22,6:00 AM,30,,26,$555,page3
 SF,San Diego,Full Day (Passport Required),,2026-11-21,5:30 AM,2026-11-21,5:00 PM,36,,30,$250,page3
 SF,Sea Watch,AM Half Day,,2026-11-21,6:00 AM,2026-11-21,11:30 AM,38,,34,$80,page3
 SF,Sea Watch,PM Half Day,,2026-11-21,12:30 PM,2026-11-21,5:30 PM,38,,38,$80,page3
-SF,San Diego,Full Day (Passport Required),,2026-11-22,5:30 AM,2026-11-22,5:00 PM,36,,27,$250,page3
+SF,San Diego,Full Day (Passport Required),,2026-11-22,5:30 AM,2026-11-22,5:00 PM,36,,21,$250,page3
 SF,Sea Watch,AM Half Day,,2026-11-22,6:00 AM,2026-11-22,11:30 AM,38,,38,$80,page3
 SF,Sea Watch,PM Half Day,,2026-11-22,12:30 PM,2026-11-22,5:30 PM,38,,38,$80,page3
 SF,Tribute,1.5 Day Limited Load,,2026-11-22,5:00 PM,2026-11-24,6:00 AM,30,,30,$555,page3
@@ -496,8 +494,8 @@ SF,New Seaforth,AM Half Day,,2026-11-25,6:00 AM,2026-11-25,11:30 AM,55,,50,$80,p
 SF,New Seaforth,PM Half Day,,2026-11-25,12:30 PM,2026-11-25,5:30 PM,55,,53,$80,page3
 SF,San Diego,Full Day (Passport Required),,2026-11-27,5:30 AM,2026-11-27,5:00 PM,36,,35,$250,page3
 SF,New Seaforth,AM Half Day,,2026-11-27,6:00 AM,2026-11-27,11:30 AM,55,,55,$80,page3
-SF,Polaris Supreme,10 Day,,2026-11-27,10:00 AM,2026-12-07,5:00 AM,20,,Full,"$5,395",page4
-SF,New Seaforth,PM Half Day,,2026-11-27,12:30 PM,2026-11-27,5:30 PM,55,,55,$80,page4
+SF,Polaris Supreme,10 Day,,2026-11-27,10:00 AM,2026-12-07,5:00 AM,20,,Full,"$5,395",page3
+SF,New Seaforth,PM Half Day,,2026-11-27,12:30 PM,2026-11-27,5:30 PM,55,,55,$80,page3
 SF,Tribute,1.5 Day Limited Load,,2026-11-27,5:00 PM,2026-11-29,6:00 AM,30,,27,$555,page4
 SF,San Diego,Full Day (Passport Required),,2026-11-28,5:30 AM,2026-11-28,5:00 PM,36,,36,$250,page4
 SF,New Seaforth,AM Half Day,,2026-11-28,6:00 AM,2026-11-28,11:30 AM,55,,47,$80,page4
@@ -521,8 +519,8 @@ SF,Tribute,1.5 Day Limited Load,,2026-12-13,5:00 PM,2026-12-15,6:00 AM,30,,30,$5
 SF,Tribute,1.5 Day Limited Load,,2026-12-16,5:00 PM,2026-12-18,6:00 AM,30,,30,$555,page4
 SF,Polaris Supreme,5 Day,,2026-12-18,10:00 AM,2026-12-23,5:00 AM,24,,12,"$2,150",page4
 SF,Tribute,1.5 Day Limited Load,,2026-12-18,5:00 PM,2026-12-20,6:00 AM,30,,30,$555,page4
-SF,Tribute,1.5 Day Limited Load,,2026-12-20,5:00 AM,2026-12-22,6:00 AM,30,,30,$555,page5
-SF,Pacific Voyager,5 Day Freelance (Passport Required),,2026-12-26,9:00 AM,2026-12-31,6:00 AM,12,,6,"$2,500",page5
+SF,Tribute,1.5 Day Limited Load,,2026-12-20,5:00 AM,2026-12-22,6:00 AM,30,,30,$555,page4
+SF,Pacific Voyager,5 Day Freelance (Passport Required),,2026-12-26,9:00 AM,2026-12-31,6:00 AM,12,,6,"$2,500",page4
 SF,Polaris Supreme,5 Day,,2026-12-26,10:00 AM,2026-12-31,5:00 AM,24,,Full,"$2,150",page5
 SF,Tribute,1.5 Day Limited Load,,2026-12-27,5:00 PM,2026-12-29,6:00 AM,30,,30,$555,page5
 SF,New Seaforth,Pending,,2027-01-01,1:00 AM,2027-01-01,1:15 AM,100,,90,$0,page5
@@ -546,8 +544,8 @@ SF,Polaris Supreme,2 Day,,2027-04-30,10:00 AM,2027-05-02,5:00 AM,24,,Full,"$1,05
 SF,Polaris Supreme,3 Day,,2027-05-02,10:00 AM,2027-05-05,5:00 AM,24,,Full,"$1,695",page5
 SF,Polaris Supreme,2 Day,,2027-05-11,10:00 AM,2027-05-13,5:00 AM,24,,Full,"$1,100",page5
 SF,Polaris Supreme,2 Day,,2027-05-16,10:00 AM,2027-05-18,5:00 AM,24,,13,"$1,100",page5
-SF,Polaris Supreme,3 Day,,2027-05-18,10:00 AM,2027-05-21,5:00 AM,24,,Full,"$1,650",page6
-SF,Polaris Supreme,3 Day,,2027-05-24,10:00 AM,2027-05-27,5:00 AM,24,,22,"$1,775",page6
+SF,Polaris Supreme,3 Day,,2027-05-18,10:00 AM,2027-05-21,5:00 AM,24,,Full,"$1,650",page5
+SF,Polaris Supreme,3 Day,,2027-05-24,10:00 AM,2027-05-27,5:00 AM,24,,22,"$1,775",page5
 SF,Polaris Supreme,3 Day,,2027-05-27,10:00 AM,2027-05-30,5:00 AM,18,,Full,"$2,290",page6
 SF,Polaris Supreme,3 Day,,2027-06-01,10:00 AM,2027-06-04,5:00 AM,24,,Full,"$1,700",page6
 SF,Polaris Supreme,3 Day,,2027-06-04,10:00 AM,2027-06-07,5:00 AM,20,,Full,"$2,040",page6
@@ -571,8 +569,8 @@ SF,Polaris Supreme,3 Day,,2027-08-05,10:00 AM,2027-08-08,5:00 AM,18,,Full,"$2,45
 SF,Polaris Supreme,3 Day,,2027-08-14,10:00 AM,2027-08-17,5:00 AM,24,,Full,"$1,840",page6
 SF,Polaris Supreme,3 Day,,2027-08-21,10:00 AM,2027-08-24,5:00 AM,20,,Full,"$2,208",page6
 SF,Polaris Supreme,3 Day,,2027-08-24,10:00 AM,2027-08-27,5:00 AM,24,,Full,"$1,840",page6
-SF,Polaris Supreme,8 Day,,2027-08-27,10:00 AM,2027-09-04,5:00 AM,24,,Full,"$104,000",page7
-SF,Polaris Supreme,4 Day,,2027-09-12,10:00 AM,2027-09-16,5:00 AM,24,,Full,"$2,545",page7
+SF,Polaris Supreme,8 Day,,2027-08-27,10:00 AM,2027-09-04,5:00 AM,24,,Full,"$104,000",page6
+SF,Polaris Supreme,4 Day,,2027-09-12,10:00 AM,2027-09-16,5:00 AM,24,,Full,"$2,545",page6
 SF,Polaris Supreme,4 Day,,2027-09-25,10:00 AM,2027-09-29,5:00 AM,24,,Full,"$2,375",page7
 SF,Polaris Supreme,8 Day,,2027-10-04,10:00 AM,2027-10-12,5:00 AM,24,,Full,"$4,325",page7
 SF,Polaris Supreme,8 Day,,2027-10-12,10:00 AM,2027-10-20,5:00 AM,22,,Full,"$4,740",page7
@@ -588,9 +586,6 @@ SF,Polaris Supreme,5 Day,,2027-12-26,10:00 AM,2027-12-31,5:00 AM,24,,24,"$2,125"
 SF,Polaris Supreme,5 Day,,2028-01-01,10:00 AM,2028-01-06,5:00 AM,24,,24,"$2,125",page7
 SF,Polaris Supreme,5 Day,,2028-01-07,10:00 AM,2028-01-12,5:00 AM,24,,24,"$2,125",page7
 SF,New Seaforth,Refund,,2032-01-01,1:00 AM,2032-01-01,11:00 PM,800,,790,$0,page7
-PL,Point Loma,AM Half Day,,2026-11-08,8:30 AM,2026-11-08,2:30 PM,30,,Full,$82.80,page1
-PL,Daily Double,AM Half Day Charter,,2026-11-08,8:30 AM,2026-11-08,2:30 PM,,,,,page1
-PL,Got Bait,Lobster,,2026-11-08,6:45 PM,2026-11-09,,,,,,page1
 PL,Mission Belle,Full Day (Passport Required),,2026-11-09,5:30 AM,2026-11-09,5:30 PM,30,,30,$258.75,page1
 PL,Got Bait,Swordfish,,2026-11-09,6:00 AM,2026-11-09,6:00 PM,5,,5,$724.50,page1
 PL,Daily Double,AM Half Day,,2026-11-09,8:30 AM,2026-11-09,2:30 PM,45,,45,$82.80,page1
@@ -601,22 +596,22 @@ PL,Daily Double,AM Half Day,,2026-11-10,8:30 AM,2026-11-10,2:30 PM,45,,45,$82.80
 PL,Intrepid,12 Day,,2026-11-10,11:00 AM,2026-11-22,7:00 AM,24,,Full,"$6,515",page1
 PL,Mission Belle,Full Day (Passport Required),,2026-11-11,5:30 AM,2026-11-11,5:30 PM,30,,30,$258.75,page1
 PL,Got Bait,Swordfish,,2026-11-11,6:00 AM,2026-11-11,6:00 PM,5,,5,$724.50,page1
-PL,Daily Double,AM Half Day,,2026-11-11,8:30 AM,2026-11-11,2:30 PM,45,,30,$82.80,page1
+PL,Daily Double,AM Half Day,,2026-11-11,8:30 AM,2026-11-11,2:30 PM,45,,26,$82.80,page1
 PL,New Lo-An,2 Day,,2026-11-11,10:00 AM,2026-11-13,6:00 AM,25,,6,$828.00,page1
 PL,Got Bait,Lobster,,2026-11-11,6:45 PM,2026-11-12,,,,,,page1
 PL,Mission Belle,Full Day (Passport Required),,2026-11-12,5:30 AM,2026-11-12,5:30 PM,30,,30,$258.75,page1
 PL,Got Bait,Swordfish,,2026-11-12,6:00 AM,2026-11-12,6:00 PM,5,,5,$724.50,page1
 PL,Daily Double,AM Half Day,,2026-11-12,8:30 AM,2026-11-12,2:30 PM,45,,45,$82.80,page1
 PL,Got Bait,Lobster,,2026-11-12,6:45 PM,2026-11-13,,,,,,page1
-PL,Mission Belle,Full Day (Passport Required),,2026-11-13,5:30 AM,2026-11-13,5:30 PM,30,,30,$258.75,page2
-PL,Got Bait,Swordfish,,2026-11-13,6:00 AM,2026-11-13,6:00 PM,5,,5,$724.50,page2
-PL,Wildcard 95,AM Half Day Charter,,2026-11-13,7:00 AM,2026-11-13,4:00 PM,,,,,page2
+PL,Mission Belle,Full Day (Passport Required),,2026-11-13,5:30 AM,2026-11-13,5:30 PM,30,,30,$258.75,page1
+PL,Got Bait,Swordfish,,2026-11-13,6:00 AM,2026-11-13,6:00 PM,5,,5,$724.50,page1
+PL,Wildcard 95,AM Half Day Charter,,2026-11-13,7:00 AM,2026-11-13,4:00 PM,,,,,page1
 PL,Daily Double,AM Half Day,,2026-11-13,8:30 AM,2026-11-13,2:30 PM,45,,45,$82.80,page2
 PL,New Lo-An,3 Day Charter,,2026-11-13,10:00 AM,2026-11-16,6:00 AM,,,,,page2
 PL,Got Bait,Lobster,,2026-11-13,6:45 PM,2026-11-14,,,,,,page2
 PL,Mission Belle,Full Day Charter,,2026-11-14,5:30 AM,2026-11-14,5:30 PM,,,,,page2
 PL,Got Bait,Full Day Charter,,2026-11-14,6:00 AM,2026-11-14,6:00 PM,,,,,page2
-PL,Daily Double,AM Half Day,,2026-11-14,8:30 AM,2026-11-14,2:30 PM,45,,29,$82.80,page2
+PL,Daily Double,AM Half Day,,2026-11-14,8:30 AM,2026-11-14,2:30 PM,45,,23,$82.80,page2
 PL,Got Bait,Lobster,,2026-11-14,6:45 PM,2026-11-15,,,,,,page2
 PL,Mission Belle,Full Day (Passport Required),,2026-11-15,5:30 AM,2026-11-15,5:30 PM,30,,30,$258.75,page2
 PL,Got Bait,Swordfish,,2026-11-15,6:00 AM,2026-11-15,6:00 PM,5,,5,$724.50,page2
@@ -628,9 +623,9 @@ PL,Got Bait,Swordfish,,2026-11-16,6:00 AM,2026-11-16,6:00 PM,5,,5,$724.50,page2
 PL,Daily Double,AM Half Day,,2026-11-16,8:30 AM,2026-11-16,2:30 PM,45,,45,$82.80,page2
 PL,New Lo-An,2 Day,,2026-11-16,10:00 AM,2026-11-18,6:00 AM,25,,22,$828.00,page2
 PL,Got Bait,Lobster,,2026-11-16,6:45 PM,2026-11-17,,,,,,page2
-PL,Mission Belle,Full Day (Passport Required),,2026-11-17,5:30 AM,2026-11-17,5:30 PM,30,,30,$258.75,page3
-PL,Got Bait,Swordfish,,2026-11-17,6:00 AM,2026-11-17,6:00 PM,5,,5,$724.50,page3
-PL,Daily Double,AM Half Day,,2026-11-17,8:30 AM,2026-11-17,2:30 PM,45,,45,$82.80,page3
+PL,Mission Belle,Full Day (Passport Required),,2026-11-17,5:30 AM,2026-11-17,5:30 PM,30,,30,$258.75,page2
+PL,Got Bait,Swordfish,,2026-11-17,6:00 AM,2026-11-17,6:00 PM,5,,5,$724.50,page2
+PL,Daily Double,AM Half Day,,2026-11-17,8:30 AM,2026-11-17,2:30 PM,45,,45,$82.80,page2
 PL,Independence,8 Day,,2026-11-17,10:00 AM,2026-11-25,6:00 AM,31,,1,"$4,445.33",page3
 PL,Got Bait,Lobster,,2026-11-17,6:45 PM,2026-11-18,,,,,,page3
 PL,Mission Belle,Full Day (Passport Required),,2026-11-18,5:30 AM,2026-11-18,5:30 PM,30,,30,$258.75,page3
@@ -648,9 +643,9 @@ PL,Daily Double,AM Half Day,,2026-11-20,8:30 AM,2026-11-20,2:30 PM,45,,45,$82.80
 PL,New Lo-An,1.5 Day Charter,,2026-11-20,5:00 PM,2026-11-22,6:00 AM,,,,,page3
 PL,Got Bait,Lobster,,2026-11-20,6:45 PM,2026-11-21,,,,,,page3
 PL,Mission Belle,Full Day (Passport Required),,2026-11-21,5:30 AM,2026-11-21,5:30 PM,30,,30,$258.75,page3
-PL,Got Bait,Swordfish,,2026-11-21,6:00 AM,2026-11-21,6:00 PM,5,,5,$724.50,page4
-PL,Daily Double,AM Half Day,,2026-11-21,8:30 AM,2026-11-21,2:30 PM,45,,45,$82.80,page4
-PL,Got Bait,Lobster,,2026-11-21,6:45 PM,2026-11-22,,,,,,page4
+PL,Got Bait,Swordfish,,2026-11-21,6:00 AM,2026-11-21,6:00 PM,5,,5,$724.50,page3
+PL,Daily Double,AM Half Day,,2026-11-21,8:30 AM,2026-11-21,2:30 PM,45,,45,$82.80,page3
+PL,Got Bait,Lobster,,2026-11-21,6:45 PM,2026-11-22,,,,,,page3
 PL,Mission Belle,Full Day (Passport Required),,2026-11-22,5:30 AM,2026-11-22,5:30 PM,30,,30,$258.75,page4
 PL,Got Bait,Swordfish,,2026-11-22,6:00 AM,2026-11-22,6:00 PM,5,,5,$724.50,page4
 PL,Daily Double,AM Half Day,,2026-11-22,8:30 AM,2026-11-22,2:30 PM,45,,45,$82.80,page4
@@ -668,9 +663,9 @@ PL,Mission Belle,Full Day (Passport Required),,2026-11-25,5:30 AM,2026-11-25,5:3
 PL,Got Bait,Swordfish,,2026-11-25,6:00 AM,2026-11-25,6:00 PM,5,,5,$724.50,page4
 PL,Daily Double,AM Half Day,,2026-11-25,8:30 AM,2026-11-25,2:30 PM,45,,45,$82.80,page4
 PL,Got Bait,Lobster,,2026-11-25,6:45 PM,2026-11-26,,,,,,page4
-PL,Mission Belle,Full Day (Passport Required),,2026-11-27,5:30 AM,2026-11-27,5:30 PM,30,,30,$258.75,page5
-PL,Got Bait,Swordfish,,2026-11-27,6:00 AM,2026-11-27,6:00 PM,5,,5,$724.50,page5
-PL,Daily Double,AM Half Day,,2026-11-27,8:30 AM,2026-11-27,2:30 PM,45,,37,$82.80,page5
+PL,Mission Belle,Full Day (Passport Required),,2026-11-27,5:30 AM,2026-11-27,5:30 PM,30,,30,$258.75,page4
+PL,Got Bait,Swordfish,,2026-11-27,6:00 AM,2026-11-27,6:00 PM,5,,5,$724.50,page4
+PL,Daily Double,AM Half Day,,2026-11-27,8:30 AM,2026-11-27,2:30 PM,45,,37,$82.80,page4
 PL,Got Bait,Lobster,,2026-11-27,6:45 PM,2026-11-28,,,,,,page5
 PL,Mission Belle,Full Day (Passport Required),,2026-11-28,5:30 AM,2026-11-28,5:30 PM,30,,30,$258.75,page5
 PL,Got Bait,Swordfish,,2026-11-28,6:00 AM,2026-11-28,6:00 PM,5,,5,$724.50,page5
@@ -688,9 +683,9 @@ PL,American Angler,10 Day,,2026-11-30,7:00 AM,2026-12-10,6:00 AM,23,,Full,"$4,53
 PL,Daily Double,AM Half Day,,2026-11-30,8:30 AM,2026-11-30,2:30 PM,45,,45,$82.80,page5
 PL,Independence,10 Day,,2026-11-30,10:00 AM,2026-12-10,6:00 AM,26,,Full,"$5,692.50",page5
 PL,Got Bait,Lobster,,2026-11-30,6:45 PM,2026-12-01,,,,,,page5
-PL,Daily Double,AM Half Day,,2026-12-01,8:30 AM,2026-12-01,2:30 PM,45,,45,$82.80,page6
-PL,Daily Double,AM Half Day,,2026-12-02,8:30 AM,2026-12-02,2:30 PM,45,,45,$82.80,page6
-PL,New Lo-An,1.5 Day,,2026-12-02,6:00 PM,2026-12-04,6:00 AM,25,,24,$621.00,page6
+PL,Daily Double,AM Half Day,,2026-12-01,8:30 AM,2026-12-01,2:30 PM,45,,45,$82.80,page5
+PL,Daily Double,AM Half Day,,2026-12-02,8:30 AM,2026-12-02,2:30 PM,45,,45,$82.80,page5
+PL,New Lo-An,1.5 Day,,2026-12-02,6:00 PM,2026-12-04,6:00 AM,25,,24,$621.00,page5
 PL,Daily Double,AM Half Day,,2026-12-03,8:30 AM,2026-12-03,2:30 PM,45,,45,$82.80,page6
 PL,Daily Double,AM Half Day,,2026-12-04,8:30 AM,2026-12-04,2:30 PM,45,,40,$82.80,page6
 PL,New Lo-An,1.5 Day,,2026-12-04,6:00 PM,2026-12-06,6:00 AM,25,,24,$621.00,page6
@@ -708,9 +703,9 @@ PL,Daily Double,AM Half Day,,2026-12-11,8:30 AM,2026-12-11,2:30 PM,45,,45,$82.80
 PL,New Lo-An,1.5 Day,,2026-12-11,6:00 PM,2026-12-13,6:00 AM,25,,25,$621.00,page6
 PL,Wildcard 95,1.5 Day Baja Coast,,2026-12-11,7:00 PM,2026-12-13,6:00 AM,32,,27,$476.10,page6
 PL,Daily Double,AM Half Day,,2026-12-12,8:30 AM,2026-12-12,2:30 PM,45,,30,$82.80,page6
-PL,Daily Double,AM Half Day,,2026-12-13,8:30 AM,2026-12-13,2:30 PM,45,,42,$82.80,page7
-PL,Daily Double,AM Half Day,,2026-12-14,8:30 AM,2026-12-14,2:30 PM,45,,45,$82.80,page7
-PL,Intrepid,3 Day,,2026-12-14,11:00 AM,2026-12-17,7:00 AM,26,,25,"$1,495",page7
+PL,Daily Double,AM Half Day,,2026-12-13,8:30 AM,2026-12-13,2:30 PM,45,,42,$82.80,page6
+PL,Daily Double,AM Half Day,,2026-12-14,8:30 AM,2026-12-14,2:30 PM,45,,45,$82.80,page6
+PL,Intrepid,3 Day,,2026-12-14,11:00 AM,2026-12-17,7:00 AM,26,,25,"$1,495",page6
 PL,Daily Double,AM Half Day,,2026-12-15,8:30 AM,2026-12-15,2:30 PM,45,,45,$82.80,page7
 PL,Daily Double,AM Half Day,,2026-12-16,8:30 AM,2026-12-16,2:30 PM,45,,45,$82.80,page7
 PL,New Lo-An,1.5 Day,,2026-12-16,6:00 PM,2026-12-18,6:00 AM,25,,25,$621.00,page7
@@ -728,9 +723,9 @@ PL,Daily Double,AM Half Day,,2026-12-23,8:30 AM,2026-12-23,2:30 PM,45,,45,$82.80
 PL,Daily Double,AM Half Day,,2026-12-24,8:30 AM,2026-12-24,2:30 PM,45,,45,$82.80,page7
 PL,Daily Double,AM Half Day,,2026-12-26,8:30 AM,2026-12-26,2:30 PM,45,,45,$82.80,page7
 PL,Daily Double,AM Half Day,,2026-12-27,8:30 AM,2026-12-27,2:30 PM,45,,45,$82.80,page7
-PL,Intrepid,12 Day,,2026-12-27,11:00 AM,2027-01-08,7:00 AM,22,,Full,"$6,295",page8
-PL,Daily Double,AM Half Day,,2026-12-28,8:30 AM,2026-12-28,2:30 PM,45,,45,$82.80,page8
-PL,Daily Double,AM Half Day,,2026-12-29,8:30 AM,2026-12-29,2:30 PM,45,,45,$82.80,page8
+PL,Intrepid,12 Day,,2026-12-27,11:00 AM,2027-01-08,7:00 AM,22,,Full,"$6,295",page7
+PL,Daily Double,AM Half Day,,2026-12-28,8:30 AM,2026-12-28,2:30 PM,45,,45,$82.80,page7
+PL,Daily Double,AM Half Day,,2026-12-29,8:30 AM,2026-12-29,2:30 PM,45,,45,$82.80,page7
 PL,Daily Double,AM Half Day,,2026-12-30,8:30 AM,2026-12-30,2:30 PM,45,,45,$82.80,page8
 PL,Daily Double,AM Half Day,,2026-12-31,8:30 AM,2026-12-31,2:30 PM,45,,45,$82.80,page8
 PL,Independence,12 Day,,2027-01-02,7:00 AM,2027-01-14,6:00 AM,24,,2,"$6,204.83",page8
@@ -748,9 +743,9 @@ PL,Wildcard 95,1.5 Day Baja Coast,,2027-02-19,7:00 PM,2027-02-21,6:00 AM,32,,32,
 PL,Wildcard 95,1.5 Day Baja Coast,,2027-02-26,7:00 PM,2027-02-28,6:00 AM,32,,32,$476.10,page8
 PL,New Lo-An,2.5 Day,,2027-03-04,6:00 PM,2027-03-07,6:00 AM,20,,20,"$1,190.25",page8
 PL,New Lo-An,2.5 Day,,2027-03-11,6:00 PM,2027-03-14,6:00 AM,20,,20,"$1,190.25",page8
-PL,New Lo-An,2.5 Day Charter,,2027-03-19,6:00 PM,2027-03-22,6:00 AM,,,,,page9
-PL,New Lo-An,2.5 Day,,2027-03-25,6:00 PM,2027-03-28,6:00 AM,20,,20,"$1,190.25",page9
-PL,Daily Double,AM Half Day Charter,,2027-03-26,8:30 AM,2027-03-26,2:30 PM,,,,,page9
+PL,New Lo-An,2.5 Day Charter,,2027-03-19,6:00 PM,2027-03-22,6:00 AM,,,,,page8
+PL,New Lo-An,2.5 Day,,2027-03-25,6:00 PM,2027-03-28,6:00 AM,20,,20,"$1,190.25",page8
+PL,Daily Double,AM Half Day Charter,,2027-03-26,8:30 AM,2027-03-26,2:30 PM,,,,,page8
 PL,New Lo-An,2.5 Day,,2027-04-01,6:00 PM,2027-04-04,6:00 AM,20,,20,"$1,190.25",page9
 PL,New Lo-An,2 Day,,2027-04-04,10:00 AM,2027-04-06,6:00 AM,25,,25,$879.75,page9
 PL,New Lo-An,2 Day,,2027-04-06,10:00 AM,2027-04-08,6:00 AM,25,,25,$879.75,page9
@@ -768,9 +763,9 @@ PL,New Lo-An,2 Day,,2027-04-18,10:00 AM,2027-04-20,6:00 AM,25,,25,$879.75,page9
 PL,Intrepid,3 Day,,2027-04-18,11:00 AM,2027-04-21,7:00 AM,26,,26,"$1,695",page9
 PL,New Lo-An,2 Day,,2027-04-21,10:00 AM,2027-04-23,6:00 AM,25,,25,$879.75,page9
 PL,Independence,5 Day,,2027-04-21,10:00 AM,2027-04-26,6:00 AM,26,,4,"$2,587.50",page9
-PL,Intrepid,3 Day,,2027-04-21,11:00 AM,2027-04-24,7:00 AM,26,,26,"$1,695",page10
-PL,New Lo-An,3 Day Charter,,2027-04-23,10:00 AM,2027-04-26,6:00 AM,,,,,page10
-PL,Intrepid,3 Day,,2027-04-24,11:00 AM,2027-04-27,7:00 AM,26,,Full,"$1,695",page10
+PL,Intrepid,3 Day,,2027-04-21,11:00 AM,2027-04-24,7:00 AM,26,,26,"$1,695",page9
+PL,New Lo-An,3 Day Charter,,2027-04-23,10:00 AM,2027-04-26,6:00 AM,,,,,page9
+PL,Intrepid,3 Day,,2027-04-24,11:00 AM,2027-04-27,7:00 AM,26,,Full,"$1,695",page9
 PL,American Angler,3 Day,,2027-04-26,7:00 AM,2027-04-29,6:00 AM,26,,Full,"$1,622.25",page10
 PL,New Lo-An,3 Day,,2027-04-26,10:00 AM,2027-04-29,6:00 AM,20,,20,"$1,319.63",page10
 PL,Independence,3 Day,,2027-04-26,10:00 AM,2027-04-29,6:00 AM,26,,17,"$1,811.25",page10
@@ -788,9 +783,9 @@ PL,Intrepid,5 Day,,2027-05-03,11:00 AM,2027-05-08,7:00 AM,26,,Full,"$2,825",page
 PL,New Lo-An,2 Day,,2027-05-05,10:00 AM,2027-05-07,6:00 AM,25,,25,$879.75,page10
 PL,Independence,8 Day,,2027-05-05,10:00 AM,2027-05-13,6:00 AM,27,,11,"$4,134.83",page10
 PL,American Angler,2 Day,,2027-05-06,7:00 AM,2027-05-08,6:00 AM,26,,1,"$1,133.00",page10
-PL,Vagabond,3 Day,,2027-05-06,8:00 AM,2027-05-09,6:00 AM,22,,8,"$1,578.37",page11
-PL,New Lo-An,2.5 Day Charter,,2027-05-07,6:00 PM,2027-05-10,6:00 AM,,,,,page11
-PL,Intrepid,3 Day,,2027-05-08,11:00 AM,2027-05-11,7:00 AM,26,,15,"$1,695",page11
+PL,Vagabond,3 Day,,2027-05-06,8:00 AM,2027-05-09,6:00 AM,22,,8,"$1,578.37",page10
+PL,New Lo-An,2.5 Day Charter,,2027-05-07,6:00 PM,2027-05-10,6:00 AM,,,,,page10
+PL,Intrepid,3 Day,,2027-05-08,11:00 AM,2027-05-11,7:00 AM,26,,15,"$1,695",page10
 PL,American Angler,3 Day,,2027-05-10,7:00 AM,2027-05-13,6:00 AM,24,,2,"$1,869.45",page11
 PL,New Lo-An,2 Day,,2027-05-10,10:00 AM,2027-05-12,6:00 AM,25,,25,$879.75,page11
 PL,Intrepid,3 Day,,2027-05-11,11:00 AM,2027-05-14,7:00 AM,26,,Full,"$1,695",page11
@@ -808,9 +803,9 @@ PL,Independence,8 Day,,2027-05-18,10:00 AM,2027-05-26,6:00 AM,26,,8,"$4,445.33",
 PL,Intrepid,3 Day,,2027-05-20,11:00 AM,2027-05-23,7:00 AM,26,,Full,"$1,765",page11
 PL,American Angler,2 Day,,2027-05-21,7:00 AM,2027-05-23,6:00 AM,24,,Full,"$1,199.95",page11
 PL,New Lo-An,3 Day Charter,,2027-05-21,10:00 AM,2027-05-24,6:00 AM,,,,,page11
-PL,American Angler,3 Day,,2027-05-23,7:00 AM,2027-05-26,6:00 AM,26,,Full,$0,page12
-PL,Intrepid,3 Day,,2027-05-23,11:00 AM,2027-05-26,7:00 AM,26,,Full,"$1,765",page12
-PL,New Lo-An,3 Day Charter,,2027-05-24,10:00 AM,2027-05-27,6:00 AM,,,,,page12
+PL,American Angler,3 Day,,2027-05-23,7:00 AM,2027-05-26,6:00 AM,26,,Full,$0,page11
+PL,Intrepid,3 Day,,2027-05-23,11:00 AM,2027-05-26,7:00 AM,26,,Full,"$1,765",page11
+PL,New Lo-An,3 Day Charter,,2027-05-24,10:00 AM,2027-05-27,6:00 AM,,,,,page11
 PL,American Angler,3 Day,,2027-05-26,7:00 AM,2027-05-29,6:00 AM,26,,Full,"$1,725.25",page12
 PL,Independence,8 Day,,2027-05-26,10:00 AM,2027-06-03,6:00 AM,31,,9,"$4,134.83",page12
 PL,Intrepid,3 Day,,2027-05-26,11:00 AM,2027-05-29,7:00 AM,20,,,$0,page12
@@ -828,9 +823,9 @@ PL,Independence,8 Day,,2027-06-03,10:00 AM,2027-06-11,6:00 AM,27,,Full,"$4,657.5
 PL,Intrepid,2 Day,,2027-06-03,11:00 AM,2027-06-05,7:00 AM,26,,Full,"$1,095",page12
 PL,American Angler,8 Day,,2027-06-04,7:00 AM,2027-06-12,6:00 AM,24,,Full,"$3,553.50",page12
 PL,Intrepid,7 Day,,2027-06-05,11:00 AM,2027-06-12,7:00 AM,26,,Full,"$3,625",page12
-PL,New Lo-An,3 Day Charter,,2027-06-06,10:00 AM,2027-06-09,6:00 AM,,,,,page13
-PL,New Lo-An,2 Day,,2027-06-09,10:00 AM,2027-06-11,6:00 AM,25,,25,$879.75,page13
-PL,New Lo-An,2 Day Charter,,2027-06-11,10:00 AM,2027-06-13,6:00 AM,,,,,page13
+PL,New Lo-An,3 Day Charter,,2027-06-06,10:00 AM,2027-06-09,6:00 AM,,,,,page12
+PL,New Lo-An,2 Day,,2027-06-09,10:00 AM,2027-06-11,6:00 AM,25,,25,$879.75,page12
+PL,New Lo-An,2 Day Charter,,2027-06-11,10:00 AM,2027-06-13,6:00 AM,,,,,page12
 PL,Vagabond,3 Day,,2027-06-11,10:00 AM,2027-06-14,6:00 AM,22,,9,"$1,578.37",page13
 PL,Independence,8 Day,,2027-06-11,10:00 AM,2027-06-19,6:00 AM,28,,Full,"$4,445.33",page13
 PL,American Angler,8 Day,,2027-06-12,7:00 AM,2027-06-20,6:00 AM,24,,Full,"$3,553.50",page13
@@ -848,9 +843,9 @@ PL,Vagabond,3 Day,,2027-06-20,10:00 AM,2027-06-23,6:00 AM,22,,20,"$1,578.37",pag
 PL,New Lo-An,2 Day,,2027-06-22,10:00 AM,2027-06-24,6:00 AM,25,,25,$983.25,page13
 PL,Intrepid,3 Day,,2027-06-22,11:00 AM,2027-06-25,7:00 AM,26,,Full,"$1,765",page13
 PL,Vagabond,2 Day,,2027-06-23,9:00 AM,2027-06-25,6:00 AM,22,,17,"$1,055.70",page13
-PL,Independence,3 Day,,2027-06-23,10:00 AM,2027-06-26,6:00 AM,32,,Full,$0,page14
-PL,New Lo-An,3 Day Charter,,2027-06-24,10:00 AM,2027-06-27,6:00 AM,,,,,page14
-PL,Vagabond,3 Day,,2027-06-25,9:00 AM,2027-06-28,6:00 AM,23,,15,"$1,604.25",page14
+PL,Independence,3 Day,,2027-06-23,10:00 AM,2027-06-26,6:00 AM,32,,Full,$0,page13
+PL,New Lo-An,3 Day Charter,,2027-06-24,10:00 AM,2027-06-27,6:00 AM,,,,,page13
+PL,Vagabond,3 Day,,2027-06-25,9:00 AM,2027-06-28,6:00 AM,23,,15,"$1,604.25",page13
 PL,Intrepid,8 Day,,2027-06-25,11:00 AM,2027-07-03,7:00 AM,18,,Full,"$5,915",page14
 PL,Independence,3 Day,,2027-06-26,10:00 AM,2027-06-29,6:00 AM,30,,Full,"$2,018.25",page14
 PL,New Lo-An,3 Day Charter,,2027-06-27,10:00 AM,2027-06-30,6:00 AM,,,,,page14
@@ -868,9 +863,9 @@ PL,Vagabond,3 Day,,2027-07-05,9:00 AM,2027-07-08,6:00 AM,23,,16,"$1,604.25",page
 PL,Intrepid,2 Day,,2027-07-05,11:00 AM,2027-07-07,7:00 AM,15,,,$0,page14
 PL,American Angler,7 Day,,2027-07-06,7:00 AM,2027-07-13,6:00 AM,24,,Full,"$3,749.20",page14
 PL,Independence,8 Day,,2027-07-06,10:00 AM,2027-07-14,6:00 AM,32,,Full,"$4,445.33",page14
-PL,Intrepid,3 Day,,2027-07-07,10:00 AM,2027-07-10,7:00 AM,15,,,$0,page15
-PL,New Lo-An,2 Day Charter,,2027-07-07,10:00 AM,2027-07-09,6:00 AM,,,,,page15
-PL,Vagabond,3 Day,,2027-07-08,10:00 AM,2027-07-11,6:00 AM,22,,6,"$1,681.87",page15
+PL,Intrepid,3 Day,,2027-07-07,10:00 AM,2027-07-10,7:00 AM,15,,,$0,page14
+PL,New Lo-An,2 Day Charter,,2027-07-07,10:00 AM,2027-07-09,6:00 AM,,,,,page14
+PL,Vagabond,3 Day,,2027-07-08,10:00 AM,2027-07-11,6:00 AM,22,,6,"$1,681.87",page14
 PL,New Lo-An,2 Day Charter,,2027-07-09,10:00 AM,2027-07-11,6:00 AM,,,,,page15
 PL,Intrepid,8 Day,,2027-07-10,11:00 AM,2027-07-18,7:00 AM,26,,Full,"$5,025",page15
 PL,Vagabond,3 Day,,2027-07-11,10:00 AM,2027-07-14,6:00 AM,22,,1,"$1,681.87",page15
@@ -888,9 +883,9 @@ PL,New Lo-An,2 Day,,2027-07-21,10:00 AM,2027-07-23,6:00 AM,25,,25,$983.25,page15
 PL,Vagabond,4 Day,,2027-07-21,10:00 AM,2027-07-25,6:00 AM,0,,,$0,page15
 PL,Independence,8 Day,,2027-07-22,10:00 AM,2027-07-30,6:00 AM,32,,1,"$4,450.50",page15
 PL,New Lo-An,3 Day Charter,,2027-07-23,10:00 AM,2027-07-26,6:00 AM,,,,,page15
-PL,Vagabond,3 Day,,2027-07-25,10:00 AM,2027-07-28,6:00 AM,23,,2,"$1,604.25",page16
-PL,New Lo-An,3 Day Charter,,2027-07-26,10:00 AM,2027-07-29,6:00 AM,,,,,page16
-PL,Intrepid,8 Day,,2027-07-26,11:00 AM,2027-08-03,7:00 AM,24,,Full,"$5,510",page16
+PL,Vagabond,3 Day,,2027-07-25,10:00 AM,2027-07-28,6:00 AM,23,,Full,"$1,604.25",page15
+PL,New Lo-An,3 Day Charter,,2027-07-26,10:00 AM,2027-07-29,6:00 AM,,,,,page15
+PL,Intrepid,8 Day,,2027-07-26,11:00 AM,2027-08-03,7:00 AM,24,,Full,"$5,510",page15
 PL,Vagabond,7 Day,,2027-07-28,10:00 AM,2027-08-04,6:00 AM,21,,Full,"$3,881.25",page16
 PL,American Angler,5 Day,,2027-07-29,7:00 AM,2027-08-03,6:00 AM,26,,Full,"$3,156.95",page16
 PL,New Lo-An,3 Day Charter,,2027-07-29,10:00 AM,2027-08-01,6:00 AM,,,,,page16
@@ -908,9 +903,9 @@ PL,American Angler,2 Day,,2027-08-13,7:00 AM,2027-08-15,6:00 AM,0,,,$0,page16
 PL,Independence,3 Day,,2027-08-13,10:00 AM,2027-08-16,6:00 AM,26,,26,$0,page16
 PL,Vagabond,3 Day,,2027-08-13,10:00 AM,2027-08-16,6:00 AM,22,,Full,"$1,681.87",page16
 PL,Intrepid,4 Day,,2027-08-14,11:00 AM,2027-08-18,7:00 AM,13,,,$0,page16
-PL,American Angler,8 Day,,2027-08-15,7:00 AM,2027-08-23,6:00 AM,24,,Full,"$4,114.85",page17
-PL,New Lo-An,2 Day,,2027-08-15,10:00 AM,2027-08-17,6:00 AM,25,,25,$983.25,page17
-PL,Independence,8 Day,,2027-08-16,10:00 AM,2027-08-24,6:00 AM,30,,Full,"$4,554.00",page17
+PL,American Angler,8 Day,,2027-08-15,7:00 AM,2027-08-23,6:00 AM,24,,Full,"$4,114.85",page16
+PL,New Lo-An,2 Day,,2027-08-15,10:00 AM,2027-08-17,6:00 AM,25,,25,$983.25,page16
+PL,Independence,8 Day,,2027-08-16,10:00 AM,2027-08-24,6:00 AM,30,,Full,"$4,554.00",page16
 PL,Vagabond,3 Day,,2027-08-16,10:00 AM,2027-08-19,6:00 AM,22,,7,"$1,681.87",page17
 PL,New Lo-An,2 Day,,2027-08-17,10:00 AM,2027-08-19,6:00 AM,25,,25,$983.25,page17
 PL,Intrepid,8 Day,,2027-08-18,11:00 AM,2027-08-26,7:00 AM,24,,Full,"$5,510",page17
@@ -928,9 +923,9 @@ PL,American Angler,3 Day,,2027-09-06,7:00 AM,2027-09-09,6:00 AM,26,,Full,"$1,854
 PL,Vagabond,6 Day,,2027-09-06,10:00 AM,2027-09-12,6:00 AM,22,,6,"$3,312.00",page17
 PL,Intrepid,5 Day,,2027-09-06,11:00 AM,2027-09-11,7:00 AM,13,,,$0,page17
 PL,American Angler,3 Day,,2027-09-09,7:00 AM,2027-09-12,6:00 AM,0,,,$0,page17
-PL,Independence,8 Day,,2027-09-09,10:00 AM,2027-09-17,6:00 AM,32,,9,"$4,450.50",page18
-PL,Intrepid,8 Day,,2027-09-11,11:00 AM,2027-09-19,7:00 AM,26,,Full,"$5,100",page18
-PL,American Angler,7 Day,,2027-09-12,7:00 AM,2027-09-19,6:00 AM,24,,Full,"$3,749.20",page18
+PL,Independence,8 Day,,2027-09-09,10:00 AM,2027-09-17,6:00 AM,32,,9,"$4,450.50",page17
+PL,Intrepid,8 Day,,2027-09-11,11:00 AM,2027-09-19,7:00 AM,26,,Full,"$5,100",page17
+PL,American Angler,7 Day,,2027-09-12,7:00 AM,2027-09-19,6:00 AM,24,,Full,"$3,749.20",page17
 PL,Vagabond,3 Day,,2027-09-12,10:00 AM,2027-09-15,6:00 AM,23,,2,"$1,604.25",page18
 PL,Vagabond,4 Day,,2027-09-15,10:00 AM,2027-09-19,6:00 AM,1,,Full,$0,page18
 PL,Independence,8 Day,,2027-09-17,10:00 AM,2027-09-25,6:00 AM,31,,Full,"$4,450.50",page18
@@ -948,9 +943,9 @@ PL,Independence,10 Day,,2027-10-05,10:00 AM,2027-10-15,6:00 AM,30,,Full,"$5,692.
 PL,American Angler,8 Day,,2027-10-07,7:00 AM,2027-10-15,6:00 AM,24,,Full,"$4,114.85",page18
 PL,American Angler,10 Day,,2027-10-15,7:00 AM,2027-10-25,6:00 AM,23,,Full,"$5,026.40",page18
 PL,Vagabond,8 Day,,2027-10-16,9:00 AM,2027-10-24,6:00 AM,21,,6,"$4,134.83",page18
-PL,Vagabond,3 Day,,2027-10-24,9:00 AM,2027-10-27,6:00 AM,23,,16,"$1,604.25",page19
-PL,American Angler,10 Day,,2027-10-25,7:00 AM,2027-11-04,6:00 AM,23,,Full,"$5,026.40",page19
-PL,Vagabond,10 Day,,2027-10-28,9:00 AM,2027-11-07,6:00 AM,20,,Full,"$5,433.75",page19
+PL,Vagabond,3 Day,,2027-10-24,9:00 AM,2027-10-27,6:00 AM,23,,16,"$1,604.25",page18
+PL,American Angler,10 Day,,2027-10-25,7:00 AM,2027-11-04,6:00 AM,23,,Full,"$5,026.40",page18
+PL,Vagabond,10 Day,,2027-10-28,9:00 AM,2027-11-07,6:00 AM,20,,2,"$5,433.75",page18
 PL,American Angler,8 Day,,2027-11-04,7:00 AM,2027-11-12,6:00 AM,24,,Full,"$4,114.85",page19
 PL,American Angler,8 Day,,2027-11-12,7:00 AM,2027-11-20,6:00 AM,24,,Full,"$4,114.85",page19
 PL,American Angler,10 Day,,2027-11-27,6:00 AM,2027-12-07,,,,,,page19
@@ -958,124 +953,116 @@ PL,American Angler,10 Day,,2027-12-08,7:00 AM,2027-12-18,6:00 AM,23,,5,"$4,532.0
 HM,Premier,1/2 Day - AM,,2026-11-08,6:30 AM,2026-11-08,12:30 PM,55,,Full,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-08,7:30 AM,2026-11-08,5:00 PM,34,,Full,$165.0048309178744,xolacache
 HM,Electra,2 Day - Freelance,,2026-11-08,10:00 AM,2026-11-10,6:00 AM,25,,Full,$720,xolacache
-HM,Premier,1/2 Day - PM,,2026-11-08,1:00 PM,2026-11-08,6:30 PM,55,,7,$80,xolacache
+HM,Premier,1/2 Day - PM,,2026-11-08,1:00 PM,2026-11-08,6:30 PM,57,,Full,$80,xolacache
 HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-08,6:00 PM,2026-11-08,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-08,8:00 PM,2026-11-09,6:00 PM,29,,13,$360,xolacache
-HM,Malihini,Full Day - Offshore,,2026-11-09,5:30 AM,2026-11-09,5:30 PM,30,,30,$250,xolacache
-HM,Premier,1/2 Day - Extended,,2026-11-09,8:00 AM,2026-11-09,3:00 PM,50,,35,$80,xolacache
+HM,Malihini,3/4 Day - Local,,2026-11-09,7:30 AM,2026-11-09,5:00 PM,35,,31,$165.0048309178744,xolacache
+HM,Premier,1/2 Day - Extended,,2026-11-09,8:00 AM,2026-11-09,3:00 PM,50,,29,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-09,6:00 PM,2026-11-09,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-09,8:00 PM,2026-11-10,6:00 PM,29,,29,$360,xolacache
 HM,Grande,Full Day - Offshore,,2026-11-10,5:30 AM,2026-11-10,5:30 PM,41,,39,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-10,8:00 AM,2026-11-10,3:00 PM,50,,47,$80,xolacache
 HM,Sea Adventure 80,2 Day - Freelance,,2026-11-10,10:00 AM,2026-11-12,5:00 AM,28,,28,$720,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-10,6:00 PM,2026-11-10,11:00 PM,10,,Full,$125.0048309178744,xolacache
+HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-10,6:00 PM,2026-11-10,11:00 PM,10,,10,$125.0048309178744,xolacache
 HM,Ocean Odyssey,1.5 Day - Freelance,,2026-11-10,7:00 PM,2026-11-12,6:00 AM,29,,28,$535.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-10,8:00 PM,2026-11-11,6:00 PM,29,,24,$360,xolacache
-HM,Grande,Full Day - Offshore,,2026-11-11,5:30 AM,2026-11-11,5:30 PM,41,,35,$250,xolacache
+HM,Grande,Full Day - Offshore,,2026-11-11,5:30 AM,2026-11-11,5:30 PM,41,,30,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-11,8:00 AM,2026-11-11,3:00 PM,50,,Full,$80,xolacache
-HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-11,6:00 PM,2026-11-11,11:00 PM,10,,Full,$125.0048309178744,xolacache
+HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-11,6:00 PM,2026-11-11,11:00 PM,10,,1,$125.0048309178744,xolacache
+HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-11,6:00 PM,2026-11-11,11:00 PM,10,,10,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-11,8:00 PM,2026-11-12,6:00 PM,29,,28,$360,xolacache
 HM,Grande,Full Day - Offshore,,2026-11-12,5:30 AM,2026-11-12,5:30 PM,41,,35,$250,xolacache
-HM,Premier,1/2 Day - Extended,,2026-11-12,8:00 AM,2026-11-12,3:00 PM,50,,48,$80,xolacache
+HM,Premier,1/2 Day - Extended,,2026-11-12,8:00 AM,2026-11-12,3:00 PM,50,,46,$80,xolacache
 HM,Sea Adventure 80,2 Day - Freelance,,2026-11-12,10:00 AM,2026-11-14,5:00 AM,28,,24,$720,xolacache
 HM,Electra,3 Day - Freelance,,2026-11-12,10:00 AM,2026-11-15,6:00 AM,24,,Full,$1050,xolacache
+HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-12,6:00 PM,2026-11-12,11:00 PM,10,,10,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-12,8:00 PM,2026-11-13,6:00 PM,29,,29,$360,xolacache
 HM,Grande,Full Day - Offshore,,2026-11-13,5:30 AM,2026-11-13,5:30 PM,41,,39,$250,xolacache
 HM,Premier,1/2 Day - AM,,2026-11-13,6:30 AM,2026-11-13,12:30 PM,55,,48,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-13,7:30 AM,2026-11-13,5:00 PM,35,,35,$165.0048309178744,xolacache
 HM,Premier,1/2 Day - PM,,2026-11-13,1:00 PM,2026-11-13,6:30 PM,55,,42,$80,xolacache
-HM,Old Glory,1.5 Day - Freelance,,2026-11-13,6:00 PM,2026-11-15,6:00 AM,29,,12,$489.99999999999994,xolacache
-HM,Patriot,Lobster/Crab - Hoop Netting,,2026-11-13,6:00 PM,2026-11-13,11:30 PM,10,,Full,$135.0048309178744,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-13,6:00 PM,2026-11-13,11:00 PM,10,,Full,$125.0048309178744,xolacache
+HM,Patriot,Lobster/Crab - Hoop Netting,,2026-11-13,6:00 PM,2026-11-13,11:30 PM,10,,Full,$135.0048309178744,xolacache
+HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-13,6:00 PM,2026-11-13,11:00 PM,10,,10,$125.0048309178744,xolacache
+HM,Old Glory,1.5 Day - Freelance,,2026-11-13,6:00 PM,2026-11-15,6:00 AM,29,,9,$489.99999999999994,xolacache
 HM,Ocean Odyssey,1.5 Day - Freelance,,2026-11-13,7:00 PM,2026-11-15,6:00 AM,29,,5,$545.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-13,8:00 PM,2026-11-14,6:00 PM,29,,2,$360,xolacache
 HM,Grande,Full Day - Offshore,,2026-11-14,5:30 AM,2026-11-14,5:30 PM,41,,35,$250,xolacache
-HM,Premier,1/2 Day - AM,,2026-11-14,6:30 AM,2026-11-14,12:30 PM,55,,48,$80,xolacache
+HM,Premier,1/2 Day - AM,,2026-11-14,6:30 AM,2026-11-14,12:30 PM,55,,46,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-14,7:30 AM,2026-11-14,5:00 PM,35,,25,$165.0048309178744,xolacache
 HM,Sea Adventure 80,2 Day - Freelance,,2026-11-14,10:00 AM,2026-11-16,5:00 AM,28,,23,$720,xolacache
 HM,Premier,1/2 Day - PM,,2026-11-14,1:00 PM,2026-11-14,6:30 PM,55,,55,$80,xolacache
 HM,Patriot,Lobster/Crab - Hoop Netting,,2026-11-14,6:00 PM,2026-11-14,11:30 PM,10,,Full,$135.0048309178744,xolacache
+HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-14,6:00 PM,2026-11-14,11:00 PM,10,,10,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-14,8:00 PM,2026-11-15,6:00 PM,29,,20,$360,xolacache
-HM,Grande,Full Day - Offshore,,2026-11-15,5:30 AM,2026-11-15,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - AM,,2026-11-15,6:30 AM,2026-11-15,12:30 PM,55,,51,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-15,7:30 AM,2026-11-15,5:00 PM,35,,35,$165.0048309178744,xolacache
 HM,Electra,2 Day - Freelance,,2026-11-15,10:00 AM,2026-11-17,6:00 AM,25,,16,$620,xolacache
-HM,Premier,1/2 Day - PM,,2026-11-15,1:00 PM,2026-11-15,6:30 PM,55,,47,$80,xolacache
+HM,Premier,1/2 Day - PM,,2026-11-15,1:00 PM,2026-11-15,6:30 PM,55,,49,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-15,6:00 PM,2026-11-15,11:00 PM,10,,Full,$125.0048309178744,xolacache
+HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-15,6:00 PM,2026-11-15,11:00 PM,10,,10,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-15,8:00 PM,2026-11-16,6:00 PM,29,,27,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-16,5:30 AM,2026-11-16,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-16,8:00 AM,2026-11-16,3:00 PM,50,,50,$80,xolacache
 HM,Sea Adventure 80,3 Day - Freelance,,2026-11-16,10:00 AM,2026-11-19,5:00 AM,28,,26,$1200,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-16,6:00 PM,2026-11-16,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-16,8:00 PM,2026-11-17,6:00 PM,29,,28,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-17,5:30 AM,2026-11-17,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-17,8:00 AM,2026-11-17,3:00 PM,50,,50,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-17,6:00 PM,2026-11-17,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-17,8:00 PM,2026-11-18,6:00 PM,29,,29,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-18,5:30 AM,2026-11-18,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-18,8:00 AM,2026-11-18,3:00 PM,50,,50,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-18,6:00 PM,2026-11-18,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-18,6:00 PM,2026-11-18,11:00 PM,10,,7,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-18,8:00 PM,2026-11-19,6:00 PM,29,,29,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-19,5:30 AM,2026-11-19,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-19,8:00 AM,2026-11-19,3:00 PM,50,,50,$80,xolacache
 HM,Spirit of Adventure,3 Day,,2026-11-19,11:00 AM,2026-11-22,11:00 AM,21,,Full,$1675.0048309178744,xolacache
-HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-19,6:00 PM,2026-11-19,11:00 PM,10,,2,$125.0048309178744,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-19,6:00 PM,2026-11-19,11:00 PM,10,,Full,$125.0048309178744,xolacache
-HM,Sea Adventure 80,Overnight - Freelance,,2026-11-19,8:00 PM,2026-11-20,6:00 PM,28,,28,$340,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-20,5:30 AM,2026-11-20,5:30 PM,41,,41,$250,xolacache
+HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-19,6:00 PM,2026-11-19,11:00 PM,10,,Full,$125.0048309178744,xolacache
+HM,Sea Adventure 80,Overnight - Freelance,,2026-11-19,8:00 PM,2026-11-20,6:00 PM,28,,27,$340,xolacache
 HM,Premier,1/2 Day - AM,,2026-11-20,6:30 AM,2026-11-20,12:30 PM,55,,55,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-20,7:30 AM,2026-11-20,5:00 PM,35,,32,$165.0048309178744,xolacache
 HM,Electra,2 Day - Freelance,,2026-11-20,10:00 AM,2026-11-22,6:00 AM,25,,16,$620,xolacache
 HM,Premier,1/2 Day - PM,,2026-11-20,1:00 PM,2026-11-20,6:30 PM,55,,55,$80,xolacache
-HM,Old Glory,1.5 Day - Freelance,,2026-11-20,6:00 PM,2026-11-22,6:00 AM,29,,22,$489.99999999999994,xolacache
 HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-20,6:00 PM,2026-11-20,11:00 PM,10,,9,$125.0048309178744,xolacache
 HM,Patriot,Lobster/Crab - Hoop Netting,,2026-11-20,6:00 PM,2026-11-20,11:30 PM,10,,Full,$135.0048309178744,xolacache
+HM,Old Glory,1.5 Day - Freelance,,2026-11-20,6:00 PM,2026-11-22,6:00 AM,29,,22,$489.99999999999994,xolacache
 HM,Sea Adventure 80,Overnight - Freelance,,2026-11-20,8:00 PM,2026-11-21,6:00 PM,28,,25,$340,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-21,5:30 AM,2026-11-21,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - AM,,2026-11-21,6:30 AM,2026-11-21,12:30 PM,55,,47,$80,xolacache
 HM,Premier,1/2 Day - PM,,2026-11-21,1:00 PM,2026-11-21,6:30 PM,55,,55,$80,xolacache
 HM,Patriot,Lobster/Crab - Hoop Netting,,2026-11-21,6:00 PM,2026-11-21,11:30 PM,10,,5,$135.0048309178744,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-21,6:00 PM,2026-11-21,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Sea Adventure 80,Overnight - Freelance,,2026-11-21,8:00 PM,2026-11-22,6:00 PM,28,,28,$340,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-22,5:30 AM,2026-11-22,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - AM,,2026-11-22,6:30 AM,2026-11-22,12:30 PM,55,,42,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-22,7:30 AM,2026-11-22,5:00 PM,35,,33,$165.0048309178744,xolacache
 HM,Premier,1/2 Day - PM,,2026-11-22,1:00 PM,2026-11-22,6:30 PM,55,,48,$80,xolacache
-HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-22,6:00 PM,2026-11-22,11:00 PM,10,,10,$125.0048309178744,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-22,6:00 PM,2026-11-22,11:00 PM,10,,Full,$125.0048309178744,xolacache
+HM,Daiwa Pacific,Lobster/Crab - Hoop Netting,,2026-11-22,6:00 PM,2026-11-22,11:00 PM,10,,10,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-22,8:00 PM,2026-11-23,6:00 PM,29,,29,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-23,5:30 AM,2026-11-23,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-23,8:00 AM,2026-11-23,3:00 PM,50,,44,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-23,6:00 PM,2026-11-23,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-23,8:00 PM,2026-11-24,6:00 PM,29,,29,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-24,5:30 AM,2026-11-24,5:30 PM,41,,41,$250,xolacache
-HM,Premier,1/2 Day - Extended,,2026-11-24,8:00 AM,2026-11-24,3:00 PM,50,,50,$80,xolacache
+HM,Premier,1/2 Day - Extended,,2026-11-24,8:00 AM,2026-11-24,3:00 PM,50,,47,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-24,6:00 PM,2026-11-24,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-24,8:00 PM,2026-11-25,6:00 PM,29,,29,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-25,5:30 AM,2026-11-25,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-25,8:00 AM,2026-11-25,3:00 PM,50,,47,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-25,6:00 PM,2026-11-25,11:00 PM,10,,3,$125.0048309178744,xolacache
 HM,Premier,1/2 Day - AM,,2026-11-27,6:30 AM,2026-11-27,12:30 PM,55,,48,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-27,7:30 AM,2026-11-27,5:00 PM,35,,35,$165.0048309178744,xolacache
-HM,Electra,2 Day - Freelance,,2026-11-27,10:00 AM,2026-11-29,6:00 AM,25,,20,$620,xolacache
+HM,Electra,2 Day - Freelance,,2026-11-27,10:00 AM,2026-11-29,6:00 AM,25,,19,$620,xolacache
 HM,Premier,1/2 Day - PM,,2026-11-27,1:00 PM,2026-11-27,6:30 PM,55,,55,$80,xolacache
 HM,Sea Adventure 80,3.5 Day - Freelance,,2026-11-27,6:00 PM,2026-12-01,6:00 AM,25,,25,$1200,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-27,6:00 PM,2026-11-27,11:00 PM,10,,1,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-27,8:00 PM,2026-11-28,6:00 PM,29,,27,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-28,5:30 AM,2026-11-28,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - AM,,2026-11-28,6:30 AM,2026-11-28,12:30 PM,55,,53,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-28,7:30 AM,2026-11-28,5:00 PM,35,,35,$165.0048309178744,xolacache
 HM,Premier,1/2 Day - PM,,2026-11-28,1:00 PM,2026-11-28,6:30 PM,55,,55,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-28,6:00 PM,2026-11-28,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-28,8:00 PM,2026-11-29,6:00 PM,29,,18,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-29,5:30 AM,2026-11-29,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - AM,,2026-11-29,6:30 AM,2026-11-29,12:30 PM,55,,55,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-11-29,7:30 AM,2026-11-29,5:00 PM,35,,35,$165.0048309178744,xolacache
 HM,Premier,1/2 Day - PM,,2026-11-29,1:00 PM,2026-11-29,6:30 PM,55,,55,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-29,6:00 PM,2026-11-29,11:00 PM,10,,4,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-29,8:00 PM,2026-11-30,6:00 PM,29,,29,$360,xolacache
-HM,Grande,Full Day - Freelance,,2026-11-30,5:30 AM,2026-11-30,5:30 PM,41,,41,$250,xolacache
 HM,Premier,1/2 Day - Extended,,2026-11-30,8:00 AM,2026-11-30,3:00 PM,50,,50,$80,xolacache
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-11-30,6:00 PM,2026-11-30,11:00 PM,10,,5,$125.0048309178744,xolacache
 HM,Producer,Overnight - Limited Load,,2026-11-30,8:00 PM,2026-12-01,6:00 PM,29,,29,$360,xolacache
@@ -1090,7 +1077,7 @@ HM,Premier,1/2 Day - PM,,2026-12-04,1:00 PM,2026-12-04,6:30 PM,55,,55,$80,xolaca
 HM,Tradition,Lobster/Crab - Hoop Netting,,2026-12-04,6:00 PM,2026-12-04,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Premier,1/2 Day - AM,,2026-12-05,6:30 AM,2026-12-05,12:30 PM,55,,52,$80,xolacache
 HM,Premier,1/2 Day - PM,,2026-12-05,1:00 PM,2026-12-05,6:30 PM,55,,51,$80,xolacache
-HM,Tradition,Lobster/Crab - Hoop Netting,,2026-12-05,6:00 PM,2026-12-05,11:00 PM,10,,7,$125.0048309178744,xolacache
+HM,Tradition,Lobster/Crab - Hoop Netting,,2026-12-05,6:00 PM,2026-12-05,11:00 PM,10,,Full,$125.0048309178744,xolacache
 HM,Premier,1/2 Day - AM,,2026-12-06,6:30 AM,2026-12-06,12:30 PM,55,,55,$80,xolacache
 HM,Malihini,3/4 Day - Local,,2026-12-06,7:30 AM,2026-12-06,5:00 PM,35,,35,$165.0048309178744,xolacache
 HM,Premier,1/2 Day - PM,,2026-12-06,1:00 PM,2026-12-06,6:30 PM,55,,55,$80,xolacache
@@ -1251,6 +1238,6 @@ HM,Vision,Explore and Discover - 2.5 Dive Trip,,2027-07-16,5:00 PM,2027-07-19,7:
 HM,Vision,Multiple Island - 5.5 Day Dive Trip,,2027-07-29,5:00 PM,2027-08-04,7:00 AM,28,,28,$2995.004830917874,xolacache
 HM,Vision,Outerbanks Game Hunter - 3.5 Day Dive Trip,,2027-08-26,5:00 PM,2027-08-30,7:00 AM,30,,30,$1695.0048309178744,xolacache
 HM,Vision,Badge of Honor - 8.5 Day Dive Trip,,2027-09-10,5:00 PM,2027-09-19,7:00 AM,22,,21,$4995.004830917874,xolacache
-HM,Vision,Lobster - 4 Day Dive Trip,,2027-10-10,8:00 PM,2027-10-14,6:00 PM,28,,25,$1775.0048309178744,xolacache
+HM,Vision,Lobster - 4 Day Dive Trip,,2027-10-10,8:00 PM,2027-10-14,6:00 PM,28,,24,$1775.0048309178744,xolacache
 HM,Vision,Lobster - 3.5 Day Dive Trip,,2027-10-21,5:00 PM,2027-10-25,5:00 AM,30,,30,$1695.0048309178744,xolacache
 HM,Vision,Lobster - 3.5 Day Dive Trip,,2027-10-28,5:00 PM,2027-11-01,5:00 AM,30,,30,$1695.0048309178744,xolacache

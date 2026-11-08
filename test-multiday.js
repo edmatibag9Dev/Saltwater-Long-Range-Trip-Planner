@@ -65,8 +65,11 @@ for (const r of MULTI) {
 /* ── 2. Long-range set now has Searcher + Intrepid ─────────────── */
 ok(BOATS.length === 11, `BOATS has 11 entries (${BOATS.length})`);
 ok(BOATS[9].name === "Searcher" && BOATS[10].name === "Intrepid", "boats 9/10 are Searcher/Intrepid");
-ok(trips.filter(t => t.bi === 9).length === 30, `Searcher seeded with 30 trips (${trips.filter(t => t.bi === 9).length})`);
-ok(trips.filter(t => t.bi === 10).length === 45, `Intrepid seeded with 45 trips (${trips.filter(t => t.bi === 10).length})`);
+/* These two were hand-seeded on 2026-09-03 with 30 and 45 trips. RAW is refreshed from
+   the boats' own pages now, so an exact count would fail every time a schedule changed —
+   what matters is that both still carry a full schedule. */
+ok(trips.filter(t => t.bi === 9).length >= 25, `Searcher has a full schedule (${trips.filter(t => t.bi === 9).length})`);
+ok(trips.filter(t => t.bi === 10).length >= 25, `Intrepid has a full schedule (${trips.filter(t => t.bi === 10).length})`);
 ok(trips.some(t => t.bi === 9 && t.name === "3-Day" && t.retDate.getMonth() === 8 && t.retDate.getDate() === 7), "Searcher 3-Day departing Sep 4 returns Sep 7");
 
 /* ── 3. Planner months cover LR ∪ multi-day, every month renders ── */
@@ -123,6 +126,71 @@ const daysOld = (Date.now() - new Date(MULTI_AS_OF + "T12:00:00")) / 86400000;
 ok(stamp.classList.contains("stamp-warn") === (daysOld > 14), `stale banner state matches age (${daysOld.toFixed(0)} d)`);
 ok(doc.querySelector(".header p").textContent.includes("11 boats"), "header names 11 long-range boats");
 ok(doc.getElementById("p-boats").textContent === `11 + ${mdBoats.size}`, `boats stat reads "11 + ${mdBoats.size}"`);
+
+/* ── 7. Long-range block (RAW) ─────────────────────────────────── */
+/* RAW used to be hand-maintained and drifted four months. It is generated now, so the
+   page and data/longrange_trips.csv must agree, the encoding must stay legal, and Ed's
+   own curation (his 'ed' flag, his shortened trip names) must have survived the refresh. */
+const RAW = P("RAW"), LR_AS_OF = P("LR_AS_OF"), LR_SOURCES = P("LR_SOURCES");
+const lrCsv = parseCSV(fs.readFileSync(path.join(ROOT, "data", "longrange_trips.csv"), "utf8"));
+
+ok(Array.isArray(RAW), "RAW array exists");
+ok(RAW.length === lrCsv.length, `RAW has ${RAW.length} rows, long-range CSV has ${lrCsv.length}`);
+ok(/^20\d\d-\d\d-\d\d$/.test(LR_AS_OF), `LR_AS_OF is a date (${LR_AS_OF})`);
+ok(Array.isArray(LR_SOURCES) && LR_SOURCES.length === BOATS.length,
+   `LR_SOURCES covers all ${BOATS.length} boats`);
+ok(LR_SOURCES.every(s => s.label && /^(ok|stale)$/.test(s.status)), "every boat has a status");
+ok(LR_SOURCES.map(s => s.label).join("|") === BOATS.map(b => b.name).join("|"),
+   "LR_SOURCES order matches BOATS");
+
+let badRow = null, charterMispriced = null, edRows = 0;
+for (const [idx, name, dep, days, cap, spots, price, flags] of RAW) {
+  if (!(Number.isInteger(idx) && idx >= 0 && idx < BOATS.length) ||
+      !/^20\d\d-\d\d-\d\d$/.test(dep) || !(days > 0 && days <= 30) ||
+      !(typeof name === "string" && name.length) ||
+      !(typeof price === "string" && price === price.trim()) ||
+      !Array.isArray(flags) || !(spots >= -2 && spots <= cap || cap === -1)) badRow = badRow || [idx, name, dep];
+  if (spots === -1 && price !== "Charter") charterMispriced = charterMispriced || [idx, name, dep, price];
+  if (flags.includes("ed")) edRows++;
+}
+ok(!badRow, `every RAW row is well formed${badRow ? " — bad: " + JSON.stringify(badRow) : ""}`);
+ok(!charterMispriced, `charter rows are priced "Charter"${charterMispriced ? " — bad: " + JSON.stringify(charterMispriced) : ""}`);
+ok(edRows === 1, `Ed's own trip flag survived the refresh (found ${edRows})`);
+ok(RAW.some(r => r[7].includes("invite")), "invite-only trips are flagged");
+ok(new Set(RAW.map(r => r[0])).size === BOATS.length, "every boat has at least one trip");
+
+// history is kept: the page still carries trips that already departed
+const todayISO = new Date().toISOString().slice(0, 10);
+ok(RAW.some(r => r[2] < todayISO), "departed trips are carried forward, not truncated");
+ok(RAW.some(r => r[2] > todayISO), "future trips are present");
+
+// the two surfaces stay disjoint — a long-range boat must never appear in MULTI
+ok(!MULTI.some(r => BOATS.some(b => b.name.toLowerCase().replace(/\.$/, "") ===
+     String(r[1]).toLowerCase().replace(/\.$/, ""))),
+   "no long-range boat leaked into the multi-day block");
+
+const lrStamp = doc.getElementById("lr-stamp");
+ok(lrStamp && lrStamp.textContent.includes(LR_AS_OF), "long-range stamp shows its snapshot date");
+ok(lrStamp && lrStamp.textContent.includes(`${BOATS.length} boats`), "long-range stamp counts the boats");
+const lrStale = LR_SOURCES.some(s => !s.as_of || s.status !== "ok" ||
+  (Date.now() - new Date(s.as_of + "T12:00:00")) / 86400000 > 14);
+ok(lrStamp.classList.contains("stamp-warn") === (!LR_AS_OF || !LR_SOURCES.length || lrStale),
+   "long-range stale banner state matches the per-boat statuses");
+
+/* ── 8. Processing Calculator rates are cash figures ───────────── */
+/* calcQuotes adds each processor's ccFee on top, so a stored rate must never be a value
+   from a published credit-card column or the fee is applied twice. */
+const PROCESSORS = P("PROCESSORS");
+ok(PROCESSORS.length === 2, "two processors are compared");
+for (const p of PROCESSORS) {
+  ok(p.ccFee > 0 && p.ccFee < 0.1, `${p.key} has a plausible card fee`);
+  for (const [field, v] of Object.entries(p.rates)) {
+    ok(typeof v === "number" && v >= 0, `${p.key}.${field} is a number`);
+  }
+}
+const fs5 = PROCESSORS.find(p => p.key === "fs");
+ok(fs5.rates.big === fs5.rates.small,
+   "Five Star quotes under-10 lb fish at the same rate (they publish no separate schedule)");
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
