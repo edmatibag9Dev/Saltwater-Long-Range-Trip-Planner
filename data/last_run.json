@@ -1,7 +1,7 @@
 {
-  "digest": "e1ea620b1f7ab7ab",
+  "digest": "b516c9aa05943893",
   "dry_run": false,
-  "html_written": false,
+  "html_written": true,
   "longrange": {
     "digest": "ec8679efc848f721",
     "dropped_future": 0,
@@ -102,9 +102,9 @@
     "unresolved": 2
   },
   "multiday": {
-    "digest": "e1ea620b1f7ab7ab",
-    "html_written": false,
-    "outcome": "already-landed",
+    "digest": "b516c9aa05943893",
+    "html_written": true,
+    "outcome": "landed",
     "per_landing": {
       "FL": {
         "error": "",
@@ -140,7 +140,7 @@
     "rows_kept": 340,
     "rows_raw": 1242
   },
-  "outcome": "already-landed",
+  "outcome": "landed",
   "per_landing": {
     "FL": {
       "error": "",
@@ -175,5 +175,5 @@
   "rows_carried": 12,
   "rows_kept": 340,
   "rows_raw": 1242,
-  "ts": "2026-11-08T13:27:40-08:00"
+  "ts": "2026-11-08T14:11:46-08:00"
 }
