@@ -1738,8 +1738,14 @@ const multi = MULTI.map(r => {
 
 const finderMonths  = [...new Set(trips.map(t => t.deptYm))].sort();
 const plannerMonths = [...new Set(trips.map(t => t.retYm).concat(multi.map(t => t.retYm)))].sort();
-let currentFinderMo  = '2026-07';
-let currentPlannerMo = plannerMonths.includes(ymKey(new Date())) ? ymKey(new Date()) : (plannerMonths.includes('2026-08') ? '2026-08' : plannerMonths[0]);
+// Open on the month you are actually in: the first month at or after today that has rows,
+// else the latest month there is. Both were pinned to dates from when the page was built
+// ('2026-07' here, a '2026-08' fallback below) — which only looked right while the data was
+// a July 2026 snapshot. Now that the refresh runs weekly they would drift a month further
+// out of date every month, so neither may be a literal date.
+const firstMonthFromNow = ms => ms.find(m => m >= ymKey(new Date())) || ms[ms.length - 1];
+let currentFinderMo  = firstMonthFromNow(finderMonths);
+let currentPlannerMo = firstMonthFromNow(plannerMonths);
 
 // ════════════════════════════════════════════════════
 // BUILD MONTH SELECTORS
