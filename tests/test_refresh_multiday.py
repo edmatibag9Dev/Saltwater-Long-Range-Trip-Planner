@@ -538,6 +538,30 @@ class RateCheckTests(unittest.TestCase):
             self.assertEqual([(x["field"], x["stored"], x["scraped"]) for x in diffs],
                              [("big", 9.99, 1.95)])
 
+    def test_repeat_check_leaves_the_file_untouched(self):
+        """An unchanged re-check must not rewrite the file just to stamp a new ts.
+        data/rates_check.json is not on the Sunday preflight's ignore list, so a dirty
+        one from a mid-week run would abort the next scheduled job with 'dirty-tree'."""
+        out = HERE.parent / "data" / "rates_check.json"
+        self.cr.main(["--offline", str(FIX), "--html", str(PLANNER)])
+        first = out.read_bytes()
+        self.cr.main(["--offline", str(FIX), "--html", str(PLANNER)])
+        self.assertEqual(out.read_bytes(), first,
+                         "a no-change re-check rewrote rates_check.json")
+
+    def test_a_real_change_still_rewrites_the_file(self):
+        with tempfile.TemporaryDirectory() as d:
+            html = Path(d) / "planner.html"
+            html.write_text(PLANNER.read_text(encoding="utf-8").replace("big:1.95", "big:9.99", 1),
+                            encoding="utf-8")
+            out = HERE.parent / "data" / "rates_check.json"
+            self.cr.main(["--offline", str(FIX), "--html", str(PLANNER)])
+            before = out.read_bytes()
+            self.cr.main(["--offline", str(FIX), "--html", str(html)])
+            self.assertNotEqual(out.read_bytes(), before)
+            self.assertEqual(json.loads(out.read_text())["outcome"], "changed")
+            self.cr.main(["--offline", str(FIX), "--html", str(PLANNER)])   # restore
+
     def test_unreachable_pages_exit_four(self):
         with tempfile.TemporaryDirectory() as empty:
             self.assertEqual(self.cr.main(["--offline", empty, "--html", str(PLANNER)]), 4)

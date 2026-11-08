@@ -35,8 +35,8 @@ import sys
 import time
 from pathlib import Path
 
-from refresh_multiday import (FETCH_BUDGET_S, fetch, log, norm, now_local, visible_lines,
-                              write_json)
+from refresh_multiday import (FETCH_BUDGET_S, fetch, log, norm, now_local, read_json,
+                              visible_lines, write_json)
 
 ROOT = Path(__file__).resolve().parent
 
@@ -199,9 +199,21 @@ def run(args) -> int:
             f"{bits}{' · unreadable: ' + ','.join(v['unreadable']) if v['unreadable'] else ''}")
     log(f"rates outcome={outcome} stamped={rate_date!r}")
 
-    write_json(ROOT / "data" / "rates_check.json",
-               {"ts": started.isoformat(), "outcome": outcome, "rate_date": rate_date,
-                "per_processor": per})
+    # Idempotent on disk, the same way refresh_multiday.py exits "already-landed": if the
+    # finding is identical to what is already recorded, leave the file alone. Rewriting it
+    # for a new timestamp alone would leave the tree dirty after any manual run, and
+    # data/rates_check.json is not on the Sunday preflight's ignore list — so a mid-week
+    # check would abort the next scheduled run with "dirty-tree". The file answers "what
+    # did we last find"; the heartbeat and refresh.log answer "when did we last look".
+    out = ROOT / "data" / "rates_check.json"
+    new = {"ts": started.isoformat(), "outcome": outcome, "rate_date": rate_date,
+           "per_processor": per}
+    old = read_json(out, None)
+    if isinstance(old, dict) and {k: v for k, v in old.items() if k != "ts"} == \
+            {k: v for k, v in new.items() if k != "ts"}:
+        log(f"rates unchanged since {old.get('ts', '?')} — {out.name} left as it was")
+    else:
+        write_json(out, new)
     return {"no-change": 0, "changed": 2, "failed": 4}[outcome]
 
 
