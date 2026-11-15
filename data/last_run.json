@@ -1,18 +1,18 @@
 {
-  "digest": "b516c9aa05943893",
+  "digest": "623f16076a93b08a",
   "dry_run": false,
   "html_written": true,
   "longrange": {
-    "digest": "ec8679efc848f721",
+    "digest": "1888681a869b3aa0",
     "dropped_future": 0,
-    "html_written": false,
-    "outcome": "already-landed",
+    "html_written": true,
+    "outcome": "landed",
     "per_boat": {
       "americanangler": {
         "error": "",
         "kept": 85,
         "name": "American Angler",
-        "raw": 54,
+        "raw": 53,
         "status": "ok",
         "unresolved": 0
       },
@@ -20,23 +20,23 @@
         "error": "",
         "kept": 69,
         "name": "Excel",
-        "raw": 43,
+        "raw": 42,
         "status": "ok",
         "unresolved": 0
       },
       "independence": {
         "error": "",
-        "kept": 63,
+        "kept": 65,
         "name": "Independence",
-        "raw": 37,
+        "raw": 39,
         "status": "ok",
-        "unresolved": 0
+        "unresolved": 1
       },
       "intrepid": {
         "error": "",
         "kept": 60,
         "name": "Intrepid",
-        "raw": 53,
+        "raw": 52,
         "status": "ok",
         "unresolved": 0
       },
@@ -44,23 +44,23 @@
         "error": "",
         "kept": 136,
         "name": "Polaris Supreme",
-        "raw": 90,
+        "raw": 89,
         "status": "ok",
         "unresolved": 0
       },
       "royalpolaris": {
         "error": "",
-        "kept": 74,
+        "kept": 75,
         "name": "Royal Polaris",
         "raw": 49,
         "status": "ok",
-        "unresolved": 0
+        "unresolved": 1
       },
       "royalstar": {
         "error": "",
         "kept": 80,
         "name": "Royal Star",
-        "raw": 50,
+        "raw": 49,
         "status": "ok",
         "unresolved": 2
       },
@@ -68,7 +68,7 @@
         "error": "",
         "kept": 68,
         "name": "Searcher",
-        "raw": 57,
+        "raw": 56,
         "status": "ok",
         "unresolved": 0
       },
@@ -76,7 +76,7 @@
         "error": "",
         "kept": 97,
         "name": "Shogun",
-        "raw": 62,
+        "raw": 61,
         "status": "ok",
         "unresolved": 0
       },
@@ -84,7 +84,7 @@
         "error": "",
         "kept": 87,
         "name": "Spirit of Adv.",
-        "raw": 49,
+        "raw": 48,
         "status": "ok",
         "unresolved": 0
       },
@@ -98,82 +98,82 @@
       }
     },
     "prev_rows_kept": 901,
-    "rows_kept": 901,
-    "unresolved": 2
+    "rows_kept": 904,
+    "unresolved": 4
   },
   "multiday": {
-    "digest": "b516c9aa05943893",
+    "digest": "623f16076a93b08a",
     "html_written": true,
     "outcome": "landed",
     "per_landing": {
       "FL": {
         "error": "",
-        "kept": 210,
-        "pages": 9,
-        "raw": 426,
+        "kept": 285,
+        "pages": 11,
+        "raw": 510,
         "status": "ok"
       },
       "HM": {
         "error": "",
-        "kept": 26,
+        "kept": 18,
         "pages": 1,
-        "raw": 291,
+        "raw": 325,
         "status": "ok"
       },
       "PL": {
         "error": "",
-        "kept": 75,
+        "kept": 103,
         "pages": 19,
-        "raw": 364,
+        "raw": 366,
         "status": "ok"
       },
       "SF": {
         "error": "",
-        "kept": 29,
-        "pages": 7,
-        "raw": 161,
+        "kept": 21,
+        "pages": 9,
+        "raw": 219,
         "status": "ok"
       }
     },
     "prev_rows_kept": 340,
-    "rows_carried": 12,
-    "rows_kept": 340,
-    "rows_raw": 1242
+    "rows_carried": 10,
+    "rows_kept": 427,
+    "rows_raw": 1420
   },
   "outcome": "landed",
   "per_landing": {
     "FL": {
       "error": "",
-      "kept": 210,
-      "pages": 9,
-      "raw": 426,
+      "kept": 285,
+      "pages": 11,
+      "raw": 510,
       "status": "ok"
     },
     "HM": {
       "error": "",
-      "kept": 26,
+      "kept": 18,
       "pages": 1,
-      "raw": 291,
+      "raw": 325,
       "status": "ok"
     },
     "PL": {
       "error": "",
-      "kept": 75,
+      "kept": 103,
       "pages": 19,
-      "raw": 364,
+      "raw": 366,
       "status": "ok"
     },
     "SF": {
       "error": "",
-      "kept": 29,
-      "pages": 7,
-      "raw": 161,
+      "kept": 21,
+      "pages": 9,
+      "raw": 219,
       "status": "ok"
     }
   },
   "prev_rows_kept": 340,
-  "rows_carried": 12,
-  "rows_kept": 340,
-  "rows_raw": 1242,
-  "ts": "2026-11-08T14:11:46-08:00"
+  "rows_carried": 10,
+  "rows_kept": 427,
+  "rows_raw": 1420,
+  "ts": "2026-11-15T07:22:27-08:00"
 }

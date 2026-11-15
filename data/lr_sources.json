@@ -4,10 +4,10 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "American Angler",
     "rows_kept": 85,
-    "rows_raw": 54,
+    "rows_raw": 53,
     "slug": "americanangler",
     "status": "ok",
     "unresolved": 0
@@ -17,10 +17,10 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Excel",
     "rows_kept": 69,
-    "rows_raw": 43,
+    "rows_raw": 42,
     "slug": "excel",
     "status": "ok",
     "unresolved": 0
@@ -30,23 +30,23 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Independence",
-    "rows_kept": 63,
-    "rows_raw": 37,
+    "rows_kept": 65,
+    "rows_raw": 39,
     "slug": "independence",
     "status": "ok",
-    "unresolved": 0
+    "unresolved": 1
   },
   "intrepid": {
     "error": "",
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Intrepid",
     "rows_kept": 60,
-    "rows_raw": 53,
+    "rows_raw": 52,
     "slug": "intrepid",
     "status": "ok",
     "unresolved": 0
@@ -56,10 +56,10 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Polaris Supreme",
     "rows_kept": 136,
-    "rows_raw": 90,
+    "rows_raw": 89,
     "slug": "polarissupreme",
     "status": "ok",
     "unresolved": 0
@@ -69,23 +69,23 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Royal Polaris",
-    "rows_kept": 74,
+    "rows_kept": 75,
     "rows_raw": 49,
     "slug": "royalpolaris",
     "status": "ok",
-    "unresolved": 0
+    "unresolved": 1
   },
   "royalstar": {
     "error": "",
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Royal Star",
     "rows_kept": 80,
-    "rows_raw": 50,
+    "rows_raw": 49,
     "slug": "royalstar",
     "status": "ok",
     "unresolved": 2
@@ -95,10 +95,10 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Searcher",
     "rows_kept": 68,
-    "rows_raw": 57,
+    "rows_raw": 56,
     "slug": "searcher",
     "status": "ok",
     "unresolved": 0
@@ -108,10 +108,10 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Shogun",
     "rows_kept": 97,
-    "rows_raw": 62,
+    "rows_raw": 61,
     "slug": "shogun",
     "status": "ok",
     "unresolved": 0
@@ -121,10 +121,10 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Spirit of Adv.",
     "rows_kept": 87,
-    "rows_raw": 49,
+    "rows_raw": 48,
     "slug": "soa",
     "status": "ok",
     "unresolved": 0
@@ -134,7 +134,7 @@
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Vagabond",
     "rows_kept": 82,
     "rows_raw": 44,

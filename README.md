@@ -244,9 +244,9 @@ CAPTCHA; they do not, and both are now read directly like the rest.
 | Point Loma Sportfishing | https://www.pointlomasportfishing.com/schedules.php (paged) |
 | H&M Landing | https://www.hmlanding.com/xolacache (JSONP feed behind the trip calendar) |
 
-**Last multi-day refresh:** 2026-11-08 (updated automatically by `refresh_multiday.py`)
+**Last multi-day refresh:** 2026-11-15 (updated automatically by `refresh_multiday.py`)
 
-**Last long-range refresh:** 2026-11-08 (updated automatically by `refresh_multiday.py`)
+**Last long-range refresh:** 2026-11-15 (updated automatically by `refresh_multiday.py`)
 
 Calibration source for past days: https://www.sandiegofishreports.com/dock_totals/boats.php?date=YYYY-MM-DD (boats by landing with anglers and trip type).
 

@@ -1,7 +1,9 @@
 {
   "FL": {
-    "fetched_at": "2026-11-08T14:11:46-08:00",
+    "fetched_at": "2026-11-15T07:22:27-08:00",
     "http": [
+      200,
+      200,
       200,
       200,
       200,
@@ -12,27 +14,27 @@
       200,
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Fisherman's Landing",
-    "pages": 9,
-    "rows_kept": 210,
-    "rows_raw": 426,
+    "pages": 11,
+    "rows_kept": 285,
+    "rows_raw": 510,
     "status": "ok"
   },
   "HM": {
-    "fetched_at": "2026-11-08T14:11:46-08:00",
+    "fetched_at": "2026-11-15T07:22:27-08:00",
     "http": [
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "H&M Landing",
     "pages": 1,
-    "rows_kept": 26,
-    "rows_raw": 291,
+    "rows_kept": 18,
+    "rows_raw": 325,
     "status": "ok"
   },
   "PL": {
-    "fetched_at": "2026-11-08T14:11:46-08:00",
+    "fetched_at": "2026-11-15T07:22:27-08:00",
     "http": [
       200,
       200,
@@ -54,16 +56,18 @@
       200,
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Point Loma Sportfishing",
     "pages": 19,
-    "rows_kept": 75,
-    "rows_raw": 364,
+    "rows_kept": 103,
+    "rows_raw": 366,
     "status": "ok"
   },
   "SF": {
-    "fetched_at": "2026-11-08T14:11:46-08:00",
+    "fetched_at": "2026-11-15T07:22:27-08:00",
     "http": [
+      200,
+      200,
       200,
       200,
       200,
@@ -72,11 +76,11 @@
       200,
       200
     ],
-    "last_good": "2026-11-08",
+    "last_good": "2026-11-15",
     "name": "Seaforth",
-    "pages": 7,
-    "rows_kept": 29,
-    "rows_raw": 161,
+    "pages": 9,
+    "rows_kept": 21,
+    "rows_raw": 219,
     "status": "ok"
   }
 }
