@@ -1,71 +1,27 @@
 {
-  "outcome": "no-change",
+  "outcome": "failed",
   "per_processor": {
     "fp": {
       "diffs": [],
-      "error": "",
-      "http": 200,
+      "error": "no offline fixture",
+      "http": null,
       "name": "Fisherman's Processing",
-      "scraped": {
-        "big": 1.95,
-        "box": 65.0,
-        "can": 5.5,
-        "collar": 5.0,
-        "fillet": 3.5,
-        "gillgut": 1.55,
-        "handling": 75.0,
-        "jerky": 4.5,
-        "small": 2.8,
-        "smoke": 3.5
-      },
-      "status": "ok",
-      "stored": {
-        "big": 1.95,
-        "box": 65.0,
-        "can": 5.5,
-        "collar": 5.0,
-        "fillet": 3.5,
-        "gillgut": 1.55,
-        "handling": 75.0,
-        "jerky": 4.5,
-        "small": 2.8,
-        "smoke": 3.5
-      },
+      "scraped": {},
+      "status": "failed",
+      "stored": {},
       "unreadable": []
     },
     "fs": {
       "diffs": [],
-      "error": "",
-      "http": 200,
+      "error": "no offline fixture",
+      "http": null,
       "name": "Five Star Fish Processing",
-      "scraped": {
-        "big": 1.9,
-        "box": 0.0,
-        "can": 5.5,
-        "collar": 5.0,
-        "fillet": 3.5,
-        "gillgut": 1.5,
-        "handling": 0.0,
-        "jerky": 3.75,
-        "small": 1.9,
-        "smoke": 2.75
-      },
-      "status": "ok",
-      "stored": {
-        "big": 1.9,
-        "box": 0.0,
-        "can": 5.5,
-        "collar": 5.0,
-        "fillet": 3.5,
-        "gillgut": 1.5,
-        "handling": 0.0,
-        "jerky": 3.75,
-        "small": 1.9,
-        "smoke": 2.75
-      },
+      "scraped": {},
+      "status": "failed",
+      "stored": {},
       "unreadable": []
     }
   },
   "rate_date": "November 2026",
-  "ts": "2026-11-08T14:23:13-08:00"
+  "ts": "2026-11-22T07:24:33-08:00"
 }

@@ -1,10 +1,10 @@
 {
-  "digest": "623f16076a93b08a",
+  "digest": "666cdeb3e3c473d5",
   "dry_run": false,
   "html_written": true,
   "longrange": {
-    "digest": "1888681a869b3aa0",
-    "dropped_future": 0,
+    "digest": "5ea491ec6e6a41bf",
+    "dropped_future": 3,
     "html_written": true,
     "outcome": "landed",
     "per_boat": {
@@ -28,15 +28,15 @@
         "error": "",
         "kept": 65,
         "name": "Independence",
-        "raw": 39,
+        "raw": 38,
         "status": "ok",
-        "unresolved": 1
+        "unresolved": 0
       },
       "intrepid": {
         "error": "",
         "kept": 60,
         "name": "Intrepid",
-        "raw": 52,
+        "raw": 51,
         "status": "ok",
         "unresolved": 0
       },
@@ -44,7 +44,7 @@
         "error": "",
         "kept": 136,
         "name": "Polaris Supreme",
-        "raw": 89,
+        "raw": 87,
         "status": "ok",
         "unresolved": 0
       },
@@ -54,21 +54,21 @@
         "name": "Royal Polaris",
         "raw": 49,
         "status": "ok",
-        "unresolved": 1
+        "unresolved": 0
       },
       "royalstar": {
         "error": "",
-        "kept": 80,
+        "kept": 81,
         "name": "Royal Star",
         "raw": 49,
         "status": "ok",
-        "unresolved": 2
+        "unresolved": 1
       },
       "searcher": {
         "error": "",
         "kept": 68,
         "name": "Searcher",
-        "raw": 56,
+        "raw": 55,
         "status": "ok",
         "unresolved": 0
       },
@@ -84,7 +84,7 @@
         "error": "",
         "kept": 87,
         "name": "Spirit of Adv.",
-        "raw": 48,
+        "raw": 46,
         "status": "ok",
         "unresolved": 0
       },
@@ -92,88 +92,88 @@
         "error": "",
         "kept": 82,
         "name": "Vagabond",
-        "raw": 44,
+        "raw": 43,
         "status": "ok",
         "unresolved": 0
       }
     },
-    "prev_rows_kept": 901,
-    "rows_kept": 904,
-    "unresolved": 4
+    "prev_rows_kept": 904,
+    "rows_kept": 905,
+    "unresolved": 1
   },
   "multiday": {
-    "digest": "623f16076a93b08a",
+    "digest": "666cdeb3e3c473d5",
     "html_written": true,
     "outcome": "landed",
     "per_landing": {
       "FL": {
         "error": "",
-        "kept": 285,
+        "kept": 280,
         "pages": 11,
-        "raw": 510,
+        "raw": 531,
         "status": "ok"
       },
       "HM": {
         "error": "",
-        "kept": 18,
+        "kept": 45,
         "pages": 1,
-        "raw": 325,
+        "raw": 357,
         "status": "ok"
       },
       "PL": {
         "error": "",
-        "kept": 103,
-        "pages": 19,
-        "raw": 366,
+        "kept": 108,
+        "pages": 18,
+        "raw": 341,
         "status": "ok"
       },
       "SF": {
         "error": "",
-        "kept": 21,
-        "pages": 9,
-        "raw": 219,
+        "kept": 15,
+        "pages": 10,
+        "raw": 227,
         "status": "ok"
       }
     },
-    "prev_rows_kept": 340,
-    "rows_carried": 10,
-    "rows_kept": 427,
-    "rows_raw": 1420
+    "prev_rows_kept": 427,
+    "rows_carried": 8,
+    "rows_kept": 448,
+    "rows_raw": 1455
   },
   "outcome": "landed",
   "per_landing": {
     "FL": {
       "error": "",
-      "kept": 285,
+      "kept": 280,
       "pages": 11,
-      "raw": 510,
+      "raw": 531,
       "status": "ok"
     },
     "HM": {
       "error": "",
-      "kept": 18,
+      "kept": 45,
       "pages": 1,
-      "raw": 325,
+      "raw": 357,
       "status": "ok"
     },
     "PL": {
       "error": "",
-      "kept": 103,
-      "pages": 19,
-      "raw": 366,
+      "kept": 108,
+      "pages": 18,
+      "raw": 341,
       "status": "ok"
     },
     "SF": {
       "error": "",
-      "kept": 21,
-      "pages": 9,
-      "raw": 219,
+      "kept": 15,
+      "pages": 10,
+      "raw": 227,
       "status": "ok"
     }
   },
-  "prev_rows_kept": 340,
-  "rows_carried": 10,
-  "rows_kept": 427,
-  "rows_raw": 1420,
-  "ts": "2026-11-15T07:22:27-08:00"
+  "prev_rows_kept": 427,
+  "rows_carried": 8,
+  "rows_kept": 448,
+  "rows_raw": 1455,
+  "ts": "2026-11-22T07:22:22-08:00"
 }
